@@ -8,7 +8,7 @@
 (heroku link here)
 
 --
-## Tech Stack
+# Tech Stack
 GetSet is an MERN framework app developed with MongoDB + Mongoose + Express + React/Axios + Node.js
 The image file storage is handled by AWS S3.
 
@@ -27,19 +27,41 @@ Axios was our technology of choice when it came to our frontend HTTP requests.  
 ### Node.js:
 GetSet uses Node.js to manage JavaScript dependencies, bundle the JavaScript with webpack, and as a runtime for our local server.  We really liked that Node.js made it easy for us to allow multiple events to occur at the same time on the backend.  Very fun!
 
-## System dependencies
+# System dependencies
+GetSet runs on the following JavaScript dependencies (Versions subject to update):
+  - "bcryptjs": "^2.4.3",
+  - "body-parser": "^1.19.0",
+  - "concurrently": "^5.2.0",
+  - "express": "^4.17.1",
+  - "jsonwebtoken": "^8.5.1",
+  - "mongoose": "^5.9.18",
+  - "passport": "^0.4.1",
+  - "passport-jwt": "^4.0.0",
+  - "validator": "^13.1.1"
 
-## Run GetSet
+# Run GetSet
 1. Install dependencies on your maching `npm install` 
 2. Boot the server `npm run start` ( `npm run server` if you want to utilize nodemon refresh)
 
-## Features
+# Features
 GetSet allows users to create a list of photos as "scavenger hunt" items.  Once a list is completed, other users attempt to match each picture in the hunt list with their own photos, attempting to make the match as pixel perfect as possible.  The app returns a score of how accurately the picture matches the original and tallies a score.  Photo Hunts have an expiration date and upon expiration the results are posted to any user that participated in the hunt.  Winners photos are added to the landing page feed.  Users can comment on other photo challenges as well as save challenges they are currently finishing or already have finished.
 
-## Meet the Team!
+# Challenges
+### Backend
+---
+The main feature of GetSet is photo comparison which posed the question "How do we go about comparing these photos?  Our Backend and Flex Leads (Danny and Zohaib) worked together to research the best API to do the job.  They first began with a google search to see what types of API's were available to us.  After getting a feel for what was possible, they created a spreadsheet to compare the scoring capabilities of individual APIs they tested.
+
+### Frontend
+---
+
+### Lead
+---
+
+
+# Meet the Team!
   (photos and short bio/quote for each team member here)
   
-## Future Directions
+# Future Directions
   * Create a mobile version of GetSet
   * Expand Hunt categories
   * Add in app photo edit functionality as a bonus
