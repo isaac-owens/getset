@@ -4,7 +4,7 @@ import './index.css';
 import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
-import { setAuthToken } from './util/session_api';
+import { setAuthToken } from './util/session_util';
 import { logout } from './actions/session_actions';
 import App from './App';
 import axios from 'axios';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (localStorage.jwtToken) {
         setAuthToken(localStorage.jwtToken);
-        
+
         const decodedUser = jwt_decode(localStorage.jwtToken);
 
         const preState = {

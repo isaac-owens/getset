@@ -10,3 +10,11 @@ export const setAuthToken = token => {
         delete axios.defaults.headers.common['Authorization'];
     }  
 };
+
+export const signup = (userData) => (
+    axios.post('/api/users/session', userData)
+);
+
+export const login = (userData) => (
+    axios.post('/api/users/session', userData)
+);
