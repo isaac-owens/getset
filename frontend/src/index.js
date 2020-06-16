@@ -6,7 +6,6 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_util';
 import { logout } from './actions/session_actions';
-// import App from './App';
 // import axios from 'axios';
 
 
