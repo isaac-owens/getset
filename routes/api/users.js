@@ -6,6 +6,7 @@ const jwt  = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const passport = require('passport')
 
 
 
@@ -111,6 +112,15 @@ router.post('/login', (req, res) => {
 
     })
 
+})
+
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+    // debugger
+    res.json({
+        id: req.user.id,
+        username: req.user.username,
+        email: req.user.email
+    });
 })
 
 
