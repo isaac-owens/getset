@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MainPage extends React.Component {
+class Splash extends React.Component {
 
     render() {
         return (
@@ -8,10 +8,10 @@ class MainPage extends React.Component {
                 <h1>Get Set - A Family Company</h1>
                 <footer>
                     Copyright &copy; 2020 GetSet
-        </footer>
+                </footer>
             </div>
         );
     }
 }
 
-export default MainPage;
+export default Splash;
