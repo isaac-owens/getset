@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AUTH, DASH } from '../../util/route_util';
 
 class Header extends React.Component {
     constructor(props) {
@@ -20,11 +21,11 @@ class Header extends React.Component {
             return (
                 <div>
                     <ul>Hi {this.props.currentUser.username}!
-                        <li>
-                            <Link to={'/dashboard'}>Dashboard</Link>
-                        </li>
                         {/* <li>
-                            <Link to={'/stats'}>Stats</Link>
+                            <Link to={DASH}>Dashboard</Link>
+                        </li> */}
+                        {/* <li>
+                            <Link to={STATS}>Stats</Link>
                         </li> */}
                         <li>
                             <button onClick={this.logoutUser}>Logout</button>
@@ -35,7 +36,7 @@ class Header extends React.Component {
         } else {
             return (
                 <div>
-                    <Link to={'/session'}>SignUp/SignIn</Link>
+                    <Link to={AUTH}>SignUp/SignIn</Link>
                 </div>
             );
         }

@@ -25,22 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         store = configureStore(preState);
+        // const currentTime = Date.now() / 1000;
 
-        const currentTime = Date.now() / 1000;
-
-        // If the user's token has expired
-        if (decodedUser.exp < currentTime) {
-            // Logout the user and redirect to the login page
-            store.dispatch(logout());
-            // window.location.href = '/login';
-        }
+        // // If the user's token has expired
+        // if (decodedUser.exp < currentTime) {
+        //     // Logout the user and redirect to the login page
+        //     store.dispatch(logout());
+        //     // window.location.href = '/login';
+        // }
 
     } else {
         store = configureStore();
     }
 
     const root = document.getElementById('root');
-
+    window.getState = store.getState();
     ReactDOM.render(<Root store={store} />, root);
 });
 
