@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './navbar.css';
 
 class Header extends React.Component {
     constructor(props) {
@@ -16,21 +15,32 @@ class Header extends React.Component {
 
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
+        // Route util consts for the link tos
         if (this.props.loggedIn) {
             return (
                 <div>
-                    {/* <Link to={'/profile'}>Profile</Link>
-                    <button onClick={this.logoutUser}>Logout</button> */}
+                    <ul>Hi {this.props.currentUser.username}!
+                        <li>
+                            <Link to={'/dashboard'}>Dashboard</Link>
+                        </li>
+                        {/* <li>
+                            <Link to={'/stats'}>Stats</Link>
+                        </li> */}
+                        <li>
+                            <button onClick={this.logoutUser}>Logout</button>
+                        </li>
+                    </ul>
                 </div>
             );
         } else {
             return (
                 <div>
-                    {/* <Link to={'/session'}>SignUp/SignIn</Link> */}
+                    <Link to={'/session'}>SignUp/SignIn</Link>
                 </div>
             );
         }
     }
+// Route util consts for the link tos
 
     render() {
         return (
