@@ -4,6 +4,8 @@ import { Redirect, Route, withRouter } from 'react-router-dom';
 
 export const SPLASH = '/';
 export const AUTH = '/session';
+export const DASH = '/dashboard';
+export const STATS = '/stats';
 
 const mapStateToProps = state => ({
     loggedIn: Boolean(state.session.currentUser)
