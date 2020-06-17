@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // store = configureStore(preState);
+        store = configureStore(preState);
         // const currentTime = Date.now() / 1000;
 
         // // If the user's token has expired

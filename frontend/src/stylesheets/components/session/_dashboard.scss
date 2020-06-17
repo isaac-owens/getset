@@ -5,7 +5,7 @@
 
 .card{
   height: 70%;
-  width: 45%;
+  width: 55%;
   border-radius: 25px;
   border: 20px solid rgba(243, 235, 235, 0.943); 
   box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
@@ -14,9 +14,9 @@
 .one{
   position: absolute;
   background-color: $red;
-  left: 12%;
+  left: 10%;
   top: 14%;
-  transform: rotate(-14deg)
+  transform: rotate(-9deg)
 }
 
 .two{
@@ -24,8 +24,8 @@
     position: absolute;
     background-color: $green;
     top: 14%;
-    left: 16%;
-    transform: rotate(14deg)
+    left: 20%;
+    transform: rotate(10deg)
 }
 
 .three{
