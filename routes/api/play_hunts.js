@@ -24,7 +24,6 @@ router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route"
 router.post("/", passport.authenticate('jwt', { session: false }), (req, res) => {
     const hunt_images = Hunt.findById(req.body.hunt_id)
         .then(hunt => {
-            debugger
             const { errors, isValid } = validatePlayHuntInput(req.body, hunt);
             if (!isValid) return res.status(400).json(errors);
             const playHunt = new PlayHunt({
@@ -34,7 +33,6 @@ router.post("/", passport.authenticate('jwt', { session: false }), (req, res) =>
                 timestamps: req.body.timestamps,
                 score: 0
             })
-            debugger
             playHunt.save().then(playHunt => res.json(playHunt));
         })
         .catch(err => res.status(404).json(err))

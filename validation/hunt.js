@@ -3,7 +3,6 @@ const validText = require('./valid-text');
 
 module.exports = function validateHuntInput(data) {
     let errors = {};
-    debugger
     const title = validText(data.title) ? data.title : '';
     // const photo_collection = validText(data.photo_collection) ? data.photo_collection : '';
     const photo_collection = (data.photo_collection) ? data.photo_collection : '';

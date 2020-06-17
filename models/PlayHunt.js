@@ -3,15 +3,7 @@ const Schema = mongoose.Schema;
 
 // user, image, score, hunt_id, timestamp
 
-// var childSchema = new Schema({
-//     // original_image: {
-//     //     type: String
-//     // },
-//     user_images: {
-//         type: Array,
-//         required: true,
-//     }
-// });
+
 
 
 const PlayHuntSchema = new Schema({
