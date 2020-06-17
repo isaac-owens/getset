@@ -11,6 +11,8 @@ class CreateForm extends React.Component {
       photoFile: null,
       photoUrl: null,
     };
+    this.handleFile = this.handleFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFile(e) {
@@ -42,11 +44,19 @@ class CreateForm extends React.Component {
     this.props.createVideo(formData);
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
+  }
+
   render() {
     // refactor preview to be a title card upload
-    const preview = this.state.titlecardUrl ? (<img height="200px" width="200px" src={this.state.photoUrl} />) : null;
+    const preview = this.state.titlecardUrl ? (
+      <img height="200px" width="200px" src={this.state.photoUrl} />
+    ) : null;
 
-      // add page name to header
+    // add page name to header
     return (
       <div>
         {/* <h3>Create a Hunt</h3> */}
@@ -55,9 +65,7 @@ class CreateForm extends React.Component {
           <h3>Get Image</h3>
           <br />
           <h4>Preview</h4>
-          <div className='preview'>
-            {preview}
-          </div>
+          <div className="preview">{preview}</div>
           <br />
           <br />
           <input
@@ -76,18 +84,26 @@ class CreateForm extends React.Component {
           <label className="upload-labels">Due Date ~within 3 days!</label>
 
           <ul>
-              <li>
-                  <button value="category1" onClick={this.update("category")}>category1</button>
-              </li>
-              <li>
-                  <button value="category2" onClick={this.update("category")}>category2</button>
-              </li>
-              <li>
-                  <button value="category3" onClick={this.update("category")}>category3</button>
-              </li>
-              <li>
-                  <button value="category4" onClick={this.update("category")}>category4</button>
-              </li>
+            <li>
+              <button value="category1" onClick={this.update("category")}>
+                category1
+              </button>
+            </li>
+            <li>
+              <button value="category2" onClick={this.update("category")}>
+                category2
+              </button>
+            </li>
+            <li>
+              <button value="category3" onClick={this.update("category")}>
+                category3
+              </button>
+            </li>
+            <li>
+              <button value="category4" onClick={this.update("category")}>
+                category4
+              </button>
+            </li>
           </ul>
 
           <br />
@@ -97,3 +113,5 @@ class CreateForm extends React.Component {
     );
   }
 }
+
+export default CreateForm;

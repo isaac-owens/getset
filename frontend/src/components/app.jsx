@@ -6,7 +6,7 @@ import Header from './global/header';
 import Footer from './global/footer';
 import Splash from './main/splash';
 import SessionFormContainer from './session/session_form_container';
-import CreateFormContainer from './session/create_form_container';
+import CreateFormContainer from './hunt/create_form_container';
 
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
             <Switch>
                 <AuthRoute exact path={SPLASH} component={Splash} />
                 <AuthRoute exact path={AUTH} component={SessionFormContainer} />
-                <AuthRoute exact path='/api/hunts' component={CreateFormContainer} />
+                <Route exact path='/api/hunts' component={CreateFormContainer} />
             </Switch>
          <Footer />
     </div>
