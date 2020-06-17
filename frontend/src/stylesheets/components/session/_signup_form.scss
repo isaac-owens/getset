@@ -7,16 +7,17 @@
     position: absolute;
     border: 1px solid rgba(216, 216, 216, 0.877);
     border-radius: 6px;
-    color:rgba(163, 163, 163, 0.815);
     transition: .5s;
+    height: 42px;
+    width: 275px;
 }
 
 .session-form .input-label {
-//   background-color: $blue;
   position: relative;
   pointer-events: none;
   margin-left: 8px;
   top: 2.5px;
+  color:rgba(163, 163, 163, 0.815);
 }
 
 .password-disclaimer {
@@ -43,64 +44,3 @@
     letter-spacing: .2em;
  }
 
-
-// .session-form-container{
-//      position: absolute;
-//      top: 55%;
-//      left: 50%;
-//      transform: translate(-50%, -50%);
-//      width: 35%;
-//      height: 565px;
-//      box-sizing: border-box;
-//      border: 1px solid rgba(216, 216, 216, 0.877);
-//      border-radius: 6px;
-//  }
-//  .session-form-container .input-container{
-//      position: relative;
-//      top: 17%;
-//      left: 13%;
-//      width: 65%;
-//      bottom: -20px;
-//  }
-
-//  .session-form-container .input-container input{
-//      top: -20px;
-//      left: 0;
-//      padding-left: 3px;
-//      border-radius: 6px;
-//  }
-
- 
-//  .session-form-container .input-container .input-labels{
-//      position: absolute;
-//      top: 0;
-//      left: 8px;
-//      font-size: 18px;
-//      padding: 10px 0;
-//      font-family: "Lucida Console", Courier, monospace;
-//      color:rgba(163, 163, 163, 0.815);
-//      transition: .5s;
-//  }
-
-//   .session-form-container .input-container input:focus,
-//   .session-form-container .input-container input:valid{
-//      top: -20px;
-//      left: 0;
-//      padding-left: 3px;
-//      border: 2.3px solid rgb(91, 128, 223);
-//      border-radius: 6px;
-//      background-color: whitesmoke;
-//      font-family: "Lucida Console", Courier, monospace;
-//      font-size: 15.5px;
-//  }
-
-//  .session-form-container .input-container input:focus ~.input-labels,
-//   .session-form-container .input-container input:valid ~.input-labels{
-//      top: -20px;
-//      left: 2px;
-//      color: rgb(5, 20, 175);
-//      background: rgba(255,255,255,5);
-//      font-size: 12px;
-//      padding-bottom: 0;
-//      padding-left:0;
-//  }
