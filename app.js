@@ -29,6 +29,7 @@ app.get("/", (req, res) => res.send("Get Set Hello"));
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 app.use("/api/users", users);
 app.use("/api/categories", categories);
+app.use("/api/hunts", hunts);
 
 
 
