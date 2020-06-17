@@ -19,7 +19,7 @@ class Header extends React.Component {
         // Route util consts for the link tos
         if (this.props.loggedIn) {
             return (
-                <div>
+                <div className="header-nav-links">
                     <ul>Hi {this.props.currentUser.username}!
                         {/* <li>
                             <Link to={DASH}>Dashboard</Link>
@@ -46,7 +46,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className='header'>
-                <h1 className='logo'>GetSet</h1>
+                <h1 className='header-logo'>GetSet</h1>
                 {this.getLinks()}
             </div>
         );
