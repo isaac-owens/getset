@@ -97,37 +97,3 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
-
-// .create-form .input-field {
-//     position: absolute;
-//     border: 1px solid rgba(216, 216, 216, 0.877);
-//     border-radius: 6px;
-//     transition: .5s;
-//     height: 42px;
-//     width: 275px;
-// }
-
-// .create-form .input-label {
-//   position: relative;
-//   pointer-events: none;
-//   margin-left: 8px;
-//   top: 2.5px;
-//   color:rgba(163, 163, 163, 0.815);
-// }// 
-// .create-form .input-field:valid {
-//   border-radius: 6px;
-//   background-color: whitesmoke;
-//   outline: none;
-// }
-
-// .create-form .input-field:focus ~.input-label
-// .create-form .input-field:valid ~.input-label {
-//   top: -30px;
-//   background: transparent;
-//   font-size: 16px;
-//   font-weight: 600;
-//   padding-bottom: 0;
-//   padding-left: 0;
-//   letter-spacing: .2em;
-// }
