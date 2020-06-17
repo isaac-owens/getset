@@ -45,13 +45,14 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="session-form-container">
-              <br />
-              <h3>Please Sign In</h3>
-              {/* {this.renderErrors()} */}
-              <br />
-              <br />
-              <div className="input-container">
+          <form
+            onSubmit={this.handleSubmit}
+            className="session-form-container login"
+          >
+            <h3>Please Sign In</h3>
+            {/* {this.renderErrors()} */}
+            <div className='login-input-field-container'>
+              <div className="login-input-field">
                 <input
                   type="text"
                   value={this.state.email}
@@ -61,23 +62,24 @@ class Login extends React.Component {
                 />
                 <label className="input-label">Email</label>
               </div>
-              <br />
-              <div className="input-container">
+              <div className="login-input-field">
                 <input
                   type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
-                  className="input-field"
                   required=" "
                 />
                 <label className="input-label">Password</label>
               </div>
-              <br />
-              <div className="bottom-form">
-                <button onClick={this.populateDemo}>Demo Session</button>
-              </div>
+            </div>
+
+            <div className="bottom-form">
+              <button onClick={this.populateDemo}>Demo Session</button>
+            </div>
+            <div className="bottom-form">
               <input className="submit" type="submit" value="Sign In" />
-            </form>
+            </div>
+          </form>
         );
     }
 }
