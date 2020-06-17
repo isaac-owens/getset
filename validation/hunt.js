@@ -3,15 +3,16 @@ const validText = require('./valid-text');
 
 module.exports = function validateHuntInput(data) {
     let errors = {};
-
+    debugger
     const title = validText(data.title) ? data.title : '';
-    const photo_collection = validText(data.photo_collection) ? data.photo_collection : '';
+    // const photo_collection = validText(data.photo_collection) ? data.photo_collection : '';
+    const photo_collection = (data.photo_collection) ? data.photo_collection : '';
     const category = validText(data.category) ? data.category : '';
 
     if (Validator.isEmpty(title)) {
         errors.title = 'title can not be blank';
     }
-    if (Validator.isEmpty(photo_collection)) {
+    if (photo_collection.length === 0) {
         errors.photo_collection = 'photo_collection can not be blank';
     }
     if (Validator.isEmpty(category)) {

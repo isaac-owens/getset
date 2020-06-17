@@ -18,6 +18,7 @@ const port = process.env.PORT || 5000;
 const users = require("./routes/api/users");
 const hunts = require('./routes/api/hunts');
 const categories = require('./routes/api/categories');
+const playHunts = require('./routes/api/play_hunts');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -41,6 +42,7 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 app.use("/api/users", users);
 app.use("/api/categories", categories);
 app.use("/api/hunts", hunts);
+app.use("/api/playhunts", playHunts);
 
 
 

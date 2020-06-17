@@ -27,7 +27,7 @@ const HuntSchema = new Schema({
         //defaults to add a week from now
     },
     photo_collection: {
-        type: String,
+        type: Array,
         required: true
     }
 })
