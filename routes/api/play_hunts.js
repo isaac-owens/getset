@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const validatePlayHuntInput = require("../../validation/play_hunt");
 const PlayHunt = require("../../models/PlayHunt");
 // const Validator = require("validator");
+// var AWS = require("aws-sdk");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route" }));
 
