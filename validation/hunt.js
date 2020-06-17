@@ -3,10 +3,10 @@ const validText = require('./valid-text');
 
 module.exports = function validateHuntInput(data) {
     let errors = {};
-    const title = validText(data.title) ? data.title : '';
-    // const photo_collection = validText(data.photo_collection) ? data.photo_collection : '';
-    const photo_collection = (data.photo_collection) ? data.photo_collection : '';
-    const category = validText(data.category) ? data.category : '';
+    const title = validText(data.body.title) ? data.body.title : '';
+    // files because multiple requests return images in files
+    const photo_collection = (data.files) ? data.files : '';
+    const category = validText(data.body.category) ? data.body.category : '';
 
     if (Validator.isEmpty(title)) {
         errors.title = 'title can not be blank';

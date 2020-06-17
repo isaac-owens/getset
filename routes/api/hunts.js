@@ -34,9 +34,8 @@ router.get("/:id", (req, res) => {
 
 router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
     
-    const {errors, isValid} = validateHuntInput(req.body);
-    debugger
-    // if (!isValid) return res.status(400).json(errors);
+    const {errors, isValid} = validateHuntInput(req);
+    if (!isValid) return res.status(400).json(errors);
     // setting up aws s3 bucket
     let s3bucket = new AWS.S3({
         accessKeyId: process.env.AWS_ACCESS_KEY_ID  || keys.AWS_ACCESS_KEY_ID,
@@ -44,49 +43,42 @@ router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('
         region: process.env.AWS_REGION || keys.AWS_REGION
     });
 
-    // s3bucket.listBuckets(function (err, data) {
-    //     debugger
-    //     if (err) {
-    //         console.log("Error", err);
-    //     } else {
-    //         console.log("Success", data.Buckets);
-    //     }
-    // });
-
-    req.files.map((item) => {
-        debugger 
+    const numFiles = req.files.length;
+    const imageAwsPath = []; 
+    req.files.map((item) => { 
+        //setting params for aws
         var params = {
             Bucket: process.env.AWS_BUCKET_NAME || keys.AWS_BUCKET_NAME,
             Key: item.originalname,
             Body: fs.createReadStream(item.path),
             ACL: 'public-read'
         }
-        debugger 
+        // uploading image to aws
         s3bucket.upload(params, function (err, data) {
             
             if (err) {
+                // error 
                 res.json({"error": true, "Message": err});
             } else {
-                const hunt = new Hunt({
-                    title: req.body.title,
-                    category: req.body.category,
-                    user: req.user.id,
-                    start_date: req.body.start_date,
-                    close_date: req.body.close_date,
-                    // photo_collection: req.body.photo_collection
-                    photo_collection: [data.Location]
-                })
-            
-                hunt.save().then(hunt => res.json(hunt));
+                // success
+                imageAwsPath.push(data.Location)
+                if (numFiles === imageAwsPath.length) {
+                    const hunt = new Hunt({
+                        title: req.body.title,
+                        category: req.body.category,
+                        user: req.user.id,
+                        start_date: req.body.start_date,
+                        close_date: req.body.close_date,
+                        photo_collection: imageAwsPath 
+                    })
+                
+                    hunt.save().then(hunt => res.json(hunt));
+                }
 
             }
             
         })
     });
-
-
-
-    // res.json('success')
 })
 
 module.exports = router;
