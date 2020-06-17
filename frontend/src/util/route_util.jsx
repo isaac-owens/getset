@@ -8,7 +8,7 @@ export const DASH = '/dashboard';
 export const STATS = '/stats';
 
 const mapStateToProps = state => ({
-    loggedIn: Boolean(state.session.currentUser)
+    loggedIn: Boolean(state.session.user)
     //   grabbing id - stored in session slice
 });
 
@@ -16,7 +16,7 @@ const Auth = ({ component: Component, path, loggedIn }) => (
     <Route
         path={path}
         render={
-            props => (loggedIn ? <Redirect to={SPLASH} /> : <Component {...props} />)
+            props => (loggedIn ? <Redirect to={DASH} /> : <Component {...props} />)
         }
     />
 );

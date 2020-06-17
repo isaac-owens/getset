@@ -27,8 +27,8 @@ class Login extends React.Component {
 
     populateDemo(e) {
         e.preventDefault();
-        this.setState({ email: 'test-user@gmail.com' });
-        this.setState({ password: '123456' });
+        this.setState({ email: 'demouser@gmail.com' });
+        this.setState({ password: 'password' });
     }
 
     // renderErrors() {
