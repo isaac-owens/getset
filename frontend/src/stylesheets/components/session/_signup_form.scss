@@ -3,13 +3,13 @@
   flex-direction: row;
 }
 
-.session-form .input-field {
-    position: absolute;
-    border: 1px solid rgba(216, 216, 216, 0.877);
-    border-radius: 6px;
-    transition: .5s;
-    height: 42px;
-    width: 275px;
+.session-form .input-field,{
+  position: absolute;
+  border: 1px solid rgba(216, 216, 216, 0.877);
+  border-radius: 6px;
+  transition: .5s;
+  height: 42px;
+  width: 275px;
 }
 
 .session-form .input-label {
@@ -25,22 +25,20 @@
 }
 
 .session-form .input-field:focus, 
-.session-form .input-field:valid{
-    // border: 3px solid $blue;
-    border-radius: 6px;
-    background-color: whitesmoke;
-    outline: none;
+.session-form .input-field:valid {
+  border-radius: 6px;
+  background-color: whitesmoke;
+  outline: none;
 }
 
 .session-form .input-field:focus ~.input-label,
 .session-form .input-field:valid ~.input-label{
-    top: -30px;
-    // color: $lavender;
-    background: transparent;
-    font-size: 16px;
-    font-weight: 600;
-    padding-bottom: 0;
-    padding-left: 0;
-    letter-spacing: .2em;
- }
+  top: -30px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 0;
+  padding-left: 0;
+  letter-spacing: .2em;
+}
 
