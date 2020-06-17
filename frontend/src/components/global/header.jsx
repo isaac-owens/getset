@@ -35,9 +35,9 @@ class Header extends React.Component {
             );
         } else {
             return (
-                <div>
-                    <Link to={AUTH}>SignUp/SignIn</Link>
-                </div>
+              <div className="header-nav-links">
+                <Link to={AUTH}>SignUp | SignIn</Link>
+              </div>
             );
         }
     }
