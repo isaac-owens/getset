@@ -11,7 +11,6 @@ const mSTP = ({ errors }) => (
 );
 
 const mDTP = dispatch => (
-    // login/out based on helped logged_in?
     {
         signup: user => dispatch(signup(user)),
         login: user => dispatch(login(user)),

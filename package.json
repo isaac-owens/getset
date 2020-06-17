@@ -33,8 +33,7 @@
     "validator": "^13.1.1",
     "aws-sdk": "^2.697.0",
     "node-uuid": ">= 1.4.1",
-    "uuid": "^8.1.0",
-    "webpack": "^4.43.0"
+    "uuid": "^8.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
