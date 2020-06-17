@@ -28,9 +28,10 @@ const validText = require('./valid-text');
 const Hunt = require("../models/Hunt");
 module.exports = function validatePlayHuntInput(data, hunt) {
     let errors = {};
-    const images = data.images.length ? data.images : "";
-    if (Validator.isEmpty(images) && hunt.photo_collection.length !== images.length) {
-        errors.images = 'You must upload an image'
+    debugger
+    const images = data.images ? data.images : "";
+    if (images.length === 0 || hunt.photo_collection.length !== images.length) {
+        errors.images = 'You must upload the right number of images'
     }
     return {
         errors,
