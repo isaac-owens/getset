@@ -12,7 +12,7 @@ module.exports = function validateHuntInput(data) {
         errors.title = 'title can not be blank';
     }
     if (photo_collection.length === 0) {
-        errors.photo_collection = 'photo_collection can not be blank';
+        errors.photo_collection = 'photo_collection can not be empty';
     }
     if (Validator.isEmpty(category)) {
         errors.category = 'category can not be blank';
