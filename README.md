@@ -53,6 +53,8 @@ The main feature of GetSet is photo comparison which posed the question "How do 
 
 ### Frontend
 ---
+GetSet utilizes a bit of drag and drop functionality that none of us previously had any exposure to. 
+
 
 ### Lead
 ---
