@@ -7,6 +7,8 @@ const validateHuntInput = require("../../validation/hunt");
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
 var AWS = require("aws-sdk");
+const keys = require('../../config/keys_dev');
+var fs = require('file-system');
 
 router.get("/test", (req, res) => res.json({msg: "This is the hunts route"}))
 
@@ -33,24 +35,58 @@ router.get("/:id", (req, res) => {
 router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
     
     const {errors, isValid} = validateHuntInput(req.body);
-    // debugger
-    if (!isValid) return res.status(400).json(errors);
+    debugger
+    // if (!isValid) return res.status(400).json(errors);
     // setting up aws s3 bucket
     let s3bucket = new AWS.S3({
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        region: process.env.AWS_REGION
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID  || keys.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || keys.AWS_SECRET_ACCESS_KEY,
+        region: process.env.AWS_REGION || keys.AWS_REGION
     });
-    const hunt = new Hunt({
-        title: req.body.title,
-        category: req.body.category,
-        user: req.user.id,
-        start_date: req.body.start_date,
-        close_date: req.body.close_date,
-        photo_collection: req.body.photo_collection
-    })
 
-    hunt.save().then(hunt => res.json(hunt));
+    // s3bucket.listBuckets(function (err, data) {
+    //     debugger
+    //     if (err) {
+    //         console.log("Error", err);
+    //     } else {
+    //         console.log("Success", data.Buckets);
+    //     }
+    // });
+
+    req.files.map((item) => {
+        debugger 
+        var params = {
+            Bucket: process.env.AWS_BUCKET_NAME || keys.AWS_BUCKET_NAME,
+            Key: item.originalname,
+            Body: fs.createReadStream(item.path),
+            ACL: 'public-read'
+        }
+        debugger 
+        s3bucket.upload(params, function (err, data) {
+            
+            if (err) {
+                res.json({"error": true, "Message": err});
+            } else {
+                const hunt = new Hunt({
+                    title: req.body.title,
+                    category: req.body.category,
+                    user: req.user.id,
+                    start_date: req.body.start_date,
+                    close_date: req.body.close_date,
+                    // photo_collection: req.body.photo_collection
+                    photo_collection: [data.Location]
+                })
+            
+                hunt.save().then(hunt => res.json(hunt));
+
+            }
+            
+        })
+    });
+
+
+
+    // res.json('success')
 })
 
 module.exports = router;
