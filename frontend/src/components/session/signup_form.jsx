@@ -38,43 +38,39 @@ class SessionForm extends React.Component {
             <h3>Create your GetSet Account</h3>
             <h5>and Get Set to play!</h5>
 
-            <div className="signup-input-field-container">
-              <div className="input-field">
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  required=" "
-                />
-                <label className="input-label">Email</label>
-              </div>
-              <div className="input-field">
-                <input
-                  type="text"
-                  value={this.state.confirmEmail}
-                  onChange={this.update("confirmEmail")}
-                  required=" "
-                />
-                <label className="input-label">Confirm Email</label>
-              </div>
-              <div className="input-field">
-                <input
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.update("username")}
-                  required=" "
-                />
-                <label className="input-label">Username</label>
-              </div>
-              <div className="input-field">
+            <div className="session-form-input-field-container">
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="input-field"
+                required=" "
+              />
+              <label className="input-label">Email</label>
+              <input
+                type="text"
+                value={this.state.confirmEmail}
+                onChange={this.update("confirmEmail")}
+                className="input-field"
+                required=" "
+              />
+              <label className="input-label">Confirm Email</label>
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                className="input-field"
+                required=" "
+              />
+              <label className="input-label">Username</label>
                 <input
                   type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
+                  className="input-field"
                   required=" "
                 />
                 <label className="input-label">Password</label>
-              </div>
             </div>
             <div className="password-disclaimer">
               <h6>

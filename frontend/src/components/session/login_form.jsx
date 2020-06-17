@@ -45,39 +45,35 @@ class Login extends React.Component {
 
     render() {
         return (
-          <form
-            onSubmit={this.handleSubmit}
-            className="session-form-container login"
-          >
+          <form onSubmit={this.handleSubmit} className="session-form-container login">
             <h3>Please Sign In</h3>
             {/* {this.renderErrors()} */}
-            <div className='login-input-field-container'>
-              <div className="login-input-field">
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  className="input-field"
-                  required=" "
-                />
-                <label className="input-label">Email</label>
-              </div>
-              <div className="login-input-field">
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  required=" "
-                />
-                <label className="input-label">Password</label>
-              </div>
+            <div className='session-form-input-field-container'>
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="input-field"
+                required=" "
+              />
+              <label className="input-label">Email</label>
+              <input
+                type="text"
+                value={this.state.password}
+                onChange={this.update("password")}
+                className="input-field"
+                required=" "
+              />
+              <label className="input-label">Password</label>
             </div>
 
             <div className="bottom-form">
-              <button onClick={this.populateDemo}>Demo Session</button>
-            </div>
-            <div className="bottom-form">
-              <input className="submit" type="submit" value="Sign In" />
+              <div>
+                <button onClick={this.populateDemo}>Demo Session</button>
+              </div>
+              <div>
+                <input className="submit" type="submit" value="Sign In" />
+              </div>
             </div>
           </form>
         );

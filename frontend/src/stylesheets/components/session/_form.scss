@@ -8,47 +8,8 @@
   background-color: $blue;
 }
 
-.signup-form-email-field {
-  display: flex;
-  flex-direction: row;
-}
-
-.session-form-container .input-field {
-  position: absolute;
-  border: 1px solid rgba(216, 216, 216, 0.877);
-  border-radius: 12px;
-  transition: .5s;
-  height: 42px;
-  width: 12%;
-}
-
-.session-form .input-label {
-  position: relative;
-  pointer-events: none;
-  // margin-left: 8px;
-  top: 2.5px;
-  color:rgba(163, 163, 163, 0.815);
-}
-
 .password-disclaimer {
   width: 400px;
 }
 
-.session-form .input-field:focus, 
-.session-form .input-field:valid {
-  border-radius: 12px;
-  background-color: whitesmoke;
-  outline: none;
-}
-
-.session-form .input-field:focus ~.input-label,
-.session-form .input-field:valid ~.input-label{
-  top: -30px;
-  background: transparent;
-  font-size: 16px;
-  font-weight: 600;
-  padding-bottom: 0;
-  padding-left: 0;
-  letter-spacing: .2em;
-}
 
