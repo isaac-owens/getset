@@ -9,8 +9,9 @@ const HuntSchema = new Schema({
         required: true 
     },
     category: {
-        type: String,
-        required: true 
+        type: Schema.Types.ObjectId,
+        ref: 'categories',
+        required: true
     },
     user: {
         type: Schema.Types.ObjectId,

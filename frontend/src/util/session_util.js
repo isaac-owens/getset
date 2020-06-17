@@ -5,16 +5,16 @@ export const setAuthToken = token => {
     if (token) {
         axios.defaults.headers.common['Authorization'] = token;
     } 
-    //can pass 'false' or falsey is no token
+    //can pass 'false' or falsey if no token
     else{
         delete axios.defaults.headers.common['Authorization'];
     }  
 };
 
 export const signup = (userData) => (
-    axios.post('/api/users/session', userData)
+    axios.post('/api/users/register', userData)
 );
 
 export const login = (userData) => (
-    axios.post('/api/users/session', userData)
+    axios.post('/api/users/login', userData)
 );
