@@ -4,12 +4,14 @@
   "description": "* Created w/ javascript 2.5.1 by Isaac Owens 2020\r ---\r ### GetSet is a photo comparison scavenger hunt game where users can create photo hunt challenges, participate in other photo hunt challenges, or enjoy a feed of other people's finished photo hunts.",
   "main": "app.js",
   "scripts": {
+    "build": "npm install --prefix frontend",
     "root": "node app.js",
     "server": "nodemon app.js",
     "server:debug": "nodemon --inspect app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "start": "concurrently \"npm run server\" \"npm run frontend\""
+    "start": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
