@@ -1,94 +1,32 @@
 
-  
 /* CSS Reset, Adapted from: Normalize.css, HTML5 boilerplate, HTML5 Doctor Reset by Eric Meyer and Richard Clark, starkers reset by Elliot Jay Stocks Modified by Duane K. Anderson
  CSS Reset */
  
-html, 
-body, 
-div, 
-span, 
-object, 
-iframe, 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6, 
-p, 
-blockquote, 
-pre, 
-abbr, 
-address, 
-cite, 
-code, 
-del, 
-dfn, 
-em, 
-img, 
-ins, 
-kbd, 
-q, 
-samp, 
-small, 
-strong, 
-sub, 
-sup, 
-var, 
-b, 
-i, 
-dl, 
-dt, 
-dd, 
-ol, 
-ul, 
-li, 
-fieldset, 
-form, 
-label, 
-legend, 
-table, 
-caption, 
-tbody, 
-tfoot, 
-thead, 
-tr, 
-th, 
-td, 
-article, 
-aside, 
-canvas, 
-details, 
-figcaption, 
-figure, 
-footer, 
-header, 
-hgroup, 
-menu, 
-nav, 
-section, 
-summary, 
-time, 
-mark, 
-audio, 
-video{ margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; }     
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, 
+sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, 
+details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, 
+time, mark, audio, video{
+    margin:0;
+    padding:0;
+    border:0; 
+    outline:0; 
+    font-size:100%;
+    vertical-align:baseline; 
+    background:transparent;
+}     
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary { display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav,
+section, summary{
+    display: block;
+}
 
-audio,
-canvas,
-video { display: inline-block; *display: inline; *zoom: 1;}
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
 
 audio:not([controls]) {display: none;height: 0;}
 
@@ -98,8 +36,7 @@ html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-ad
 
 a:focus { outline: thin dotted; }
 
-a:active,
-a:hover { outline: 0; }
+a:active, a:hover { outline: 0; }
 
 h1, h2, h3, h4, h5, h6 { font-weight:normal; }
 
@@ -145,13 +82,21 @@ button, input { line-height: normal; }
 
 button, select { text-transform: none; }
 
-button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { 
+    -webkit-appearance: button;
+    cursor: pointer;
+}
 
 button[disabled], html input[disabled] { cursor: default; }
 
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
 
-input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
 
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
