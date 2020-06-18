@@ -11,14 +11,8 @@ class Dashboard extends Component {
         this.props.logout();
     }
     render() {
-        const currentUser = this.props.currenUser
-
         return (
           <div className="dashboard-layout">
-            <div>
-              Hi, {currentUser.username}
-              <button onClick={this.logout}>Logout</button>
-            </div>
             <div className="card card-styling one"></div>
             <div className="card card-styling two"></div>
             <div className="card card-styling three"></div>
