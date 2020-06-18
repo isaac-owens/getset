@@ -32,7 +32,7 @@ export const fetchHunts = hunts => dispatch =>(
 
 export const createHunt = hunt => dispatch =>(
     APIUtil.createHunt(hunt).then(
-        hunt => dispatch(receiveHunt(hunt)),
+        hunt => dispatch(receiveHunt(hunt.data)),
         err => dispatch(receiveErrors(err.response.data))
     )
 );
