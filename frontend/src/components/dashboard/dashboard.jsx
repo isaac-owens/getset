@@ -10,7 +10,13 @@ class Dashboard extends Component {
           <div className="dashboard-layout">
             <div className="card card-styling one"></div>
             <div className="card card-styling two"></div>
-            <div className="card card-styling three"></div>
+            <div className="card card-styling three">
+              <ul>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+              </ul>
+            </div>
           </div>
         );
     }
