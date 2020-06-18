@@ -4,30 +4,72 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const validatePlayHuntInput = require("../../validation/play_hunt");
 const PlayHunt = require("../../models/PlayHunt");
-// const Validator = require("validator");
-// var AWS = require("aws-sdk");
+var AWS = require("aws-sdk");
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
+const keys = require('../../config/keys_dev');
+var fs = require('file-system');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route" }));
 
 
-router.post("/", passport.authenticate('jwt', { session: false }), (req, res) => {
+// router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('photo_collection', 10)], (req, res) => {
+router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {
     // fetch hunt based on hunt_id
     Hunt.findById(req.body.hunt_id)
-        .then(hunt => {
+        .then(playHunt => {
             // validating based on hunt images
-            const { errors, isValid } = validatePlayHuntInput(req.body, hunt);
+            const { errors, isValid } = validatePlayHuntInput(req, playHunt);
             if (!isValid) return res.status(400).json(errors);
-            // validate play hunt object
-            const playHunt = new PlayHunt({
-                user: req.user.id,
-                hunt_id: req.body.hunt_id,
-                images: req.body.images,
-                timestamps: req.body.timestamps,
-                score: 0
-            })
-            playHunt.save().then(playHunt => res.json(playHunt));
+            // debugger
+            let s3bucket = new AWS.S3({
+                accessKeyId: process.env.AWS_ACCESS_KEY_ID || keys.AWS_ACCESS_KEY_ID,
+                secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || keys.AWS_SECRET_ACCESS_KEY,
+                region: process.env.AWS_REGION || keys.AWS_REGION
+            });
+            // debugger
+            const numFiles = req.files.length;
+            const imageAwsPath = []; 
+            // debugger
+            
+            req.files.map((item) => {
+                //setting params for aws
+                var params = {
+                    Bucket: process.env.AWS_BUCKET_NAME || keys.AWS_BUCKET_NAME,
+                    Key: item.originalname,
+                    Body: fs.createReadStream(item.path),
+                    ACL: 'public-read'
+                }
+                // uploading image to aws
+                s3bucket.upload(params, function (err, data) {
+
+                    if (err) {
+                        // error 
+                        res.json({ "error": true, "Message": err });
+                    } else {
+                        // success
+                        // debugger
+                        imageAwsPath.push(data.Location)
+                        // debugger
+                        if (numFiles === imageAwsPath.length) {
+                            const playHunt = new PlayHunt({
+                                user: req.user.id,
+                                hunt_id: req.body.hunt_id,
+                                timestamps: req.body.timestamps,
+                                score: 0,
+                                images: imageAwsPath
+                            })
+
+                            playHunt.save().then(playHunt => res.json(playHunt));
+                        }
+
+                    }
+
+                })
+            });
+
         })
-        .catch(err => res.status(404).json(err))
+        
 
 })
 
