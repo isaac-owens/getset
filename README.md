@@ -77,19 +77,19 @@ GetSet utilizes a bit of drag and drop functionality that none of us previously 
 # Meet the Team!
  ## <img src="frontend/public/zohaib2.jpg" width="58" height="72"> Zohaib
 ### Team Lead Asst. / Flex
- 
+Zohaib's favorite games are cricket and foosball. He has worked as a Software Engineer with experience developing android applications. Hit him up if you're looking to hire!
 
 ## <img src="frontend/public/kevin.png" width="58" height="72"> Kevin
 ### Frontend Lead
- 
+Kevin's favorite game is Portal.  He wants you to know that cake in not a matter to lie about.
 
 ## <img src="frontend/public/danny.png" width="58" height="72"> Danny
 ### Backend Lead
- 
+Danny's favorite games are basketball and golf. Aside from coding, his real dream is to become a professional poker player.
 
 ## <img src="frontend/public/isaac.jpg" width="58" height="72"> Isaac
 ### Team Lead
-
+Isaac's favorite game is Catan.  He really loves the arts and looks forward to being able to combine his passions with technology.
   
 # Future Directions
   * Create a mobile version of GetSet
