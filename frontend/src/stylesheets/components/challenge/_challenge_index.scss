@@ -15,7 +15,9 @@
   height: 80%;
   margin-top: 4%;
 }
-
+// DONT REMOVE OUT SPECIAL Z
+z
+// leave z above - breaks category extention
 .challenge-collection-list {
   height: 45%;
   display: flex;
@@ -26,9 +28,16 @@
 
 .category {
   padding: 30px;
-  width: 150%;
+  width: 80%;
   border-radius: 25px;
   background-color: $green;
+  transition: .7s;
+}
+
+.category:focus{
+    display: flex;
+    justify-content: flex-start;
+    width: 180%;
 }
 
 .category:focus, .category:hover {
