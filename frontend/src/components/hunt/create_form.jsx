@@ -140,7 +140,6 @@ class CreateForm extends React.Component {
               onClick={this.handlePlaceholder}
               onBlur={this.checkPlaceholder}
               placeholder="Name Your Hunt..."
-              required=" "
             />
           </div>
           <div className="create-form-submission-errors">
@@ -206,7 +205,7 @@ class CreateForm extends React.Component {
                   </ul>
                   <div className="create-form-submit-container">
                     <span className="create-form-due-date">Due Date:  06/ 19/ 2020</span>
-                    <input onClick={this.handleSubmit} className='create-form-submit button' value="Set Game" />
+                    <button onClick={this.handleSubmit} className='create-form-submit button'>Set Game</button>
                   </div>
               </div>
             </div>

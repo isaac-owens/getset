@@ -106,7 +106,7 @@
   border-radius: 25px;
 }
 
-.create-form-drop-zone-error{
+.create-form-submission-errors ul li, .create-form-drop-zone-error{
   color: red;
 }
 
@@ -155,4 +155,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.create-form-submit{
+  border: none;
 }
