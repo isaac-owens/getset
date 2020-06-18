@@ -20,9 +20,9 @@ class HuntsIndexPage extends React.Component {
         </div>
         <div className="hunts-index-page-right">
           <div className="hunt-photo-collection card-styling">
-            Looks like you have no hunts...<a>Create a hunt!</a>
+            Looks like you have no hunts... <a className="empty-index-link">Create a hunt!</a>
           </div>
-          <button className="hunts-index-create">Create a Hunt!</button>
+          <button className="hunts-index-create"> Create a Hunt!</button>
         </div>
       </div>
     );
