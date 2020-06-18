@@ -2,7 +2,7 @@
 #### Ready, GetSet, PHOTO!!
 
 
-* Created w/ javascript 2.5.1 by Isaac Owens 2020
+* Created w/ javascript 2.5.1
 ---
 ### GetSet is a photo comparison scavenger hunt game where users can create photo hunt challenges, participate in other photo hunt challenges, or enjoy a feed of other people's finished photo hunts.
 
