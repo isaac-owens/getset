@@ -17,8 +17,8 @@ class Header extends React.Component {
     getLinks() {
         if (this.props.currentUser) {
             return (
-                <div className="header-nav-links">
-                    <ul>Hi {this.props.currentUser.username}!
+                <div >
+                    <ul className="header-nav-links">Hi {this.props.currentUser.username}!
                         <li>
                             <Link to={DASH}>Dashboard</Link>
                         </li>
