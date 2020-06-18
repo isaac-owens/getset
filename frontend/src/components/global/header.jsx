@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AUTH, DASH } from '../../util/route_util';
+import { AUTH, DASH, CREATE, INDEX, CINDEX } from '../../util/route_util';
 
 class Header extends React.Component {
     constructor(props) {
@@ -14,16 +14,23 @@ class Header extends React.Component {
         this.props.logout();
     }
 
-    // Selectively render links dependent on whether the user is logged in
     getLinks() {
-        // Route util consts for the link tos
-        if (this.props.loggedIn) {
+        if (this.props.currentUser) {
             return (
                 <div className="header-nav-links">
                     <ul>Hi {this.props.currentUser.username}!
-                        {/* <li>
+                        <li>
                             <Link to={DASH}>Dashboard</Link>
-                        </li> */}
+                        </li>
+                        <li>
+                            <Link to={CREATE}>Create Hunt</Link>
+                        </li>
+                        <li>
+                            <Link to={INDEX}>See Hunts</Link>
+                        </li>
+                        <li>
+                            <Link to={CINDEX}>See Challenges</Link>
+                        </li>
                         {/* <li>
                             <Link to={STATS}>Stats</Link>
                         </li> */}
@@ -41,7 +48,6 @@ class Header extends React.Component {
             );
         }
     }
-// Route util consts for the link tos
 
     render() {
         return (

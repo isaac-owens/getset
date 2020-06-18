@@ -61,7 +61,7 @@ class Login extends React.Component {
               </div>
               <div>
                 <input
-                  type="text"
+                  type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
                   className="input-field"
