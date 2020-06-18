@@ -11,7 +11,19 @@ class Dashboard extends Component {
             <div className="card card-styling one"></div>
             <div className="card card-styling two"></div>
             <div className="card card-styling three">
-              <ul>
+              <ul className="scroll-container">
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
                 <li>
                   <img src={process.env.PUBLIC_URL + '/logo192.png'} />
                 </li>

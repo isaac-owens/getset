@@ -16,6 +16,16 @@
   box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
 }
 
+.scroll-container {
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .one {
   position: absolute;
   background-color: $red;
@@ -34,8 +44,10 @@
 }
 
 .three { 
+  max-height: 550px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   z-index: 2;
   position: absolute;
