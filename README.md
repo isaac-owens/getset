@@ -79,15 +79,15 @@ GetSet utilizes a bit of drag and drop functionality that none of us previously 
 ### Team Lead Asst. / Flex
  
 
-## <img src="frontend/public/kevin.png" width="52"> Kevin
+## <img src="frontend/public/kevin.png" width="52" height="52"> Kevin
 ### Frontend Lead
  
 
-## <img src="frontend/public/danny.png" width="52"> Danny
+## <img src="frontend/public/danny.png" width="52" height="52"> Danny
 ### Backend Lead
  
 
-## <img src="frontend/public/isaac.jpg" width="52"> Isaac
+## <img src="frontend/public/isaac.jpg" width="52" height="52"> Isaac
 ### Team Lead
 
   
