@@ -6,7 +6,7 @@ export const SPLASH = '/';
 export const AUTH = '/session';
 export const DASH = '/dashboard';
 export const INDEX = '/hunts/index';
-export const CREATE = '/hunts'
+export const CREATE = '/hunts';
 export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
 
