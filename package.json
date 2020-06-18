@@ -33,19 +33,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.18",
     "multer": "^1.4.2",
-<<<<<<< HEAD
-    "node": "^14.4.0",
-    "node-uuid": ">= 1.4.1",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
-    "sass": "^1.26.8",
-=======
     "node-sass": "^4.14.1",
     "node-uuid": ">= 1.4.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "resemblejs": "^3.2.4",
->>>>>>> master
     "uuid": "^8.1.0",
     "validator": "^13.1.1"
   },
