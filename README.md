@@ -75,7 +75,7 @@ GetSet utilizes a bit of drag and drop functionality that none of us previously 
 
 
 # Meet the Team!
-![](frontend/public/zohaib.png =250x) ![](frontend/public/kevin.png =250x) ![](frontend/public/isaac.png =250x) ![](frontend/public/logo192.png)
+<img src="frontend/public/zohaib.png" width="48"> ![](frontend/public/kevin.png =250x) ![](frontend/public/isaac.png =250x) ![](frontend/public/logo192.png)
   
 # Future Directions
   * Create a mobile version of GetSet
