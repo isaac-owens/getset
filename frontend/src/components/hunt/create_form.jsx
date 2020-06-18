@@ -54,6 +54,8 @@ class CreateForm extends React.Component {
         //redirect 
       }
     });
+
+    this.props.createHunt(formData);
   }
 
  
