@@ -49,22 +49,26 @@ class Login extends React.Component {
             <h3>Please Sign In</h3>
             {/* {this.renderErrors()} */}
             <div className='session-form-input-field-container'>
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="input-field"
-                required=" "
-              />
-              <label className="input-label">Email</label>
-              <input
-                type="text"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="input-field"
-                required=" "
-              />
-              <label className="input-label">Password</label>
+              <div>
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  className="input-field"
+                  required=" "
+                />
+                <label className="input-label">Email</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="input-field"
+                  required=" "
+                />
+                <label className="input-label">Password</label>
+              </div>
             </div>
 
             <div className="bottom-form">
