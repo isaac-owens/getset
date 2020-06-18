@@ -8,6 +8,7 @@ export const DASH = '/dashboard';
 export const INDEX = '/hunts/index';
 export const CREATE = '/hunts'
 export const STATS = '/stats';
+export const CINDEX = '/challenges/index';
 
 const mapStateToProps = state => ({
     loggedIn: Boolean(state.session.user)
