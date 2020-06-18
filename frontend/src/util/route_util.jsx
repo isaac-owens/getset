@@ -10,10 +10,14 @@ export const CREATE = '/hunts';
 export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
 
-const mapStateToProps = state => ({
-    loggedIn: Boolean(state.session.user)
-    //   grabbing id - stored in session slice
-});
+const mapStateToProps = state => {
+//    debugger;
+    return({
+        loggedIn: state.session.isAuthenticated,
+    }
+        //   grabbing id - stored in session slice
+    );
+};
 
 const Auth = ({ component: Component, path, loggedIn }) => (
     <Route
@@ -24,14 +28,18 @@ const Auth = ({ component: Component, path, loggedIn }) => (
     />
 );
 
-const Protected = ({ component: Component, path, loggedIn }) => (
-    <Route
-        path={path}
-        render={
-            props => (loggedIn ? <Component {...props} /> : <Redirect to={AUTH} />)
-        }
-    />
-);
+const Protected = ({ component: Component, path, loggedIn }) => {
+    // debugger
+    return(
+        <Route
+            path={path}
+            render={
+                props => (loggedIn ? <Component {...props} /> : <Redirect to={AUTH} />)
+            }
+        />
+    )
+};
+// );
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));

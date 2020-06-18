@@ -23,7 +23,7 @@
 .create-form-header {
   font-size: 90px;
   text-align: center;
-  z-index: 4;
+  z-index: 100 !important;
 }
 
 .create-form-title-container {
@@ -68,10 +68,9 @@
 .create-form-preview-container {
   box-sizing: border-box;
   width: 30%;
-  height: 100%;
+  height: 50vh;
   background-color: $yellow;
   border-radius: 25px;
-
 }
 
 .create-form-img-preview{
@@ -100,8 +99,8 @@
 
 .create-form-drop-zone {
   text-align: center;
-  height: 520px;
-  width: 520px;
+  height: 40vh;
+  width: 45vh;
   background-color: $green;
   border-radius: 25px;
 }
@@ -126,7 +125,7 @@
 }
 
 .create-form-body-right-bottom {
-  width: 520px;
+  width: 45vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

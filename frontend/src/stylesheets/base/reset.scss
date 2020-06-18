@@ -36,7 +36,7 @@ html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-ad
 
 a { text-decoration: none; cursor: pointer;}
 
-a:focus { outline: thin dotted; }
+a:focus { outline: none; }
 
 a:active, a:hover { outline: 0; }
 
@@ -78,7 +78,7 @@ fieldset { border: 1px solid #c0c0c0;margin: 0 2px;padding: 0.35em 0.625em 0.75e
 
 legend { border: 0; padding: 0; }
 
-button, input, select, textarea { font-family: inherit; font-size: 100%; margin: 0;  vertical-align: baseline; *vertical-align: middle;} 
+button, input, select, textarea { font-family: inherit; font-size: 100%; margin: 0;  vertical-align: baseline; *vertical-align: middle; border-radius: 12px; height: 35px;}
 
 button, input { line-height: normal; }
 
@@ -90,6 +90,10 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 }
 
 button[disabled], html input[disabled] { cursor: default; }
+
+button:hover {
+    background-color: rgba($color: #ceb3d3d7, $alpha: 1);
+}
 
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
 
@@ -109,20 +113,4 @@ textarea { overflow: auto; vertical-align: top; }
 table { border-collapse: collapse; border-spacing: 0; }
 
 td { vertical-align: top; }
-@isaac-owens
- 
-Leave a comment
 
-Attach files by dragging & dropping, selecting or pasting them.
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

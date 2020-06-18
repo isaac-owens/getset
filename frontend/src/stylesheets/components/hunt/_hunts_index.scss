@@ -14,8 +14,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 50%;
-  height: 90%;
+  width: 69%;
+  height: 95%;
 }
 
 .hunts-index-list {
@@ -32,7 +32,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 80%;
+  width: 87%;
   height: 90%;
 
 }
@@ -62,7 +62,7 @@
   color: whitesmoke;
   opacity: .75;
   letter-spacing: .4;
-  transition: .1s;
+  transition: .2s;
 }
 .empty-index-link:hover {
   text-decoration: underline;
