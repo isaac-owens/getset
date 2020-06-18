@@ -8,9 +8,10 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <div className='footer'>
-                <footer>Get Set Radio Future</footer>
-            </div>
+          <div className="footer">
+              <span className='footer-headline'>Get Set - A Family Company</span>
+              <span className='footer-copyright'>Copyright &copy; 2020 GetSet</span>
+          </div>
         );
     }
 }
