@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AUTH, DASH, CREATE, INDEX, CINDEX } from '../../util/route_util';
+import { AUTH, CREATE, INDEX, CINDEX, SPLASH } from '../../util/route_util';
 
 class Header extends React.Component {
     constructor(props) {
@@ -20,16 +20,13 @@ class Header extends React.Component {
                 <div >
                     <ul className="header-nav-links">Hi {this.props.currentUser.username}!
                         <li>
-                            <Link to={DASH}>Dashboard</Link>
+                            <Link to={CREATE}>Create-Hunt </Link>
                         </li>
                         <li>
-                            <Link to={CREATE}>Create Hunt</Link>
+                            <Link to={INDEX}>See-Hunts </Link>
                         </li>
                         <li>
-                            <Link to={INDEX}>See Hunts</Link>
-                        </li>
-                        <li>
-                            <Link to={CINDEX}>See Challenges</Link>
+                            <Link to={CINDEX}>See-Challenges </Link>
                         </li>
                         {/* <li>
                             <Link to={STATS}>Stats</Link>
@@ -52,7 +49,9 @@ class Header extends React.Component {
     render() {
         return (
             <div className='header'>
-                <h1 className='header-logo'>GetSet</h1>
+                <Link to={SPLASH}>
+                    <h1 className='header-logo'>GetSet</h1>
+                </Link>
                 {this.getLinks()}
             </div>
         );
