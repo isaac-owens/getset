@@ -1,0 +1,38 @@
+.hunts-index {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+.hunts-index-page-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 90%;
+}
+
+.hunts-index-list {
+  width: 18%;
+  height: 80%;
+  background-color: green;
+}
+
+.hunt-photo-collection {
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: blue;
+  height: 70%;
+  width: 100%;
+}
+
+.hunts-index-create {
+  background-color: yellow;
+  width: 100%;
+}
