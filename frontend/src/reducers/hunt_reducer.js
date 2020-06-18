@@ -2,7 +2,6 @@ import {RECEIVE_HUNT, REMOVE_HUNT, ERRORS_HUNT, RECEIVE_HUNTS} from '../actions/
 
 
 const HuntReducer = (state={}, action) => {
-    debugger
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_HUNTS:
