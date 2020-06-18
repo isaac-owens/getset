@@ -53,63 +53,69 @@ class CreateForm extends React.Component {
   render() {
     // refactor preview to be a title card upload
     const preview = this.state.titlecardUrl ? (
-      <img height="200px" width="200px" src={this.state.photoUrl} />
-    ) : null;
+      <img height="200px" width="200px" src={this.state.photoUrl} />) : null;
 
-    // add page name to header
     return (
-      <div>
-        {/* <h3>Create a Hunt</h3> */}
-        <form onSubmit={this.handleSubmit}>
-          <input type="file" onChange={this.handleFile} />
-          <h3>Get Image</h3>
-          <br />
-          <h4>Preview</h4>
-          <div className="preview">{preview}</div>
-          <br />
-          <br />
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.update("title")}
-            required=" "
-          />
-          <label className="upload-labels">Title</label>
-          <br />
-          <input
-            type="date"
-            value={this.state.dueDate}
-            onChange={this.update("dueDate")}
-          />
-          <label className="upload-labels">Due Date ~within 3 days!</label>
-
-          <ul>
-            <li>
-              <button value="category1" onClick={this.update("category")}>
-                category1
-              </button>
-            </li>
-            <li>
-              <button value="category2" onClick={this.update("category")}>
-                category2
-              </button>
-            </li>
-            <li>
-              <button value="category3" onClick={this.update("category")}>
-                category3
-              </button>
-            </li>
-            <li>
-              <button value="category4" onClick={this.update("category")}>
-                category4
-              </button>
-            </li>
-          </ul>
-
-          <br />
-          <input type="submit" value="Set Game" />
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit} className="create-form">
+        <h3 className="create-form-header">Create a Hunt</h3>
+        <div className='create-form-input-field'>
+          <div className='create-form-title-container'>
+            <input
+              type="text"
+              value={this.state.title}
+              onChange={this.update("title")}
+              className='input-field'
+              required=" "
+            />
+            <label className="input-label">Title</label>
+          </div>
+          <div className="create-form-body">
+            <div className='create-form-preview-container'>
+              <label>Uploaded Photos</label>
+              <ul>
+                <li>Photo1</li>
+                <li>Photo2</li>
+                <li>Photo3</li>
+                <li>Photo4</li>
+              </ul>
+            {/* <div className="photo-preview">{preview}</div> */}
+            </div>
+            <div className="create-form-body-right">
+              <div className="create-form-drop-zone">
+                <input type="file" onChange={this.handleFile} />
+              </div>
+              <div className="create-form-body-right-bottom">
+                  <ul className="create-form-categories">
+                    <li>
+                      <button value="people" onClick={this.update("category")}>
+                        People
+                      </button>
+                    </li>
+                    <li>
+                      <button value="places" onClick={this.update("category")}>
+                        Places
+                      </button>
+                    </li>
+                    <li>
+                      <button value="thing" onClick={this.update("category")}>
+                        Things
+                      </button>
+                    </li>
+                    <li>
+                      <button value="miscillanious" onClick={this.update("category")}>
+                        Misc.
+                      </button>
+                    </li>
+                  </ul>
+                  <div className="create-form-submit-container">
+                    <span className="create-form-due-date">Due Date:  06/ 19/ 2020</span>
+                    <input className='create-form-submit button' type="submit" value="Set Game" />
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     );
   }
 }
