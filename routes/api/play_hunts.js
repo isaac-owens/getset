@@ -1,5 +1,3 @@
-
-
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -21,7 +19,6 @@ router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route"
 
 router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {
     // fetch hunt based on hunt_id
-    let arr = [];
     Hunt.findById(req.body.hunt_id)
         .then(playHunt => {
             // validating based on hunt images
@@ -42,7 +39,6 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
 
             req.files.map((item, idx) => {
                 //setting params for aws
-                arr.push(item);
                 var params = {
                     Bucket: process.env.AWS_BUCKET_NAME || keys.AWS_BUCKET_NAME,
                     Key: item.originalname,
@@ -75,7 +71,6 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                                 score: ele / numFiles,
                                                 images: imageAwsPath
                                             })
-                                            console.log(ele);
                                             playHunt.save().then(playHunt => res.json(playHunt));
                                         }
                                         
