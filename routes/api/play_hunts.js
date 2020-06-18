@@ -64,7 +64,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                 .scaleToSameSize()
                                 .ignoreAntialiasing()
                                 .onComplete(function(data) {
-                                    debugger
+                                    // debugger
                                     const playHunt = new PlayHunt({
                                         user: req.user.id,
                                         hunt_id: req.body.hunt_id,
@@ -73,6 +73,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                         images: imageAwsPath
                                     })
                                     ele += score
+                                    debugger
                                     if (numFiles - i === 1) {
                                         console.log(ele);
                                         playHunt.save().then(playHunt => res.json(playHunt));
