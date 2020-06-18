@@ -33,7 +33,7 @@ router.get("/:id", (req, res) => {
 })
 
 router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
-    
+    debugger
     const {errors, isValid} = validateHuntInput(req);
     if (!isValid) return res.status(400).json(errors);
     // setting up aws s3 bucket
