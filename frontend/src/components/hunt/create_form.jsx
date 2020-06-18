@@ -38,6 +38,8 @@ class CreateForm extends React.Component {
         formData.append("photo_collection", this.state.photoUrls[i]);
       }
     }
+
+    //submitting to server
     this.props.createHunt(formData)
     .then(res=>{
       if(res.type !== ERRORS_HUNT){
@@ -54,7 +56,6 @@ class CreateForm extends React.Component {
         //redirect 
       }
     });
-    this.props.createHunt(formData);
   }
 
  
