@@ -21,9 +21,9 @@ const App = () => (
                 <AuthRoute exact path={SPLASH} component={Splash} />
                 <AuthRoute exact path={AUTH} component={SessionFormContainer} />
                 <ProtectedRoute exact path={DASH} component={DashboardContainer} />
-                <Route exact path={CREATE} component={CreateFormContainer} />
-                <Route exact path={INDEX} component={HuntsIndexContainer} />
-                <Route exact path={CINDEX} component={ChallengeIndexContainer} />
+                <ProtectedRoute exact path={CREATE} component={CreateFormContainer} />
+                <ProtectedRoute exact path={INDEX} component={HuntsIndexContainer} />
+                <ProtectedRoute exact path={CINDEX} component={ChallengeIndexContainer} />
             </Switch>
          <Footer />
     </div>

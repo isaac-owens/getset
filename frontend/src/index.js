@@ -11,6 +11,7 @@ import axios from 'axios';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     const token = getToken();
+    // debugger;
     if (token) {
         setAuthToken(token);
 
