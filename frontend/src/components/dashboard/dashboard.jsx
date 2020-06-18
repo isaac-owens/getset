@@ -14,14 +14,14 @@ class Dashboard extends Component {
         const currentUser = this.props.currenUser
 
         return (
-          <div className='dashboard-layout'>
+          <div className="dashboard-layout">
             <div>
-               Hi, {currentUser.username}
-               <button onClick={this.logout}>Logout</button>
+              Hi, {currentUser.username}
+              <button onClick={this.logout}>Logout</button>
             </div>
-            <div className='card one'></div>
-            <div className='card two'></div>
-            <div className='card three'></div>
+            <div className="card card-styling one"></div>
+            <div className="card card-styling two"></div>
+            <div className="card card-styling three"></div>
           </div>
         );
     }

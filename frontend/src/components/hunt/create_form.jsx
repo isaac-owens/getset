@@ -69,9 +69,12 @@ class CreateForm extends React.Component {
     const preview = this.state.titlecardUrl ? (
       <img height="200px" width="200px" src={this.state.photoUrl} />) : null;
 
-    return (
-      <form onSubmit={this.handleSubmit} className="create-form">
-        <h3 className="create-form-header">Create a Hunt</h3>
+  return (
+    <div className="create-form">
+      <h3 className="create-form-header">Create a Hunt</h3>
+      <div className="card card-styling one"></div>
+      <div className="card card-styling two"></div>
+      <form onSubmit={this.handleSubmit} className="create-form-container three card card-styling">
         <div className='create-form-input-field'>
           <div className='create-form-title-container'>
             <input
@@ -84,7 +87,6 @@ class CreateForm extends React.Component {
               placeholder="Name Your Hunt..."
               required=" "
             />
-            {/* <label className="input-label">Title</label> */}
           </div>
           <div className="create-form-body">
             <div className='create-form-preview-container'>
@@ -133,6 +135,7 @@ class CreateForm extends React.Component {
           </div>
         </div>
       </form>
+    </div>
     );
   }
 }
