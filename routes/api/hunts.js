@@ -4,6 +4,9 @@ const Hunt = require("../../models/Hunt");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const validateHuntInput = require("../../validation/hunt");
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
+var AWS = require("aws-sdk");
 
 router.get("/test", (req, res) => res.json({msg: "This is the hunts route"}))
 
@@ -27,10 +30,17 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json("No hunt exists with this id"))
 })
 
-router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
+router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
+    
     const {errors, isValid} = validateHuntInput(req.body);
+    // debugger
     if (!isValid) return res.status(400).json(errors);
-
+    // setting up aws s3 bucket
+    let s3bucket = new AWS.S3({
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        region: process.env.AWS_REGION
+    });
     const hunt = new Hunt({
         title: req.body.title,
         category: req.body.category,
