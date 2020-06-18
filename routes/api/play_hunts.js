@@ -57,6 +57,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                         imageAwsPath.push(data.Location)
                         if (numFiles === imageAwsPath.length) {
                             // debugger
+                            let ele;
                             for (let i = 0; i < numFiles; i++) {
                                 resemble(imageAwsPath[i])
                                 .compareTo(playHunt.photo_collection[i])
@@ -71,7 +72,9 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                         score: 100 - data.misMatchPercentage,
                                         images: imageAwsPath
                                     })
+                                    ele += score
                                     if (numFiles - i === 1) {
+                                        console.log(ele);
                                         playHunt.save().then(playHunt => res.json(playHunt));
                                     }
                                     // break;
