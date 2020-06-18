@@ -1,4 +1,23 @@
-.header-nav-links{
+.header-hello {
+    color: $yellow;
+    font-weight: 850;
+    padding-bottom: 6px;
+}
+
+.header-nav-links {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    width: 55vh;
+}
+
+.header-nav-link {
+    color: $lavender;
+    letter-spacing: .1em;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.header-nav-link:hover {
+    color: $yellow;
 }
