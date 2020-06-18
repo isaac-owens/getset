@@ -63,7 +63,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                 .scaleToSameSize()
                                 .ignoreAntialiasing()
                                 .onComplete(function(data) {
-                                    debugger
+                                    // debugger
                                     const playHunt = new PlayHunt({
                                         user: req.user.id,
                                         hunt_id: req.body.hunt_id,
