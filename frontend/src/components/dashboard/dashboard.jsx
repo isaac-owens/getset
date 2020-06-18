@@ -27,6 +27,18 @@ class Dashboard extends Component {
                 <li>
                   <img src={process.env.PUBLIC_URL + '/logo192.png'} />
                 </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
+                <li>
+                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                </li>
               </ul>
             </div>
           </div>

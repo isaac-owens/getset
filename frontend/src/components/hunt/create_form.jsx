@@ -163,7 +163,7 @@ class CreateForm extends React.Component {
                 {
                   this.state.photoFiles.map((photoFile, idx)=>{
                     return (
-                    <li key={idx}>
+                    <li className="hunt-photo" key={idx}>
                       <img src={photoFile}/>
                       <FontAwesomeIcon className="create-from-img-delete" onClick={this.handlePhotoFileDelete(idx)} icon={faTimesCircle} color="red"/>
                     </li>
@@ -196,10 +196,10 @@ class CreateForm extends React.Component {
                       categories.map((category, idx)=>{
                         return (
                           <li key={idx}>
-                          <button value={category._id} onClick={this.update("category")}>
-                              {category.name}
-                          </button>
-                        </li>
+                            <button value={category._id} onClick={this.update("category")}>
+                                {category.name}
+                            </button>
+                          </li>
                         )
                       })
                     }

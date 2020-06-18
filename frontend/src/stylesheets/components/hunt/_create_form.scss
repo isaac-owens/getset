@@ -55,7 +55,6 @@
   width: 100%;
 }
 
-
 .create-form-body{
   display: flex;
   flex-direction: row;
@@ -80,11 +79,16 @@
 }
 
 
-.create-form-img-preview li img{
+.create-form-img-preview {
   height: 200px;
   width: 200px;
   object-fit: cover;
   position: relative;
+}
+
+.hunt-photo {
+  display: flex;
+  justify-content: center;
 }
 
 .create-from-img-delete{
@@ -100,7 +104,7 @@
 .create-form-drop-zone {
   text-align: center;
   height: 40vh;
-  width: 45vh;
+  width: 100%;
   background-color: $green;
   border-radius: 25px;
 }
