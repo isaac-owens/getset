@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import CategoryContainer from './category_container';
 
 class ChallengeIndexPage extends React.Component {
   constructor(props) {
@@ -10,10 +11,10 @@ class ChallengeIndexPage extends React.Component {
         <div className="challenge-index">
           <div className="challenge-index-list">
             <ul className="challenge-collection-list">
-              <button className="category">People</button>
-              <button className="category">Places</button>
-              <button className="category">Things</button>
-              <button className="category">Misc.</button>
+              <CategoryContainer />
+              <CategoryContainer />
+              <CategoryContainer />
+              <CategoryContainer />
             </ul>
           </div>
           <div className="challenge-index-page-right">
@@ -30,7 +31,9 @@ class ChallengeIndexPage extends React.Component {
                 <li className="challenge-photo">image here</li>
               </ul>
             </div>
-            <button className="challenge-toggle">Add a Hunt! / Remove a Hunt!</button>
+            <button className="challenge-toggle">
+              Add a Hunt! / Remove a Hunt!
+            </button>
           </div>
         </div>
       );
