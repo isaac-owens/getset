@@ -26,7 +26,7 @@ const receiveErrors = errors =>({
 
 export const fetchHunts = hunts => dispatch =>(
     APIUtil.fetchHunts(hunts).then(
-        hunts => dispatch(receiveHunts(hunts))
+        hunts => dispatch(receiveHunts(hunts.data))
     )
 );
 

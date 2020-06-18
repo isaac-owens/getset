@@ -26,7 +26,7 @@ class CreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let formData = new FormData(e.target);
+    let formData = new FormData();
 
     formData.set("title", this.state.title);
     formData.set("dueDate", this.state.dueDate);
@@ -54,7 +54,6 @@ class CreateForm extends React.Component {
         //redirect 
       }
     });
-
     this.props.createHunt(formData);
   }
 
@@ -129,7 +128,7 @@ class CreateForm extends React.Component {
       <h3 className="create-form-header">Create a Hunt</h3>
       <div className="card card-styling one"></div>
       <div className="card card-styling two"></div>
-      <form onSubmit={this.handleSubmit} className="create-form-container three card card-styling">
+      <div className="create-form-container three card card-styling">
         <div className='create-form-input-field'>
           <div className='create-form-title-container'>
             <input
@@ -207,13 +206,13 @@ class CreateForm extends React.Component {
                   </ul>
                   <div className="create-form-submit-container">
                     <span className="create-form-due-date">Due Date:  06/ 19/ 2020</span>
-                    <input className='create-form-submit button' type="submit" value="Set Game" />
+                    <input onClick={this.handleSubmit} className='create-form-submit button' value="Set Game" />
                   </div>
               </div>
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
     );
   }
