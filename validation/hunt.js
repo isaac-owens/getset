@@ -9,13 +9,13 @@ module.exports = function validateHuntInput(data) {
     const category = validText(data.body.category) ? data.body.category : '';
 
     if (Validator.isEmpty(title)) {
-        errors.title = 'title can not be blank';
+        errors.title = 'Title can not be blank';
     }
     if (photo_collection.length === 0) {
-        errors.photo_collection = 'photo_collection can not be empty';
+        errors.photo_collection = 'Photo collection can not be empty';
     }
     if (Validator.isEmpty(category)) {
-        errors.category = 'category can not be blank';
+        errors.category = 'Category can not be blank';
     }
     
     return {

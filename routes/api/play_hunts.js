@@ -18,13 +18,12 @@ var http = require("http");
 router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route" }));
 
 
-// router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('photo_collection', 10)], (req, res) => {
+
 router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {
     // fetch hunt based on hunt_id
     let arr = [];
     Hunt.findById(req.body.hunt_id)
         .then(playHunt => {
-            // debugger
             // validating based on hunt images
             const { errors, isValid } = validatePlayHuntInput(req, playHunt);
             if (!isValid) return res.status(400).json(errors);
@@ -36,10 +35,9 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
             });
 
             const numFiles = req.files.length;
-            // const imageAwsPath = [];
             const imageAwsPath = new Array(numFiles); 
             imageAwsPath.fill(null);
-            // debugger 
+            
 
 
             req.files.map((item, idx) => {
@@ -51,34 +49,25 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                     Body: fs.createReadStream(item.path),
                     ACL: 'public-read'
                 }
-                // debugger
                 // uploading image to aws
                 s3bucket.upload(params, function (err, data) {
-                    // debugger
                     if (err) {
                         // error 
                         res.json({ "error": true, "Message": err });
                     } else {
                         // success
 
-                        // imageAwsPath.push(data.Location)
                         imageAwsPath[idx] = data.Location;
-                        debugger
                         if (numFiles === imageAwsPath.length && !imageAwsPath.includes(null)) {
-                            // debugger
                             let ele = 0;
                             for (let i = 0; i < numFiles; i++) {
-                                // debugger
                                 resemble(imageAwsPath[i])
                                     .compareTo(playHunt.photo_collection[i])
                                     .scaleToSameSize()
                                     .ignoreAntialiasing()
                                     .onComplete(function (data) {
-                                        debugger
-                                        // debugger
                                         ele += 100 - data.misMatchPercentage;
                                         if (numFiles - i === 1) {
-                                            debugger
                                             const playHunt = new PlayHunt({
                                                 user: req.user.id,
                                                 hunt_id: req.body.hunt_id,
@@ -89,11 +78,11 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                             console.log(ele);
                                             playHunt.save().then(playHunt => res.json(playHunt));
                                         }
-                                        // break;
+                                        
                                     })
                             }
 
-                            // playHunt.score
+                            
 
                         }
 

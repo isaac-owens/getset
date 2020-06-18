@@ -11,6 +11,11 @@ export const fetchHunt = hunt => (
 );
 
 export const createHunt = hunt => (
-    axios.post('/api/hunts', hunt)
+    axios({
+        method: 'post',
+        url: '/api/hunts',
+        data: hunt,
+        headers: {'Content-Type': 'multipart/form-data' }
+        })
 );
 
