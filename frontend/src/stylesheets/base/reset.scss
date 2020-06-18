@@ -34,7 +34,7 @@ audio:not([controls]) {display: none;height: 0;}
 
 html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 
-a { text-decoration: none;}
+a { text-decoration: none; cursor: pointer;}
 
 a:focus { outline: thin dotted; }
 

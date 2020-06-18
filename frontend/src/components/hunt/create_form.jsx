@@ -41,7 +41,7 @@ class CreateForm extends React.Component {
       formData.append("hunt[photo]", this.state.videoFile);
     }
 
-    this.props.createVideo(formData);
+    this.props.createHunt(formData);
   }
 
   update(field) {
