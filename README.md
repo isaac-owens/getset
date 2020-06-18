@@ -1,6 +1,7 @@
 # [GetSet v.0.0.1](https://getsetapp.herokuapp.com/) 
 #### Ready, GetSet, PHOTO!!
 
+
 * Created w/ javascript 2.5.1 by Isaac Owens 2020
 ---
 ### GetSet is a photo comparison scavenger hunt game where users can create photo hunt challenges, participate in other photo hunt challenges, or enjoy a feed of other people's finished photo hunts.
@@ -74,7 +75,21 @@ GetSet utilizes a bit of drag and drop functionality that none of us previously 
 
 
 # Meet the Team!
-![](frontend/public/logo192.png) ![](frontend/public/logo192.png) ![](frontend/public/logo192.png) ![](frontend/public/logo192.png)
+ ## <img src="frontend/public/zohaib2.jpg" width="58" height="72"> Zohaib
+### Team Lead Asst. / Flex
+ 
+
+## <img src="frontend/public/kevin.png" width="58" height="72"> Kevin
+### Frontend Lead
+ 
+
+## <img src="frontend/public/danny.png" width="58" height="72"> Danny
+### Backend Lead
+ 
+
+## <img src="frontend/public/isaac.jpg" width="58" height="72"> Isaac
+### Team Lead
+
   
 # Future Directions
   * Create a mobile version of GetSet
