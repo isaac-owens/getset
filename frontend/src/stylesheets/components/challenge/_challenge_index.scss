@@ -1,0 +1,82 @@
+.challenge-index {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.challenge-index-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 18%;
+  height: 80%;
+  margin-top: 4%;
+}
+
+.challenge-collection-list {
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.category {
+  padding: 30px;
+  width: 150%;
+  border-radius: 25px;
+  background-color: $green;
+}
+
+.category:focus, .category:hover {
+  outline: none;
+  background-color: $yellow;
+}
+
+.challenge-index-page-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 90%;
+}
+
+.challenge-photo-collection {
+  border: 15px solid white;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: $blue;
+  height: 700px;
+  width: 100%;
+}
+
+.challenge-photos {
+  height: 700px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.challenge-photo {
+  height: 300px;
+  width: 70%;
+  background-color: white;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.challenge-toggle {
+  background-color: $yellow;
+  width: 100%;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
