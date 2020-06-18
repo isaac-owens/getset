@@ -75,7 +75,21 @@ GetSet utilizes a bit of drag and drop functionality that none of us previously 
 
 
 # Meet the Team!
-![](frontend/public/logo192.png) ![](frontend/public/logo192.png) ![](frontend/public/logo192.png) ![](frontend/public/logo192.png)
+ ## <img src="frontend/public/zohaib2.jpg" width="58" height="72"> Zohaib
+### Team Lead Asst. / Flex
+ 
+
+## <img src="frontend/public/kevin.png" width="58" height="72"> Kevin
+### Frontend Lead
+ 
+
+## <img src="frontend/public/danny.png" width="58" height="72"> Danny
+### Backend Lead
+ 
+
+## <img src="frontend/public/isaac.jpg" width="58" height="72"> Isaac
+### Team Lead
+
   
 # Future Directions
   * Create a mobile version of GetSet
