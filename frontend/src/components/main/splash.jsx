@@ -7,8 +7,8 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 class Splash extends React.Component {
 
     render() {
-        let forwardIcon = <FontAwesomeIcon icon={faChevronRight} size="3x" />;
-        let backIcon = <FontAwesomeIcon icon={faChevronLeft} size="3x" />;
+        let forwardIcon = <FontAwesomeIcon icon={faChevronRight} size="8x" />;
+        let backIcon = <FontAwesomeIcon icon={faChevronLeft} size="8x" />;
     
         return (
           <div className="splash">
