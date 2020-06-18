@@ -1,7 +1,11 @@
 .header-hello {
+    display: flex;
+    justify-content: center;
     color: $yellow;
     font-weight: 850;
     padding-bottom: 6px;
+    text-align: center;
+    width: 100%;
 }
 
 .header-nav-links {

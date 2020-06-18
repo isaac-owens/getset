@@ -18,9 +18,9 @@ class Header extends React.Component {
         if (this.props.currentUser) {
             return (
               <div>
-                <span className="header-hello">
+                <div className="header-hello">
                   Hi {this.props.currentUser.username}!
-                </span>
+                </div>
                 <ul className="header-nav-links">
                   <li>
                     <Link to={CREATE}
