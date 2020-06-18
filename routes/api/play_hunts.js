@@ -21,16 +21,16 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
             // validating based on hunt images
             const { errors, isValid } = validatePlayHuntInput(req, playHunt);
             if (!isValid) return res.status(400).json(errors);
-            // debugger
+            
             let s3bucket = new AWS.S3({
                 accessKeyId: process.env.AWS_ACCESS_KEY_ID || keys.AWS_ACCESS_KEY_ID,
                 secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || keys.AWS_SECRET_ACCESS_KEY,
                 region: process.env.AWS_REGION || keys.AWS_REGION
             });
-            // debugger
+            
             const numFiles = req.files.length;
             const imageAwsPath = []; 
-            // debugger
+            
             
             req.files.map((item) => {
                 //setting params for aws
@@ -48,9 +48,9 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                         res.json({ "error": true, "Message": err });
                     } else {
                         // success
-                        // debugger
+                        
                         imageAwsPath.push(data.Location)
-                        // debugger
+                
                         if (numFiles === imageAwsPath.length) {
                             const playHunt = new PlayHunt({
                                 user: req.user.id,
