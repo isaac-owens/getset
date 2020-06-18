@@ -15,13 +15,17 @@
   display: flex;
   justify-content: center;
   width: 70%;
+
 }
 
-.create-form-title-container .input-field{
+.create-form-title-container .input-field {
   width: 75%;
   height: 60px;
   margin-top: -43px;
   border-radius: 7px;
+  text-align: center;
+  font-size: 50px;
+  padding: 5px;
 }
 
 .create-form-input-field {

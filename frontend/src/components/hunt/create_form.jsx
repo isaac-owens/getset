@@ -50,6 +50,20 @@ class CreateForm extends React.Component {
     };
   }
 
+  // works without binding???
+  // when input field is clicked, removes placeholder
+  handlePlaceholder(e) {
+    e.currentTarget.placeholder = "";
+  }
+
+  // when input field is clicked then left, 
+  // replaces placeholder or keeps current input
+  checkPlaceholder(e) {
+    if (e.currentTarget.placeholder === "") {
+      e.currentTarget.placeholder = "Name Your Hunt...";
+    }
+  }
+  
   render() {
     // refactor preview to be a title card upload
     const preview = this.state.titlecardUrl ? (
@@ -65,9 +79,12 @@ class CreateForm extends React.Component {
               value={this.state.title}
               onChange={this.update("title")}
               className='input-field'
+              onClick={this.handlePlaceholder}
+              onBlur={this.checkPlaceholder}
+              placeholder="Name Your Hunt..."
               required=" "
             />
-            <label className="input-label">Title</label>
+            {/* <label className="input-label">Title</label> */}
           </div>
           <div className="create-form-body">
             <div className='create-form-preview-container'>
