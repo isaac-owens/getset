@@ -55,6 +55,7 @@
   width: 100%;
 }
 
+
 .create-form-body{
   display: flex;
   flex-direction: row;
@@ -72,6 +73,23 @@
   border-radius: 25px;
 }
 
+.create-form-img-preview{
+  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+.create-form-img-preview li img{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  position: relative;
+}
+
+.create-from-img-delete{
+}
+
 .create-form-body-right {
   display: flex;
   flex-direction: column;
@@ -85,6 +103,20 @@
   width: 45vh;
   background-color: $green;
   border-radius: 25px;
+}
+
+.create-form-submission-errors ul li, .create-form-drop-zone-error{
+  color: red;
+}
+
+.drop-zone{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .create-form-due-date{
@@ -122,4 +154,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.create-form-submit{
+  border: none;
 }
