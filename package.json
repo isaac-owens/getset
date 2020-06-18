@@ -36,6 +36,7 @@
     "node-uuid": ">= 1.4.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "resemblejs": "^3.2.4",
     "uuid": "^8.1.0",
     "validator": "^13.1.1"
   },
