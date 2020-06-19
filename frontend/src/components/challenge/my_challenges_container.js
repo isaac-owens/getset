@@ -1,15 +1,16 @@
 import {connect} from 'react-redux';
+import MyChallenges from './my_challenges';
 
-const mSTP = state => (
-    {
+// const mSTP = state => (
+//     {
 
-    }
-);
+//     }
+// );
 
-const mDTP = dispatch => (
-    {
+// const mDTP = dispatch => (
+//     {
 
-    }
-);
+//     }
+// );
 
-export default connect(null, null)(MyChallenges)
+export default connect(null)(MyChallenges);

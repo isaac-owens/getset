@@ -1,5 +1,5 @@
 import React from 'react';
-import HuntCollectionItem from './hunt_collection_item';
+import HuntCollectionItem from '../hunt/hunt_collection_item';
 
 class MyChallenges extends React.Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class MyChallenges extends React.Component {
       <div className="my-challenges">
         <div className="my-challenges-list card-styling">
           <ul className="my-challenges-collection-list">
-            {/* dynamically build user's hunt list */}
-            {/* {this.props.hunts.map(hunt => {
-              <HuntCollectionItem hunt={hunt}/>
+            {/* dynamically build user's accepted challenges list */}
+            {/* {this.props.challenges.map(challenge => {
+              <HuntCollectionItem challenge={challenge}/>
             })} */}
             <HuntCollectionItem klassName={true} />
             <HuntCollectionItem klassName={true} />
@@ -23,9 +23,28 @@ class MyChallenges extends React.Component {
         </div>
         <div className="my-challenges-page-right">
           <div className="my-challenges-photo-collection card-styling">
-            red area
+            <ul className="my-challenges-comparison-list">
+            {/* {photos.map(photo =>  */}
+              <li className="comparison-zone">
+                <div className="my-challenges-photo">image</div>
+                <div className="my-challenges-drop-zone"><span className="my-challenges-drop-zone-message">drop zone component</span></div>
+              </li>
+              <li className="comparison-zone">
+                <div className="my-challenges-photo">image</div>
+                <div className="my-challenges-drop-zone"><span className="my-challenges-drop-zone-message">drop zone component</span></div>
+              </li>
+              <li className="comparison-zone">
+                <div className="my-challenges-photo">image</div>
+                <div className="my-challenges-drop-zone"><span className="my-challenges-drop-zone-message">drop zone component</span></div>
+              </li>
+              <li className="comparison-zone">
+                <div className="my-challenges-photo">image</div>
+                <div className="my-challenges-drop-zone"><span className="my-challenges-drop-zone-message">drop zone component</span></div>
+              </li>
+              {/* )} */}
+            </ul>
           </div>
-          <button className="my-challenges-create"> Create a Hunt!</button>
+          <button className="my-challenges-create">Complete Challenge!</button>
         </div>
       </div>
     );
