@@ -6,7 +6,7 @@ class ChallengeIndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {selectedChallenge: undefined};
-    this.onChallegeClick = this.onChallegeClick.bind(this);
+    this.onChallengeClick = this.onChallengeClick.bind(this);
   }
 
   componentDidMount(){
@@ -14,8 +14,8 @@ class ChallengeIndexPage extends React.Component {
     this.props.fetchChallenges();
   }
 
-  onChallegeClick(selectedChallenge){
-   return e=>{
+  onChallengeClick(selectedChallenge){
+   return e =>{
       this.setState({selectedChallenge: selectedChallenge})
     }
   }
@@ -30,7 +30,7 @@ class ChallengeIndexPage extends React.Component {
                 categories.map((category, idx)=>{
                   return <CategoryContainer key={idx} category={category} 
                   challenges={challenges[category._id]} 
-                  onChallegeClick={this.onChallegeClick}/>
+                  onChallengeClick={this.onChallengeClick}/>
                 })
               }
             </ul>
