@@ -32,6 +32,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
+  overflow-y: scroll;
   width: 87%;
   height: 90%;
 }
@@ -56,6 +58,16 @@
   font-size: 30px;
   font-weight: 900;
   letter-spacing: .1em;
+}
+
+.hunt-photo-collection-images-container{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .hunts-index-create-active {

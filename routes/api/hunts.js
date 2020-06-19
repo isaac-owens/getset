@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:user_id", (req, res) => {
-    Hunt.find({users: req.param.user_id})
+    Hunt.find({user: req.params.user_id})
     .sort({date: -1})
     .then(hunts => {
         return res.json(hunts);
