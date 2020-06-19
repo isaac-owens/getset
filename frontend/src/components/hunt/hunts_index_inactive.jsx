@@ -29,8 +29,8 @@ class HuntsIndexPage extends React.Component {
           </div>
           <button className="hunts-index-create">
             <Link to={CREATE}>
-            Create a Hunt!
-          </Link>
+              <div className="create-a-hunt-link">Create a Hunt!</div>
+            </Link>
           </button>
         </div>
       </div>
