@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-    AuthRoute, ProtectedRoute, SPLASH, AUTH, DASH, INDEX, CREATE, CINDEX 
+    AuthRoute, ProtectedRoute, SPLASH, AUTH, DASH, INDEX, CREATE, CINDEX, MYCHALL
 } from '../util/route_util';
 import { Route, Switch, Link } from 'react-router-dom';
 
@@ -23,6 +23,7 @@ const App = () => (
                 <ProtectedRoute exact path={CREATE} component={CreateFormContainer} />
                 <ProtectedRoute exact path={INDEX} component={HuntsIndexPageContainer} />
                 <ProtectedRoute exact path={CINDEX} component={ChallengeIndexContainer} />
+                <ProtectedRoute exact path={MYCHALL} component={MyChallengesContainer} />
             </Switch>
          <Footer />
     </div>
