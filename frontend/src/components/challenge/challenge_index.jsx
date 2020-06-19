@@ -24,6 +24,7 @@ class ChallengeIndexPage extends React.Component {
   toggleMyChallage(toggle){
 
     return e=>{
+      debugger
       if(toggle == "add"){
         this.props.addToMyChallenges(this.state.selectedChallenge._id);
       }else{
