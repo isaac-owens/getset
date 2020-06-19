@@ -6,12 +6,8 @@ class ChallengeIndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {selectedChallenge: undefined};
-<<<<<<< HEAD
     this.onChallengeClick = this.onChallengeClick.bind(this);
-=======
-    this.onChallegeClick = this.onChallegeClick.bind(this);
     this.toggleMyChallage = this.toggleMyChallage.bind(this);
->>>>>>> master
   }
 
   componentDidMount(){
@@ -70,10 +66,10 @@ class ChallengeIndexPage extends React.Component {
               this.state.selectedChallenge ? 
               this.props.myChallenges.includes(this.state.selectedChallenge._id)?
               <button onClick={this.toggleMyChallage("remove")} className="challenge-toggle">
-                Remove a Hunt!
+                Remove This Challenge!
               </button> :
               <button onClick={this.toggleMyChallage("add")} className="challenge-toggle">
-              Add a Hunt!
+              Accept this Challenge!
               </button>
             : <></>
             }
