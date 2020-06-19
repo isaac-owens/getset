@@ -95,8 +95,11 @@
 }
 
 .red-ex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 96%;
   z-index: 50 !important;
-  
 }
 
 .red-ex svg {
