@@ -45,6 +45,7 @@ class CreateForm extends React.Component {
           title: "",
           dueDate: Date.now,
           category: "",
+          categoryName: "",
           author: this.props.currentUser,
           photoFiles: [],
           photoUrls: [],
@@ -56,6 +57,9 @@ class CreateForm extends React.Component {
 
   update(field) {
     return (e) => {
+      if(field === 'category'){
+        this.setState({ categoryName: e.currentTarget.name })
+      }
       this.setState({ [field]: e.currentTarget.value });
     };
   }
@@ -123,9 +127,7 @@ class CreateForm extends React.Component {
 
   return (
     <div className="create-form">
-      <div className="create-form-header">
-        Create a Hunt
-      </div>
+      <div className="create-form-header">Create a Hunt</div>
       <div className="card card-styling one"></div>
       <div className="card card-styling two"></div>
       <div className="create-form-container three card card-styling">
@@ -156,10 +158,12 @@ class CreateForm extends React.Component {
                 {this.state.photoFiles.map((photoFile, idx) => {
                   return (
                     <li className="hunt-photo" key={idx}>
-                    <div
-                      className="red-ex"
-                      onClick={this.handlePhotoFileDelete(idx)}
-                    >{redEx}</div>
+                      <div
+                        className="red-ex"
+                        onClick={this.handlePhotoFileDelete(idx)}
+                      >
+                        {redEx}
+                      </div>
                       <img src={photoFile} />
                     </li>
                   );
@@ -185,11 +189,16 @@ class CreateForm extends React.Component {
                 </Dropzone>
               </div>
               <div className="create-form-body-right-bottom">
+                <div className="current-category">
+                  <span className='current-category-title'>Category:</span>
+                  {this.state.categoryName}
+                </div>
                 <ul className="create-form-categories">
                   {categories.map((category, idx) => {
                     return (
                       <li key={idx}>
                         <button
+                          name={category.name}
                           value={category._id}
                           onClick={this.update("category")}
                         >

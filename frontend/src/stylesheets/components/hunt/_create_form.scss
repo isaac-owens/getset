@@ -154,7 +154,22 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+.current-category {
+  box-sizing: border-box;
+  margin-top: 7px;
+  height: 90px;
+  width: 50%;
+  color: $yellow;
+  font-weight: bolder;
+  font-size: 60px;
+  letter-spacing: .12em;
+}
+
+.current-category-title {
+  color: $red;
 }
 
 .create-form-categories {
@@ -164,7 +179,7 @@
   width: 140px;
 }
 
-.create-form-categories button{
+.create-form-categories button {
   margin: 2px;
   width: 64px;
   background-color: $lavender;
@@ -172,8 +187,8 @@
 }
 
 .create-form-categories button:hover,
-.create-form-categories button:enabled,
-.create-form-categories button:active{
+.create-form-categories button:active,
+.create-form-categories button::selection{
   background-color: $green;
 }
 
