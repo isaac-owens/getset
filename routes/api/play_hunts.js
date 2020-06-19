@@ -15,6 +15,31 @@ var http = require("http");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route" }));
 
+router.get("/:user_id", (req, res) => {
+    PlayHunt.find({user: req.params.user_id})
+    .sort({date: -1})
+    .then(playhunts => res.json(playhunts))
+    .catch(err => res.status(404).json("this user does not have any played hunts"))
+})
+
+router.get("/:id", (req, res) => {
+    PlayHunt.findById(req.params.id)
+    .then(playhunt => res.json(playhunt))
+    .catch(err => res.status(404).json("No playhunt exists with this id"))
+})
+
+router.get("/", (req, res) => {
+    PlayHunt.find()
+    .sort({date: -1})
+    .then(playhunts => res.json(playhunts))
+    .catch(err => res.status(404).json("No challenges found"))
+})
+
+router.delete("/:id", (req, res) => {
+    PlayHunt.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Playhunt deleted"))
+    .catch(err => res.status(404).json("Playhunt was not found"))
+})
 
 
 router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {
