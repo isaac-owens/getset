@@ -11,6 +11,7 @@ class Login extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.populateDemo = this.populateDemo.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     update(field) {

@@ -13,7 +13,7 @@ class Dashboard extends Component {
             <div className="card card-styling three">
               <ul className="scroll-container">
                 <li>
-                  <img src={process.env.PUBLIC_URL + '/logo192.png'} />
+                  <img src={process.env.PUBLIC_URL + '/cheetah.png'} />
                 </li>
                 <li>
                   <img src={process.env.PUBLIC_URL + '/logo192.png'} />
