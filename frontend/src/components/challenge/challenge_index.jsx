@@ -1,35 +1,52 @@
 import React from 'react';
 import CategoryContainer from './category_container';
+import Category from './category';
 
 class ChallengeIndexPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {selectedChallenge: undefined};
+    this.onChallegeClick = this.onChallegeClick.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.fetchChallenges();
+    this.props.fetchCategories();
+  }
+
+  onChallegeClick(selectedChallenge){
+   return e=>{
+      this.setState({selectedChallenge: selectedChallenge})
+    }
   }
 
   render(){
+    const {challenges, categories} = this.props;
       return (
         <div className="challenge-index">
           <div className="challenge-index-list">
             <ul className="challenge-collection-list">
-              <CategoryContainer />
-              <CategoryContainer />
-              <CategoryContainer />
-              <CategoryContainer />
+              {
+                categories.map((category, idx)=>{
+                  return <CategoryContainer key={idx} category={category} 
+                  challenges={challenges[category._id]} 
+                  onChallegeClick={this.onChallegeClick}/>
+                })
+              }
             </ul>
           </div>
           <div className="challenge-index-page-right">
             <div className="challenge-photo-collection card-styling">
               <ul className="challenge-photos">
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
-                <li className="challenge-photo">image here</li>
+              
+                {
+                  this.state.selectedChallenge ?
+                  this.state.selectedChallenge.photo_collection.map((photo, idx)=>{
+                    return <li key={idx} className="challenge-photo"><img src={photo}></img></li>
+                  })
+                   :
+                  <></>
+                }
               </ul>
             </div>
             <button className="challenge-toggle">

@@ -11,14 +11,26 @@ var upload = multer({ dest: 'uploads/' });
 var AWS = require("aws-sdk");
 const keys = require('../../config/keys_dev');
 var fs = require('file-system');
+var Category = require('../../models/Category');
+const { default: CategoryReducer } = require("../../frontend/src/reducers/category_reducer");
 
 router.get("/test", (req, res) => res.json({msg: "This is the hunts route"}))
 
+//fetch hunts based on categories
+//res will be each category id will have all hunts under it
 router.get("/", (req, res) => {
-    Hunt.find()
+    Category.find()
     .sort({date: -1})
-    .then(hunts => {
-        return res.json(hunts);
+    .then(categories => {
+       let combo = {}
+        for (let i = 0; i < categories.length; i++) {
+            Hunt.find({category: categories[i]}).then(hunts=>{
+                combo[categories[i]._id] = hunts;
+                if(i==categories.length-1){
+                    return res.json(combo)
+                }
+            })
+        }
     }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
 });
 
@@ -55,7 +67,6 @@ router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, re
     .then(() => res.json("Hunt deleted"))
     .catch(err => res.status(404).json('error'))
 })
-//
 
 
 router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
