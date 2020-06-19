@@ -50,7 +50,7 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json("No hunt exists with this id"))
 })
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
     Hunt.findByIdAndDelete(req.params.id)
     .then(() => res.json("Hunt deleted"))
     .catch(err => res.status(404).json('error'))
