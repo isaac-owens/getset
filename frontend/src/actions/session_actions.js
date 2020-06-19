@@ -11,10 +11,6 @@ const receiveCurrentUser = (currentUser) => ({
   currentUser,
 });
 
-// This will be used to redirect the user to the login page upon signup
-const receiveUserSignIn = () => ({
-  type: RECEIVE_USER_SIGN_IN,
-});
 
 const receiveErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
@@ -27,7 +23,7 @@ const logoutUser = () => ({
 
 export const signup = (user) => (dispatch) =>
   APIUtil.signup(user).then(
-    () => dispatch(receiveUserSignIn()),
+    (currentUser) => dispatch(receiveCurrentUser(currentUser.data)),
     (err) => dispatch(receiveErrors(err.response.data))
   );
 
