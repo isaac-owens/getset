@@ -1,5 +1,9 @@
 import React from 'react';
+import { CREATE } from '../../util/route_util';
+import { Link } from 'react-router-dom';
+
 import HuntCollectionItem from './hunt_collection_item';
+
 
 class HuntsIndexPage extends React.Component {
   constructor(props){
@@ -20,7 +24,7 @@ class HuntsIndexPage extends React.Component {
         </div>
         <div className="hunts-index-page-right">
           <div className="hunt-photo-collection card-styling">
-            Looks like you have no hunts... <a className="empty-index-link">Create a hunt!</a>
+            Looks like you have no hunts... <Link to={CREATE} className="empty-index-link">Create a hunt!</Link>
           </div>
           <button className="hunts-index-create"> Create a Hunt!</button>
         </div>
