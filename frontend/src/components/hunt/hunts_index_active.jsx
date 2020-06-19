@@ -42,7 +42,11 @@ class HuntsIndexActive extends React.Component {
                 hunts[this.state.selectedCollectionIdx].photo_collection.map((photo, idx)=>{
                   console.log(photo);
                   return (
-                    <li key={idx}><img src={photo}></img></li>
+                    <li key={idx}>
+                      <img 
+                      src={photo}
+                      className="my-hunts-image"></img>
+                    </li>
                   )
                 })
               }
