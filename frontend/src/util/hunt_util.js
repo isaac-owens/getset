@@ -15,7 +15,6 @@ export const createHunt = hunt => (
         method: 'post',
         url: '/api/hunts',
         data: hunt,
-        headers: {'Content-Type': 'multipart/form-data' }
-        })
+        headers: { 'Content-Type': 'multipart/form-data' }
+    })
 );
-

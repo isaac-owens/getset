@@ -4,7 +4,7 @@ import HuntsIndexPage from './hunts_index_page';
 
 const mSTP = state => {
   return {
-    
+    hunts: state.something.hunts
   }
 }
 
@@ -14,4 +14,4 @@ const mDTP = dispatch => (
     }
 )
 
-export default connect(null, mDTP)(HuntsIndexPage)
+export default connect(mSTP, mDTP)(HuntsIndexPage)
