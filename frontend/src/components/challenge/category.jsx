@@ -48,10 +48,8 @@ class Category extends React.Component {
     } else {
       return (
         <button className="category card-styling" onClick={this.handleClick}>
-          <li>
-            <div>
+          <li className="category-title-wrapper">
             <span className="category-title">{category ? category.name : "No Category"}</span>
-            </div>
             {this.state.open ? (
               <ul style={myStyle}>
                 {

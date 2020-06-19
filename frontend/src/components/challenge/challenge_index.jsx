@@ -69,7 +69,6 @@ class ChallengeIndexPage extends React.Component {
                 }
               </ul>
             </div>
-            {/* / Remove a Hunt! */}
             {
               this.state.selectedChallenge ? 
               this.props.myChallenges.includes(this.state.selectedChallenge._id)?
