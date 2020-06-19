@@ -3,9 +3,8 @@ import {
     AuthRoute, ProtectedRoute, SPLASH, AUTH, DASH, INDEX, CREATE, CINDEX 
 } from '../util/route_util';
 import { Route, Switch, Link } from 'react-router-dom';
+
 import CreateFormContainer from './hunt/create_form_container';
-
-
 import HeaderContainer from './global/header_container';
 import Footer from './global/footer';
 import Splash from './main/splash';

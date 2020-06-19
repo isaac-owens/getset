@@ -10,6 +10,7 @@ class HuntsIndexPage extends React.Component {
     super(props);
   }
 
+  
   // component that renders is the user currently has made no hunts 
   render() {
     return (
@@ -26,7 +27,11 @@ class HuntsIndexPage extends React.Component {
           <div className="hunt-photo-collection card-styling">
             Looks like you have no hunts... <Link to={CREATE} className="empty-index-link">Create a hunt!</Link>
           </div>
-          <button className="hunts-index-create"> Create a Hunt!</button>
+          <button className="hunts-index-create">
+            <Link to={CREATE}>
+            Create a Hunt!
+          </Link>
+          </button>
         </div>
       </div>
     );
