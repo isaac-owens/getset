@@ -9,6 +9,7 @@ export const INDEX = '/hunts/index';
 export const CREATE = '/hunts/create';
 export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
+export const MYCHALL = '/mychallenges'
 
 const mapStateToProps = state => {
     return({

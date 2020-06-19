@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AUTH, CREATE, INDEX, CINDEX, SPLASH } from '../../util/route_util';
+import { AUTH, CREATE, INDEX, CINDEX, SPLASH, MYCHALL } from '../../util/route_util';
 
 class Header extends React.Component {
     constructor(props) {
@@ -30,11 +30,11 @@ class Header extends React.Component {
                   </li>
                   <li>
                     <Link to={INDEX}
-                    className="header-nav-link">Hunts</Link>
+                    className="header-nav-link">My Hunts</Link>
                   </li>
                   <li>
-                    <Link to={CINDEX}
-                    className="header-nav-link">Challenges</Link>
+                    <Link to={MYCHALL}
+                    className="header-nav-link">My Challenges</Link>
                   </li>
                   {/* <li>
                             <Link to={STATS}>Stats</Link>
