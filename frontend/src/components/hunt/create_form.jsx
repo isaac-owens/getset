@@ -21,10 +21,7 @@ class CreateForm extends React.Component {
     this.handlePhotoFileDelete = this.handlePhotoFileDelete.bind(this);
   }
 
- 
-
-
-  handleSubmit(e) {
+   handleSubmit(e) {
     e.preventDefault();
     let formData = new FormData();
 
@@ -56,8 +53,6 @@ class CreateForm extends React.Component {
       }
     });
   }
-
- 
 
   update(field) {
     return (e) => {
@@ -121,8 +116,11 @@ class CreateForm extends React.Component {
     this.props.fetchCategories();
   }
   
+
   render() {
+    let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
     const categories = this.props.categories ? this.props.categories : [];
+
   return (
     <div className="create-form">
       <div className="create-form-header">
@@ -158,13 +156,11 @@ class CreateForm extends React.Component {
                 {this.state.photoFiles.map((photoFile, idx) => {
                   return (
                     <li className="hunt-photo" key={idx}>
+                    <div
+                      className="red-ex"
+                      onClick={this.handlePhotoFileDelete(idx)}
+                    >{redEx}</div>
                       <img src={photoFile} />
-                      <FontAwesomeIcon
-                        className="create-from-img-delete"
-                        onClick={this.handlePhotoFileDelete(idx)}
-                        icon={faTimesCircle}
-                        color="red"
-                      />
                     </li>
                   );
                 })}
@@ -179,21 +175,17 @@ class CreateForm extends React.Component {
                       <p className="create-form-drop-zone-error">
                         {this.state.errors}
                       </p>
-                      <p>
-                        Drag'n'drop photoFiles, or click to select photoFiles
-                      </p>
+                      <div className="drop-zone-target">
+                        <p>
+                          Drag'n'drop photos here, or click to select photoFiles
+                        </p>
+                      </div>
                     </div>
                   )}
                 </Dropzone>
               </div>
               <div className="create-form-body-right-bottom">
                 <ul className="create-form-categories">
-                  {/* <li>
-                      <button value="people" onClick={this.update("category")}>
-                        People
-                      </button>
-                    </li> */}
-
                   {categories.map((category, idx) => {
                     return (
                       <li key={idx}>
@@ -208,9 +200,6 @@ class CreateForm extends React.Component {
                   })}
                 </ul>
                 <div className="create-form-submit-container">
-                  <span className="create-form-due-date">
-                    Due Date: 06/ 19/ 2020
-                  </span>
                   <button
                     onClick={this.handleSubmit}
                     className="create-form-submit button"
