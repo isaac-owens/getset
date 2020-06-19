@@ -53,7 +53,6 @@ class CreateForm extends React.Component {
           photoUrls: [],
           errors: ""
         })
-        //redirect 
       }
     });
   }
@@ -126,18 +125,20 @@ class CreateForm extends React.Component {
     const categories = this.props.categories ? this.props.categories : [];
   return (
     <div className="create-form">
-      <h3 className="create-form-header">Create a Hunt</h3>
+      <div className="create-form-header">
+        Create a Hunt
+      </div>
       <div className="card card-styling one"></div>
       <div className="card card-styling two"></div>
       <div className="create-form-container three card card-styling">
-        <div className='create-form-input-field'>
-          <div className='create-form-title-container'>
+        <div className="create-form-input-field">
+          <div className="create-form-title-container">
             <input
               type="text"
               name="title"
               value={this.state.title}
               onChange={this.update("title")}
-              className='input-field'
+              className="input-field"
               onClick={this.handlePlaceholder}
               onBlur={this.checkPlaceholder}
               placeholder="Name Your Hunt..."
@@ -145,31 +146,28 @@ class CreateForm extends React.Component {
           </div>
           <div className="create-form-submission-errors">
             <ul>
-            {
-              Object.values(this.props.errors).map((error, idx)=>{
-                return (
-                  <li key={idx}>
-                    {error}
-                  </li>
-                )
-              })
-            }
+              {Object.values(this.props.errors).map((error, idx) => {
+                return <li key={idx}>{error}</li>;
+              })}
             </ul>
           </div>
           <div className="create-form-body">
-            <div className='create-form-preview-container'>
+            <div className="create-form-preview-container">
               <label>Uploaded Photos</label>
               <ul className="create-form-img-preview">
-                {
-                  this.state.photoFiles.map((photoFile, idx)=>{
-                    return (
+                {this.state.photoFiles.map((photoFile, idx) => {
+                  return (
                     <li className="hunt-photo" key={idx}>
-                      <img src={photoFile}/>
-                      <FontAwesomeIcon className="create-from-img-delete" onClick={this.handlePhotoFileDelete(idx)} icon={faTimesCircle} color="red"/>
+                      <img src={photoFile} />
+                      <FontAwesomeIcon
+                        className="create-from-img-delete"
+                        onClick={this.handlePhotoFileDelete(idx)}
+                        icon={faTimesCircle}
+                        color="red"
+                      />
                     </li>
-                    )
-                  })
-                }
+                  );
+                })}
               </ul>
             </div>
             <div className="create-form-body-right">
@@ -178,43 +176,55 @@ class CreateForm extends React.Component {
                   {({ getRootProps, getInputProps }) => (
                     <div {...getRootProps({ className: "drop-zone" })}>
                       <input {...getInputProps()} />
-                      <p className="create-form-drop-zone-error">{this.state.errors}</p>
-                      <p>Drag'n'drop photoFiles, or click to select photoFiles</p>
+                      <p className="create-form-drop-zone-error">
+                        {this.state.errors}
+                      </p>
+                      <p>
+                        Drag'n'drop photoFiles, or click to select photoFiles
+                      </p>
                     </div>
                   )}
                 </Dropzone>
               </div>
               <div className="create-form-body-right-bottom">
-                  <ul className="create-form-categories">
-                    {/* <li>
+                <ul className="create-form-categories">
+                  {/* <li>
                       <button value="people" onClick={this.update("category")}>
                         People
                       </button>
                     </li> */}
-                    
-                    {
-                      categories.map((category, idx)=>{
-                        return (
-                          <li key={idx}>
-                            <button value={category._id} onClick={this.update("category")}>
-                                {category.name}
-                            </button>
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
-                  <div className="create-form-submit-container">
-                    <span className="create-form-due-date">Due Date:  06/ 19/ 2020</span>
-                    <button onClick={this.handleSubmit} className='create-form-submit button'>Set Game</button>
-                  </div>
+
+                  {categories.map((category, idx) => {
+                    return (
+                      <li key={idx}>
+                        <button
+                          value={category._id}
+                          onClick={this.update("category")}
+                        >
+                          {category.name}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="create-form-submit-container">
+                  <span className="create-form-due-date">
+                    Due Date: 06/ 19/ 2020
+                  </span>
+                  <button
+                    onClick={this.handleSubmit}
+                    className="create-form-submit button"
+                  >
+                    Set Game
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
   }
 }
 
