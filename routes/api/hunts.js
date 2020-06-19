@@ -13,6 +13,7 @@ const keys = require('../../config/keys_dev');
 var fs = require('file-system');
 var Category = require('../../models/Category');
 const { default: CategoryReducer } = require("../../frontend/src/reducers/category_reducer");
+const { route } = require("./play_hunts");
 
 router.get("/test", (req, res) => res.json({msg: "This is the hunts route"}))
 
@@ -34,6 +35,7 @@ router.get("/", (req, res) => {
     }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
 });
 
+//fetch user created hunts
 router.get("/:user_id", (req, res) => {
     Hunt.find({user: req.params.user_id})
     .sort({date: -1})
@@ -42,6 +44,7 @@ router.get("/:user_id", (req, res) => {
     }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
 });
 
+//fetch user state, play a hunt score
 router.get("/stats/:user_id", (req, res) => {
     PlayHunt.find({user: req.params.user_id})
     .sort({date: -1})
@@ -49,23 +52,49 @@ router.get("/stats/:user_id", (req, res) => {
         .catch(err => res.status(404).json({ nohuntsfound: "No hunts were found" }))
 })
 
-
+//fetch hunt detail by Id
 router.get("/:hunt_id", (req, res) => {
     Hunt.find({hunt: req.params.hunt_id})
     .then(hunts => res.json(hunts))
     .catch(err => res.status(404).json({nohuntfound: "This hunt was not found"}))
 })
 
+//fetch hunt detail by Id
 router.get("/:id", (req, res) => {
     Hunt.findById(req.params.id)
     .then(hunt => res.json(hunt))
     .catch(err => res.status(404).json("No hunt exists with this id"))
 })
 
-router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-    Hunt.findByIdAndDelete(req.params.id)
-    .then(() => res.json("Hunt deleted"))
-    .catch(err => res.status(404).json('error'))
+// //delete hunt detail by Id
+// router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
+//     Hunt.findByIdAndDelete(req.params.id)
+//     .then(() => res.json("Hunt deleted"))
+//     .catch(err => res.status(404).json('error'))
+// })
+
+//add hunt to user play future list
+router.post('/add/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.update(
+        { _id : req.user.id},
+        { $push: {"my_challenges": req.body.hunt_id}
+    })
+    .then((user) => {
+      return  res.json("Hunt Added")
+    })
+    .catch(err => res.status(404).json(err))
+})
+
+//remove hunt from future play list
+router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.update(
+        { _id : req.user.id},
+        { $pull: {"my_challenges": req.body.hunt_id}
+    })
+    .then((user) => {
+      return  res.json(user)
+    })
+    .catch(err => res.status(404).json(err))
 })
 
 
