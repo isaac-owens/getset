@@ -13,7 +13,7 @@ class HuntsIndexPage extends React.Component {
 
   render() {
     return (
-      false ? 
+      true ? 
       <HuntsIndexActive /> 
       : 
       <HuntsIndexInactive />

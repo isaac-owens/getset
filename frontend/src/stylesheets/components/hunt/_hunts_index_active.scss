@@ -1,15 +1,14 @@
-.hunts-index {
+.hunts-index-active {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: $tan;
+  // background-color: $tan;
   height: 100%;
   width: 100%;
-  opacity: .5;
 }
 
-.hunts-index-page-right {
+.hunts-index-page-right-active{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -18,16 +17,16 @@
   height: 95%;
 }
 
-.hunts-index-list {
+.hunts-index-list-active {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 18%;
   height: 80%;
-  border: 15px solid gray;
+  border: 15px solid white;
 }
 
-.hunts-collection-list {
+.hunts-collection-list-active{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -36,15 +35,14 @@
   height: 90%;
 }
 
-.hunt-photo-collection {
-  border: 15px solid gray;
+.hunt-photo-collection-active {
+  border: 15px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   padding: 10px;
   border-radius: 25px;
-  background-color: rgba(48, 46, 46, 0.61);
   height: 70%;
   width: 100%;
   font-size: 30px;
@@ -52,7 +50,7 @@
   letter-spacing: .1em;
 }
 
-.hunts-index-create {
+.hunts-index-create-active {
   display: flex;
   flex: column;
   align-items: center;
@@ -61,25 +59,27 @@
   width: 100%;
 }
 
-.create-a-hunt-link {
+.create-a-hunt-link-active {
   width: 100%;
   font-size: 24px;
   font-weight: bolder;
   letter-spacing: .2em;
 }
 
-.create-a-hunt-link:focus, .create-a-hunt-link:active {
+.create-a-hunt-link-active:focus,
+.create-a-hunt-link-active:active{
   outline: none;
   color: rgba(31, 31, 31, 0.61);
 }
 
-.empty-index-link {
+.empty-index-link-active {
   color: whitesmoke;
   opacity: .75;
   letter-spacing: .4;
   transition: .2s;
 }
-.empty-index-link:hover {
+
+.empty-index-link-active:hover {
   text-decoration: underline;
   letter-spacing: .15em;
 }
