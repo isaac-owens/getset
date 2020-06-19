@@ -6,7 +6,7 @@ import {
     RECEIVE_USER_HUNT 
 } from '../actions/user_hunt_actions';
 import {
-    RECEIVE_MY_CHALLENGES, REMOVE_MY_CHALLENGES
+    RECEIVE_MY_CHALLENGES, REMOVE_MY_CHALLENGES, RECEIVE_MY_CHALLENGES_DATA
 } from '../actions/challenge_actions';
 
 
@@ -40,6 +40,9 @@ const SessionReducer = (state = initialState, action) => {
             }else{
                 nextState.user.myChallenges = [action.challengeId];
             }
+            return nextState;
+        case RECEIVE_MY_CHALLENGES_DATA:
+                nextState.user.myChallengesData = action.challenges;
             return nextState;
         case REMOVE_MY_CHALLENGES:
             if(nextState.user.myChallenges){

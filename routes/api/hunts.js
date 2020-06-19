@@ -66,12 +66,6 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json("No hunt exists with this id"))
 })
 
-// //delete hunt detail by Id
-// router.delete("/:id", passport.authenticate('jwt', { session: false }), (req, res) => {
-//     Hunt.findByIdAndDelete(req.params.id)
-//     .then(() => res.json("Hunt deleted"))
-//     .catch(err => res.status(404).json('error'))
-// })
 
 //add hunt to user play future list
 router.post('/add/', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -96,6 +90,25 @@ router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) 
     })
     .catch(err => res.status(404).json(err))
 })
+
+
+//fetch added challenges details
+router.get("/my/challenges", passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findById(req.user.id)
+        .sort({ date: -1 })
+        .then(user => {
+            let combo = {}
+            for (let i = 0; i < user.my_challenges.length; i++) {
+                const myChallenges = user.my_challenges[i];
+                Hunt.find({ _id: myChallenges }).then(hunts => {
+                    combo[myChallenges] = hunts;
+                    if (i == user.my_challenges.length - 1) {
+                        return res.json(combo)
+                    }
+                })
+            }
+        }).catch(err => res.status(404).json({ nohuntsfound: "No hunts were found" }))
+});
 
 
 router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
