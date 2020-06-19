@@ -7,7 +7,7 @@ class HuntCollectionItem extends React.Component {
 
   render() {
     // conditionally render class name based on props for styling
-    let { klassName } = this.props;
+    let { hunt, klassName } = this.props;
     klassName ? klassName = "mini-cards-active" : klassName = "mini-cards"
 
       return(
@@ -16,7 +16,7 @@ class HuntCollectionItem extends React.Component {
             <div className="mini-card mini-one">
             </div>
             <div className="mini-card mini-two">
-            Collection
+            {hunt.title}
             </div>
             <div className="mini-card mini-three">
             </div>
