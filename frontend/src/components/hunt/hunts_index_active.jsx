@@ -16,7 +16,9 @@ class HuntsIndexActive extends React.Component {
             {/* {this.props.hunts.map(hunt => {
               <HuntCollectionItem hunt={hunt}/>
             })} */}
-            <HuntCollectionItem />
+            <HuntCollectionItem klassName={true}/>
+            <HuntCollectionItem klassName={true}/>
+            <HuntCollectionItem klassName={true}/>
           </ul>
         </div>
         <div className="hunts-index-page-right-active">
