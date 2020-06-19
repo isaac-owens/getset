@@ -24,9 +24,15 @@ const receiveErrors = errors =>({
     errors
 });
 
-export const fetchHunts = hunts => dispatch =>(
-    APIUtil.fetchHunts(hunts).then(
+export const fetchHunts = userId => dispatch =>(
+    APIUtil.fetchHunts(userId).then(
         hunts => dispatch(receiveHunts(hunts.data))
+    )
+);
+
+export const fetchHunt = huntId => dispatch =>(
+    APIUtil.fetchHunt(huntId).then(
+        hunt => dispatch(receiveHunts(hunt.data))
     )
 );
 
