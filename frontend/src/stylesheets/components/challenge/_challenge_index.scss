@@ -6,7 +6,6 @@
   height: 100%;
   width: 100%;
 }
-
 .challenge-index-list {
   display: flex;
 //   justify-content: center;
@@ -15,7 +14,6 @@
   height: 80%;
   margin-top: 4%;
 }
-
 .challenge-collection-list {
   height: 100%;
   width: 100%;
@@ -24,7 +22,6 @@
   justify-content: space-evenly;
   align-items: flex-start;
 }
-
 .category {
   padding: 30px;
   width: 40%;
@@ -34,29 +31,24 @@
   transition: .7s;
   border-width: 10px;
 }
-
 .category:hover {
     outline: none;
     background-color: $yellow;
 }
-
 .category:active, .category:focus {
     width: 110%;
     outline: none;
     background-color: $yellow;
 }
-
 .challenge-item {
   background-color: $red;
   border-width: 8px;
 //   width: 132px;
 //   height: 65px;
 }
-
 .challenge-item:hover, .challenge-item:active {
     background-color: $lavender;
 }
-
 .challenge-index-page-right {
   display: flex;
   flex-direction: column;
@@ -65,7 +57,6 @@
   width: 50%;
   height: 90%;
 }
-
 .challenge-photo-collection {
   border: 15px solid white;
   box-sizing: border-box;
@@ -75,7 +66,6 @@
   height: 700px;
   width: 100%;
 }
-
 .challenge-photos {
   height: 700px;
   overflow-y: scroll;
@@ -84,7 +74,6 @@
   justify-content: space-evenly;
   align-items: center;
 }
-
 .challenge-photo {
   height: 300px;
   width: 70%;
@@ -94,7 +83,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .challenge-toggle {
   background-color: $yellow;
   width: 100%;
