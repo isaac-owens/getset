@@ -31,6 +31,7 @@ router.delete("/:id", (req, res) => {
     .then(() => res.json("Hunt deleted"))
     .catch(err => res.status(404).json('error'))
 })
+//
 
 
 router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('photo_collection', 10)], (req, res) => {
