@@ -22,6 +22,10 @@ class Category extends React.Component {
     e.preventDefault();
     const clickX = e.clientX;
     const clickY = e.clientY;
+    console.log(e.clientX);
+    console.log(e.clientY);
+    console.log(clickX);
+    console.log(clickY);
     this.setState({ open: !this.state.open, x: clickX, y: clickY });
   }
 
@@ -46,14 +50,16 @@ class Category extends React.Component {
   render() {
     // Menu styling
     const myStyle = {
-      height: "33%",
+      height: "310px",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-evenly",
-      top: `${this.state.y + 53}px`,
-      left: `${this.state.x - 90}vh`,
+      top: `${this.state.y - 298}px`,
+      left: `${this.state.x + 500}px`,
       tabIndex: "-1",
-      position: "fixed",
+      position: "absolute",
+      overflowX: 'hidden',
+      overflowY: 'scroll',
       opacity: "1",
       pointerEvents: "auto",
       minWidth: "208px",
@@ -65,30 +71,37 @@ class Category extends React.Component {
       listStyle: "none",
     };
     const {challenges, category} = this.props;
-    return (
-      <button className="category card-styling" onClick={this.handleClick}>
-        {/* key={category.id} */}
-        <li ref={this.container}>
-          <div>
-          <span className="category-title">{category ? category.name : "No Category"}</span>
-          </div>
-          {this.state.open ? (
-            <ul style={myStyle}>
-             
-              {
-                challenges.map((challenge, idx)=>{
-                  return (
-                  <li key={challenge._id} className="challenge-item card-styling" onClick={this.props.onChallegeClick(challenge)}>{ challenge.title}</li>
-                  )
-                })
-              }
-            </ul>
-          ) : (
-            ""
-          )}
-        </li>
-      </button>
-    );
+
+    if(!category || category.length === 0) {
+      return <div></div>
+    } else {
+      return (
+        <button className="category card-styling" onClick={this.handleClick}>
+          {/* key={category.id} */}
+          <li ref={this.container}>
+            <div>
+            <span className="category-title">{category ? category.name : "No Category"}</span>
+            </div>
+            {this.state.open ? (
+              <ul style={myStyle}>
+                {
+                  !challenges ?
+                  <div></div> :
+                  challenges.map((challenge, idx)=>{
+                    return (
+                    <li key={challenge._id} className="challenge-item card-styling" onClick={this.props.onChallegeClick(challenge)}>{ challenge.title}</li>
+                    )
+                  })
+                }
+              </ul>
+            ) : (
+              ""
+            )}
+          </li>
+        </button>
+      );
+    }
+
   }
 }
 

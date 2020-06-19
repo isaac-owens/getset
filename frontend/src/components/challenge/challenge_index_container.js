@@ -4,6 +4,7 @@ import {fetchChallenges} from '../../actions/challenge_actions'
 import {fetchCategories} from '../../actions/category_actions'
 
 const mSTP = state =>{
+//   debugger
   return  {
         challenges: state.challenges,
         categories: Object.values(state.categories),
