@@ -21,10 +21,7 @@ class CreateForm extends React.Component {
     this.handlePhotoFileDelete = this.handlePhotoFileDelete.bind(this);
   }
 
- 
-
-
-  handleSubmit(e) {
+   handleSubmit(e) {
     e.preventDefault();
     let formData = new FormData();
 
@@ -48,6 +45,7 @@ class CreateForm extends React.Component {
           title: "",
           dueDate: Date.now,
           category: "",
+          categoryName: "",
           author: this.props.currentUser,
           photoFiles: [],
           photoUrls: [],
@@ -57,10 +55,11 @@ class CreateForm extends React.Component {
     });
   }
 
- 
-
   update(field) {
     return (e) => {
+      if(field === 'category'){
+        this.setState({ categoryName: e.currentTarget.name })
+      }
       this.setState({ [field]: e.currentTarget.value });
     };
   }
@@ -121,13 +120,14 @@ class CreateForm extends React.Component {
     this.props.fetchCategories();
   }
   
+
   render() {
+    let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
     const categories = this.props.categories ? this.props.categories : [];
+
   return (
     <div className="create-form">
-      <div className="create-form-header">
-        Create a Hunt
-      </div>
+      <div className="create-form-header">Create a Hunt</div>
       <div className="card card-styling one"></div>
       <div className="card card-styling two"></div>
       <div className="create-form-container three card card-styling">
@@ -158,13 +158,13 @@ class CreateForm extends React.Component {
                 {this.state.photoFiles.map((photoFile, idx) => {
                   return (
                     <li className="hunt-photo" key={idx}>
-                      <img src={photoFile} />
-                      <FontAwesomeIcon
-                        className="create-from-img-delete"
+                      <div
+                        className="red-ex"
                         onClick={this.handlePhotoFileDelete(idx)}
-                        icon={faTimesCircle}
-                        color="red"
-                      />
+                      >
+                        {redEx}
+                      </div>
+                      <img src={photoFile} />
                     </li>
                   );
                 })}
@@ -179,25 +179,26 @@ class CreateForm extends React.Component {
                       <p className="create-form-drop-zone-error">
                         {this.state.errors}
                       </p>
-                      <p>
-                        Drag'n'drop photoFiles, or click to select photoFiles
-                      </p>
+                      <div className="drop-zone-target">
+                        <p>
+                          Drag'n'drop photos here, or click to select photoFiles
+                        </p>
+                      </div>
                     </div>
                   )}
                 </Dropzone>
               </div>
               <div className="create-form-body-right-bottom">
+                <div className="current-category">
+                  <span className='current-category-title'>Category:</span>
+                  {this.state.categoryName}
+                </div>
                 <ul className="create-form-categories">
-                  {/* <li>
-                      <button value="people" onClick={this.update("category")}>
-                        People
-                      </button>
-                    </li> */}
-
                   {categories.map((category, idx) => {
                     return (
                       <li key={idx}>
                         <button
+                          name={category.name}
                           value={category._id}
                           onClick={this.update("category")}
                         >
@@ -208,9 +209,6 @@ class CreateForm extends React.Component {
                   })}
                 </ul>
                 <div className="create-form-submit-container">
-                  <span className="create-form-due-date">
-                    Due Date: 06/ 19/ 2020
-                  </span>
                   <button
                     onClick={this.handleSubmit}
                     className="create-form-submit button"

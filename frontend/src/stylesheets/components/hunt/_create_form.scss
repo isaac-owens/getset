@@ -9,7 +9,7 @@
   top: 15%;
 }
 
-.create-form-container .card .three{
+.create-form-container .card .three {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@
 .create-form-title-container {
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: 80%;
 }
 
 .create-form-title-container .input-field {
@@ -57,39 +57,53 @@
   width: 100%;
 }
 
-.create-form-body{
+.create-form-body {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: flex-end;
   width: 100%;
   height: 75%;
 }
 
 .create-form-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-sizing: border-box;
-  width: 30%;
-  height: 50vh;
+  width: 25%;
+  height: 111%;
   background-color: $yellow;
   border-radius: 25px;
 }
 
-.create-form-img-preview{
-  max-height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
 .create-form-img-preview {
-  height: 200px;
-  width: 200px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 90%;
+  width: 75%;
   object-fit: cover;
   position: relative;
 }
 
-.hunt-photo {
+.hunt-photo img{
+  width: 320px;
+  height: 320px;
+  margin-bottom: 6px;
+  border-radius: 20px;
+  border: 5px inset;
+}
+
+.red-ex {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 96%;
+  z-index: 50 !important;
+}
+
+.red-ex svg {
+  color: red;
 }
 
 .create-form-body-right {
@@ -103,15 +117,21 @@
   text-align: center;
   height: 40vh;
   width: 100%;
-  background-color: $green;
+  background-color: $red;
+  opacity: .6;
   border-radius: 25px;
 }
 
-.create-form-submission-errors ul li, .create-form-drop-zone-error{
+.create-form-drop-zone:hover {
+  background-color: $green;
+  opacity: 1;
+}
+
+.create-form-submission-errors ul li, .create-form-drop-zone-error {
   color: red;
 }
 
-.drop-zone{
+.drop-zone {
   height: 100%;
   width: 100%;
   text-align: center;
@@ -119,18 +139,36 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-size: 33px;
 }
 
-.create-form-due-date{
-  font-weight: 400;
-  letter-spacing: .1em;
+.drop-zone-target {
+  border: 4px dashed rgba($color: #ffffff, $alpha: .7);
+  border-width: 6px;
+  border-radius: 20px;
+  padding: 66px;
 }
 
 .create-form-body-right-bottom {
-  width: 45vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.current-category {
+  box-sizing: border-box;
+  margin-top: 7px;
+  height: 90px;
+  width: 50%;
+  color: $yellow;
+  font-weight: bolder;
+  font-size: 60px;
+  letter-spacing: .12em;
+}
+
+.current-category-title {
+  color: $red;
 }
 
 .create-form-categories {
@@ -140,7 +178,7 @@
   width: 140px;
 }
 
-.create-form-categories button{
+.create-form-categories button {
   margin: 2px;
   width: 64px;
   background-color: $lavender;
@@ -148,7 +186,8 @@
 }
 
 .create-form-categories button:hover,
-.create-form-categories button:active{
+.create-form-categories button:active,
+.create-form-categories button::selection{
   background-color: $green;
 }
 
