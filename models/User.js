@@ -7,6 +7,9 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    my_challenges: {
+        type: Array,
+    },
     email: {
         type: String,
         required: true
