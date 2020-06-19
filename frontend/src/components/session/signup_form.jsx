@@ -35,8 +35,10 @@ class SessionForm extends React.Component {
             onSubmit={this.handleSubmit}
             className="session-form-container sign-up"
           >
-            <h3>Create your GetSet Account</h3>
-            <h5>and Get Set to play!</h5>
+            <div className='session-form-header'>
+              <h3>Create a GetSet Account</h3>
+            </div>
+            <h4>and Get Set to play !</h4>
 
             <div className="session-form-input-field-container">
               <div>
@@ -86,8 +88,8 @@ class SessionForm extends React.Component {
                 letters, numbers {"&"} symbols
               </h6>
             </div>
-            <button className="signup-button">
-              <input className="submit" type="submit" value="Sign Up" />
+            <button className="session-button">
+              Sign Up!
             </button>
           </form>
         );

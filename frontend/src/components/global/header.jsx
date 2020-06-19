@@ -18,9 +18,6 @@ class Header extends React.Component {
         if (this.props.currentUser) {
             return (
               <div>
-                <div className="header-hello">
-                  Hi {this.props.currentUser.username}!
-                </div>
                 <ul className="header-nav-links">
                   <li>
                     <Link to={CREATE}
@@ -30,17 +27,23 @@ class Header extends React.Component {
                   </li>
                   <li>
                     <Link to={INDEX}
-                    className="header-nav-link">My Hunts</Link>
+                    className="header-nav-link">MyHunts</Link>
                   </li>
                   <li>
                     <Link to={MYCHALL}
-                    className="header-nav-link">My Challenges</Link>
+                    className="header-nav-link">MyChallenges</Link>
                   </li>
                   {/* <li>
                             <Link to={STATS}>Stats</Link>
-                        </li> */}
-                  <li>
-                    <button onClick={this.logoutUser}>Logout</button>
+                          </li> */}
+                  <li className="header-button-container">
+                    <div className="header-hello">
+                      Hi {this.props.currentUser.username}!
+                    </div>
+                    <button 
+                    onClick={this.logoutUser}
+                    className="session-button"
+                    >Logout</button>
                   </li>
                 </ul>
               </div>

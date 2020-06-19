@@ -2,26 +2,35 @@
     display: flex;
     justify-content: center;
     color: $yellow;
-    font-weight: 850;
+    font-size: 30px;
+    // font-weight: 850;
     padding-bottom: 6px;
     text-align: center;
     width: 100%;
 }
 
 .header-nav-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 55vh;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 120vh;
 }
 
 .header-nav-link {
     color: $lavender;
     letter-spacing: .1em;
-    font-size: 18px;
+    font-size: 32px;
     font-weight: 700;
 }
 
 .header-nav-link:hover {
     color: $yellow;
+}
+
+.header-button-container {
+  display: flex;
+  flex-direction: column;
+
 }

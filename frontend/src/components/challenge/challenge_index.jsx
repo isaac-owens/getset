@@ -29,6 +29,7 @@ class ChallengeIndexPage extends React.Component {
                 <li className="challenge-photo">image here</li>
                 <li className="challenge-photo">image here</li>
                 <li className="challenge-photo">image here</li>
+                <li className="challenge-photo">image here</li>
               </ul>
             </div>
             <button className="challenge-toggle">
