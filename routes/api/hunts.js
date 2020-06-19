@@ -20,6 +20,20 @@ router.get("/", (req, res) => {
     }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
 });
 
+router.get("/:user_id", (req, res) => {
+    Hunt.find({users: req.param.user_id})
+    .sort({date: -1})
+    .then(hunts => {
+        return res.json(hunts);
+    }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
+});
+
+router.get("/:hunt_id", (req, res) => {
+    Hunt.find({hunt: req.params.hunt_id})
+    .then(hunts => res.json(hunts))
+    .catch(err => res.status(404).json({nohuntfound: "This hunt was not found"}))
+})
+
 router.get("/:id", (req, res) => {
     Hunt.findById(req.params.id)
     .then(hunt => res.json(hunt))
