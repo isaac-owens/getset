@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import{ createHunt } from '../../actions/hunt_actions';
+import{ createUserHunt } from '../../actions/user_hunt_actions';
 import CreateForm from './create_form';
 import {fetchCategories} from '../../actions/category_actions'
 
@@ -13,7 +13,7 @@ const mSTP = state => {
 
 const mDTP = dispatch => (
     {
-        createHunt: hunt => dispatch(createHunt(hunt)),
+        createUserHunt: hunt => dispatch(createUserHunt(hunt)),
         fetchCategories: () => dispatch(fetchCategories()),
     }
 );

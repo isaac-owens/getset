@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchHunts } from '../../actions/hunt_actions';
+import { fetchUserHunts } from '../../actions/user_hunt_actions';
 import HuntsIndexPage from './hunts_index_page';
 
 const mSTP = state => {
@@ -10,7 +10,7 @@ const mSTP = state => {
 
 const mDTP = dispatch => (
     {
-        fetchHunts: hunts => dispatch(fetchHunts(hunts))
+      fetchUserHunts: hunts => dispatch(fetchUserHunts(hunts))
     }
 )
 

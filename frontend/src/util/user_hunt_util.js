@@ -2,15 +2,15 @@ import axios from 'axios';
 
 //is the .post refering to the method post
 //or just a .chain method for axios
-export const fetchHunts = userId => (
+export const fetchUserHunts = userId => (
     axios.get(`/api/hunts/${userId}`)
 );
 
-export const fetchHunt = huntId => (
+export const fetchUserHunt = huntId => (
     axios.get(`/api/hunts/${huntId}`)
 );
 
-export const createHunt = hunt => (
+export const createUserHunt = hunt => (
     axios({
         method: 'post',
         url: '/api/hunts',
