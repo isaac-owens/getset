@@ -29,4 +29,4 @@ class HuntsIndexPage extends React.Component {
   }
 }
 
-export default HuntsIndexPage;export default HuntsIndexPage;export default HuntsIndexInactive;
+export default HuntsIndexPage;

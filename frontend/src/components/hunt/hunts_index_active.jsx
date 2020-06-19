@@ -13,9 +13,10 @@ class HuntsIndexActive extends React.Component {
         <div className="hunts-index-list card-styling">
           <ul className="hunts-collection-list">
             {/* dynamically build user's hunt list */}
-            {this.props.hunts.map(hunt => {
+            {/* {this.props.hunts.map(hunt => {
               <HuntCollectionItem hunt={hunt}/>
-            })}
+            })} */}
+            <HuntCollectionItem />
           </ul>
         </div>
         <div className="hunts-index-page-right">

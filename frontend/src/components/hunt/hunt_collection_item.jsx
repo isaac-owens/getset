@@ -6,8 +6,9 @@ class HuntCollectionItem extends React.Component {
   }
 
   render() {
+
       return(
-        {this.props.hunts ? 
+        false ? 
           <div className="mini-cards">
             <div className="mini-card mini-one">
             </div>
@@ -27,7 +28,6 @@ class HuntCollectionItem extends React.Component {
             <div className="mini-card mini-three">
             </div>
           </div> 
-        }
       )
   }
 }

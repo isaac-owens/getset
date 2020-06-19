@@ -14,4 +14,4 @@ const mDTP = dispatch => (
     }
 )
 
-export default connect(mSTP, mDTP)(HuntsIndexPage)
+export default connect(null, null)(HuntsIndexPage)

@@ -11,8 +11,8 @@ import Footer from './global/footer';
 import Splash from './main/splash';
 import SessionFormContainer from './session/session_form_container';
 import DashboardContainer from './dashboard/dashboard_contianer';
-import HuntsIndexContainer from './hunt/hunts_index_container';
-import ChallengeIndexPa from './challenge/challenge_index_container';
+import HuntsIndexPageContainer from './hunt/hunts_index_page_container';
+// import ChallengeIndexContainer from './challenge/challenge_index_container';
 
 const App = () => (
     <div className='app'>
@@ -23,7 +23,7 @@ const App = () => (
                 <ProtectedRoute exact path={DASH} component={DashboardContainer} />
                 <ProtectedRoute exact path={CREATE} component={CreateFormContainer} />
                 <ProtectedRoute exact path={INDEX} component={HuntsIndexPageContainer} />
-                <ProtectedRoute exact path={CINDEX} component={ChallengeIndexContainer} />
+                {/* <ProtectedRoute exact path={CINDEX} component={ChallengeIndexContainer} /> */}
             </Switch>
          <Footer />
     </div>
