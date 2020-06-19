@@ -21,9 +21,11 @@ class Header extends React.Component {
                 <ul className="header-nav-links">
                   <li>
                     <Link to={CREATE}
-                    className="header-nav-link">
-                    Create-a-Hunt
-                    </Link>
+                    className="header-nav-link">Create-a-Hunt</Link>
+                  </li>
+                  <li>
+                    <Link to={CINDEX}
+                    className="header-nav-link">FindChallenges</Link>
                   </li>
                   <li>
                     <Link to={INDEX}
@@ -34,16 +36,15 @@ class Header extends React.Component {
                     className="header-nav-link">MyChallenges</Link>
                   </li>
                   {/* <li>
-                            <Link to={STATS}>Stats</Link>
-                          </li> */}
+                    <Link to={STATS}>Stats</Link>
+                  </li> */}
                   <li className="header-button-container">
                     <div className="header-hello">
                       Hi {this.props.currentUser.username}!
                     </div>
-                    <button 
-                    onClick={this.logoutUser}
-                    className="session-button"
-                    >Logout</button>
+                    <button onClick={this.logoutUser} className="session-button">
+                      Logout
+                    </button>
                   </li>
                 </ul>
               </div>
