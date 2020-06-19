@@ -7,6 +7,8 @@ import { setAuthToken } from './util/session_util';
 import { getToken, decodeToken } from './util/helper';
 import axios from 'axios';
 
+import { fetchUserHunts } from './actions/user_hunt_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -24,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         store = configureStore(preState);
+
+        store.dispatch(fetchUserHunts(decodedUser.id));
         // const currentTime = Date.now() / 1000;
 
         // // // If the user's token has expired

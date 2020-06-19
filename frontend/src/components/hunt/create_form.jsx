@@ -2,7 +2,7 @@ import React from 'react';
 import Dropzone from "react-dropzone";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { ERRORS_HUNT } from '../../actions/hunt_actions';
+import { ERRORS_USER_HUNT } from '../../actions/user_hunt_actions';
 
 class CreateForm extends React.Component {
   constructor(props) {
@@ -40,9 +40,9 @@ class CreateForm extends React.Component {
     }
 
     //submitting to server
-    this.props.createHunt(formData)
+    this.props.createUserHunt(formData)
     .then(res=>{
-      if(res.type !== ERRORS_HUNT){
+      if(res.type !== ERRORS_USER_HUNT){
         //reset state on success
         this.setState({
           title: "",
