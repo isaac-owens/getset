@@ -21,9 +21,11 @@
 }
 
 .create-form-header {
+  position: absolute;
   font-size: 90px;
   text-align: center;
-  z-index: 100 !important;
+  z-index: 100;
+  transform: translate(280%, -17%);
 }
 
 .create-form-title-container {
@@ -34,8 +36,8 @@
 
 .create-form-title-container .input-field {
   width: 100%;
-  height: 100%;
-  margin-top: -43px;
+  height: 50px;
+  margin-top: -25px;
   border-radius: 7px;
   text-align: center;
   font-size: 50px;
