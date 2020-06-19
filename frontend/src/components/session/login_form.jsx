@@ -46,9 +46,11 @@ class Login extends React.Component {
     render() {
         return (
           <form onSubmit={this.handleSubmit} className="session-form-container login">
-            <h3>Please Sign In</h3>
+            <div className="session-form-header">
+              <h3>Please Sign In</h3>
+            </div>
             {/* {this.renderErrors()} */}
-            <div className='session-form-input-field-container'>
+            <div className='session-form-input-field-container-login'>
               <div>
                 <input
                   type="text"
@@ -72,12 +74,15 @@ class Login extends React.Component {
             </div>
 
             <div className="bottom-form">
-              <div>
-                <button onClick={this.populateDemo}>Demo Session</button>
-              </div>
-              <div>
-                <input className="submit" type="submit" value="Sign In" />
-              </div>
+              <button 
+              onClick={this.populateDemo}
+              className="demo-session-button session-button"
+              >
+                Demo Session
+              </button>
+              <button className="session-button">
+                Sign In
+              </button>
             </div>
           </form>
         );

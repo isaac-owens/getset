@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { CREATE } from '../../util/route_util';
 import HuntCollectionItem from './hunt_collection_item';
 
 class HuntsIndexActive extends React.Component {
@@ -42,13 +44,23 @@ class HuntsIndexActive extends React.Component {
                 hunts[this.state.selectedCollectionIdx].photo_collection.map((photo, idx)=>{
                   console.log(photo);
                   return (
-                    <li key={idx}><img src={photo}></img></li>
+                    <li key={idx}>
+                      <img 
+                      src={photo}
+                      className="my-hunts-image"></img>
+                    </li>
                   )
                 })
               }
             </ul>
           </div>
-          <button className="hunts-index-create-active"> Create a Hunt!</button>
+          <button className="hunts-index-create-active">
+            <Link 
+            to={CREATE}
+            className="hunts-index-create-link"> 
+            Create a Hunt!
+            </Link>
+          </button>
         </div>
       </div>
     );
