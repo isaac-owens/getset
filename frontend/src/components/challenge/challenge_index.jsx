@@ -6,17 +6,17 @@ class ChallengeIndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {selectedChallenge: undefined};
-    this.onChallegeClick = this.onChallegeClick.bind(this);
+    this.onChallengeClick = this.onChallengeClick.bind(this);
     this.toggleMyChallage = this.toggleMyChallage.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchChallenges();
     this.props.fetchCategories();
+    this.props.fetchChallenges();
   }
 
-  onChallegeClick(selectedChallenge){
-   return e=>{
+  onChallengeClick(selectedChallenge){
+   return e =>{
       this.setState({selectedChallenge: selectedChallenge})
     }
   }
@@ -35,6 +35,14 @@ class ChallengeIndexPage extends React.Component {
 
   render(){
     const {challenges, categories} = this.props;
+    let styleRemove = {
+      backgroundColor: "#f3d250"
+    }
+
+    let styleAdd = {
+      backgroundColor: '#c5cbe3',
+    }
+
       return (
         <div className="challenge-index">
           <div className="challenge-index-list">
@@ -43,7 +51,7 @@ class ChallengeIndexPage extends React.Component {
                 categories.map((category, idx)=>{
                   return <CategoryContainer key={idx} category={category} 
                   challenges={challenges[category._id]} 
-                  onChallegeClick={this.onChallegeClick}/>
+                  onChallengeClick={this.onChallengeClick}/>
                 })
               }
             </ul>
@@ -62,15 +70,14 @@ class ChallengeIndexPage extends React.Component {
                 }
               </ul>
             </div>
-            {/* / Remove a Hunt! */}
             {
               this.state.selectedChallenge ? 
               this.props.myChallenges.includes(this.state.selectedChallenge._id)?
-              <button onClick={this.toggleMyChallage("remove")} className="challenge-toggle">
-                Remove a Hunt!
+                  <button onClick={this.toggleMyChallage("remove")} style={styleRemove} className="challenge-toggle">
+                Remove This Challenge!
               </button> :
-              <button onClick={this.toggleMyChallage("add")} className="challenge-toggle">
-              Add a Hunt!
+                  <button onClick={this.toggleMyChallage("add")} style={styleAdd} className="challenge-toggle">
+              Accept this Challenge!
               </button>
             : <></>
             }

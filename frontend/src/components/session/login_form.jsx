@@ -11,6 +11,7 @@ class Login extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.populateDemo = this.populateDemo.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     update(field) {
@@ -31,25 +32,29 @@ class Login extends React.Component {
         this.setState({ password: 'password' });
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
     render() {
         return (
           <form onSubmit={this.handleSubmit} className="session-form-container login">
+            <div className='login-form-error-card card-styling'>
+              <ul>
+                {this.renderErrors()}
+              </ul>
+            </div>
             <div className="session-form-header">
               <h3>Please Sign In</h3>
             </div>
-            {/* {this.renderErrors()} */}
             <div className='session-form-input-field-container-login'>
               <div>
                 <input

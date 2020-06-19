@@ -1,11 +1,13 @@
 .sign-up {
   width: 1825px;
   background-color: $red;
+  position: relative;
 }
 
 .login {
   width: 1012px;
   background-color: $blue;
+  position: relative;
 }
 
 .password-disclaimer {
@@ -52,6 +54,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 110px;
+  margin-left: -25%;
+}
+
+.signup-form-error-card {
+  box-sizing: border-box;
+  position: absolute;
+  background-color: $blue;
+  color: $yellow;
+  transform: rotate(-12deg);
+  left: 200px;
+  height: 200px;
+  width: 200px;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 25px;
+  letter-spacing: .1em;
+}
+
+.login-form-error-card {
+  position: absolute;
+  background-color: $lavender;
+  height: 200px;
+  width: 200px;
+  transform: rotate(10deg);
+  top: 33%;
+  left: 66%;
+  color: $red;
+  font-weight: bolder;
+  padding: 25px;
+  font-size: 30px;
+  letter-spacing: .2em;
 }
 
