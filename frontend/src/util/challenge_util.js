@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 
-export const fetchChallanges = ()=> (
-    axios.get('/api/playhunts')
+export const fetchChallenges = ()=> (
+    axios.get('/api/hunts')
 );
