@@ -9,14 +9,13 @@ export const INDEX = '/hunts/index';
 export const CREATE = '/hunts/create';
 export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
-export const MYCHALL = '/mychallenges'
+export const MYCHALL = '/mychallenges';
 
 const mapStateToProps = state => {
     return({
-        loggedIn: state.session.isAuthenticated,
-    }
         //   grabbing id - stored in session slice
-    );
+        loggedIn: state.session.isAuthenticated
+    });
 };
 
 const Auth = ({ component: Component, path, loggedIn }) => (
@@ -38,7 +37,7 @@ const Protected = ({ component: Component, path, loggedIn }) => {
         />
     )
 };
-// );
+
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
