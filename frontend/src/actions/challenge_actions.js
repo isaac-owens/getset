@@ -10,6 +10,8 @@ const receiveChallenges = challenges =>({
 
 export const fetchChallenges = () => dispatch =>{
     return APIUtil.fetchChallenges().then(
-        challenges => dispatch(receiveChallenges(challenges.data))
+        challenges => {
+          return dispatch(receiveChallenges(challenges.data))
+        }
     )
 };

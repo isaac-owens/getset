@@ -10,8 +10,8 @@ class ChallengeIndexPage extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchChallenges();
     this.props.fetchCategories();
+    this.props.fetchChallenges();
   }
 
   onChallegeClick(selectedChallenge){

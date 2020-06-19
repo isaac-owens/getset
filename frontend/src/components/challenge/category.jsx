@@ -9,8 +9,7 @@ class Category extends React.Component {
     // of the click
     this.state = {
       open: false,
-      x: 0,
-      y: 0,
+
     };
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -20,13 +19,8 @@ class Category extends React.Component {
   // position can be set dynamically 
   handleClick(e) {
     e.preventDefault();
-    const clickX = e.clientX;
-    const clickY = e.clientY;
-    console.log(e.clientX);
-    console.log(e.clientY);
-    console.log(clickX);
-    console.log(clickY);
-    this.setState({ open: !this.state.open, x: clickX, y: clickY });
+
+    this.setState({ open: !this.state.open });
   }
 
   // Set and event listener for the mouse to move
@@ -41,8 +35,8 @@ class Category extends React.Component {
       if (
         this.container.current &&
         !this.container.current.contains(e.target)
-      ) {
-        this.setState({ open: false, x: 0, y: 0 });
+      ) {     
+        this.setState({ open: false });
       }
     };
   }
@@ -52,10 +46,11 @@ class Category extends React.Component {
     const myStyle = {
       height: "310px",
       display: "flex",
+      alignContent: 'flex-end',
       flexDirection: "column",
-      justifyContent: "space-evenly",
-      top: `${this.state.y - 298}px`,
-      left: `${this.state.x + 500}px`,
+      // justifyContent: "space-evenly",
+      top: '100%',
+      left: '69%',
       tabIndex: "-1",
       position: "absolute",
       overflowX: 'hidden',
