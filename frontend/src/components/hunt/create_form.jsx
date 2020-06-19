@@ -128,7 +128,7 @@ class CreateForm extends React.Component {
   return (
     <div className="create-form">
       <div className="create-form-header">Create a Hunt</div>
-      <div className="card card-styling one"></div>
+      <div className="card card-styling one"><div className="create-form-drop-zone-error card-styling">{this.state.errors}</div></div>
       <div className="card card-styling two"></div>
       <div className="create-form-container three card card-styling">
         <div className="create-form-input-field">
@@ -176,9 +176,6 @@ class CreateForm extends React.Component {
                   {({ getRootProps, getInputProps }) => (
                     <div {...getRootProps({ className: "drop-zone" })}>
                       <input {...getInputProps()} />
-                      <p className="create-form-drop-zone-error">
-                        {this.state.errors}
-                      </p>
                       <div className="drop-zone-target">
                         <p>
                           Drag'n'drop photos here, or click to select photoFiles
