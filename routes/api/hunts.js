@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Hunt = require("../../models/Hunt");
+const User = require("../../models/User");
+const PlayHunt = require("../../models/PlayHunt");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const validateHuntInput = require("../../validation/hunt");
@@ -27,6 +29,14 @@ router.get("/:user_id", (req, res) => {
         return res.json(hunts);
     }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
 });
+
+router.get("/stats/:user_id", (req, res) => {
+    PlayHunt.find({user: req.params.user_id})
+    .sort({date: -1})
+    .then(playHunts => res.json(playHunts))
+        .catch(err => res.status(404).json({ nohuntsfound: "No hunts were found" }))
+})
+
 
 router.get("/:hunt_id", (req, res) => {
     Hunt.find({hunt: req.params.hunt_id})
