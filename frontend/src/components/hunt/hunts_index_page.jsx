@@ -16,12 +16,13 @@ class HuntsIndexPage extends React.Component {
   }
 
   render() {
-    return (
-      this.props.hunts ? 
-      <HuntsIndexActive hunts={this.props.hunts}/> 
-      : 
-      <HuntsIndexInactive />
-    )
+    if (typeof this.props.hunts === 'undefined') {
+      return <HuntsIndexInactive />
+    } else if (this.props.hunts.length === 0) {
+      return <HuntsIndexInactive />
+    } else { 
+      return <HuntsIndexActive hunts={this.props.hunts}/> 
+    }
   }
 }
 
