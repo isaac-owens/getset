@@ -1,17 +1,20 @@
 import {connect} from 'react-redux';
 import ChallengeIndexPage from './challenge_index';
+import {fetchChallenges} from '../../actions/challenge_actions'
+import {fetchCategories} from '../../actions/category_actions'
 
-// const mSTP = state =>(
-//     {
- 
-//     }
-// )
+const mSTP = state =>{
+  return  {
+        challenges: state.challenges,
+        categories: Object.values(state.categories),
+    }
+}
 
-// const mDTP = dispatch =>(
-//     {
-//         fetchChallenges: challenges => dispatch(fetchChallenges(challenges)),
-//         fetchChallenge: challenge => dispatch(fetchChallenge(challenge))
-//     }
-// )
+const mDTP = dispatch =>(
+    {
+        fetchChallenges: () => dispatch(fetchChallenges()),
+        fetchCategories: () => dispatch(fetchCategories())
+    }
+)
 
-export default connect(null, null)(ChallengeIndexPage);
+export default connect(mSTP, mDTP)(ChallengeIndexPage);

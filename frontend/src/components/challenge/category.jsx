@@ -64,20 +64,24 @@ class Category extends React.Component {
       zIndex: "3000",
       listStyle: "none",
     };
-
+    const {challenges, category} = this.props;
     return (
       <button className="category card-styling" onClick={this.handleClick}>
         {/* key={category.id} */}
         <li ref={this.container}>
           <div>
-            <span className="category-title">Category</span>
+          <span className="category-title">{category ? category.name : "No Category"}</span>
           </div>
           {this.state.open ? (
             <ul style={myStyle}>
-              <li className="challenge-item card-styling">Challenge 1</li>
-              <li className="challenge-item card-styling">Challenge 2</li>
-              <li className="challenge-item card-styling">Challenge 3</li>
-              <li className="challenge-item card-styling">Challenge 4</li>
+             
+              {
+                challenges.map((challenge, idx)=>{
+                  return (
+                  <li key={challenge._id} className="challenge-item card-styling" onClick={this.props.onChallegeClick(challenge)}>{ challenge.title}</li>
+                  )
+                })
+              }
             </ul>
           ) : (
             ""
