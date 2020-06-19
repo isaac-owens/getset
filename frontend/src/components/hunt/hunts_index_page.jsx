@@ -11,10 +11,14 @@ class HuntsIndexPage extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.props.fetchUserHunts(this.props.currentUserId);
+  }
+
   render() {
     return (
-      true ? 
-      <HuntsIndexActive /> 
+      this.props.hunts ? 
+      <HuntsIndexActive hunts={this.props.hunts}/> 
       : 
       <HuntsIndexInactive />
     )
