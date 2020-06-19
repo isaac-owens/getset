@@ -23,6 +23,7 @@ class HuntsIndexActive extends React.Component {
         </div>
         <div className="hunts-index-page-right-active">
           <div className="hunt-photo-collection-active card-styling">
+            red area
           </div>
           <button className="hunts-index-create-active"> Create a Hunt!</button>
         </div>
