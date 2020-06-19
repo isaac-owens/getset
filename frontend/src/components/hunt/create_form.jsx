@@ -127,8 +127,26 @@ class CreateForm extends React.Component {
 
   return (
     <div className="create-form">
+      {/* This is the drop zone error card */}
+      <div className="create-form-drop-zone-error card-styling">
+        {this.state.errors}
+      </div>
+      {/* This is the drop zone error card */}
+
+      {/* These are create form errors from backend */}
+      <div className="create-form-submission-errors card-styling">
+        <ul>
+          {Object.values(this.props.errors).map((error, idx) => {
+            return <li key={idx}>{error}</li>;
+          })}
+        </ul>
+      </div>
+      {/* These are the create form errors from backend */}
+
       <div className="create-form-header">Create a Hunt</div>
-      <div className="card card-styling one"><div className="create-form-drop-zone-error card-styling">{this.state.errors}</div></div>
+      <div className="card card-styling one"></div>
+
+
       <div className="card card-styling two"></div>
       <div className="create-form-container three card card-styling">
         <div className="create-form-input-field">
@@ -144,16 +162,10 @@ class CreateForm extends React.Component {
               placeholder="Name Your Hunt..."
             />
           </div>
-          <div className="create-form-submission-errors">
-            <ul>
-              {Object.values(this.props.errors).map((error, idx) => {
-                return <li key={idx}>{error}</li>;
-              })}
-            </ul>
-          </div>
+          
+
           <div className="create-form-body">
             <div className="create-form-preview-container">
-              <label>Uploaded Photos</label>
               <ul className="create-form-img-preview">
                 {this.state.photoFiles.map((photoFile, idx) => {
                   return (
@@ -187,7 +199,7 @@ class CreateForm extends React.Component {
               </div>
               <div className="create-form-body-right-bottom">
                 <div className="current-category">
-                  <span className='current-category-title'>Category:</span>
+                  <span className='current-category-title'>Category: </span>
                   {this.state.categoryName}
                 </div>
                 <ul className="create-form-categories">
@@ -208,7 +220,7 @@ class CreateForm extends React.Component {
                 <div className="create-form-submit-container">
                   <button
                     onClick={this.handleSubmit}
-                    className="create-form-submit button"
+                    className="create-form-submit"
                   >
                     Set Game
                   </button>

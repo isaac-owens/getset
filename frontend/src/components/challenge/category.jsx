@@ -20,11 +20,11 @@ class Category extends React.Component {
   render() {
     // Menu styling
     const myStyle = {
-      height: "310px",
+      height: "180px",
       display: "flex",
       alignContent: 'flex-end',
       flexDirection: "column",
-      top: '100%',
+      top: '120%',
       left: '69%',  
       tabIndex: "-1",
       position: "absolute",
@@ -48,10 +48,8 @@ class Category extends React.Component {
     } else {
       return (
         <button className="category card-styling" onClick={this.handleClick}>
-          <li>
-            <div>
+          <li className="category-title-wrapper">
             <span className="category-title">{category ? category.name : "No Category"}</span>
-            </div>
             {this.state.open ? (
               <ul style={myStyle}>
                 {
