@@ -23,7 +23,6 @@ class HuntsIndexActive extends React.Component {
         </div>
         <div className="hunts-index-page-right-active">
           <div className="hunt-photo-collection-active card-styling">
-            Looks like you have no hunts... <a className="empty-index-link-active">Create a hunt!</a>
           </div>
           <button className="hunts-index-create-active"> Create a Hunt!</button>
         </div>
