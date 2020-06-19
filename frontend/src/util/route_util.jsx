@@ -6,12 +6,11 @@ export const SPLASH = '/';
 export const AUTH = '/session';
 export const DASH = '/dashboard';
 export const INDEX = '/hunts/index';
-export const CREATE = '/hunts';
+export const CREATE = '/hunts/create';
 export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
 
 const mapStateToProps = state => {
-//    debugger;
     return({
         loggedIn: state.session.isAuthenticated,
     }
@@ -29,7 +28,6 @@ const Auth = ({ component: Component, path, loggedIn }) => (
 );
 
 const Protected = ({ component: Component, path, loggedIn }) => {
-    // debugger
     return(
         <Route
             path={path}

@@ -43,10 +43,7 @@ app.use("/api/users", users);
 app.use("/api/categories", categories);
 app.use("/api/hunts", hunts);
 app.use("/api/playhunts", playHunts);
-// app.use(function (err, req, res, next) {
-//   console.log('This is the invalid field ->', err.field)
-//   next(err)
-// })
+
 
 
 

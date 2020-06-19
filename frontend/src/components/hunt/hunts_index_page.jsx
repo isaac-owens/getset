@@ -1,31 +1,23 @@
 import React from 'react';
-import HuntCollectionItem from './hunt_collection_item';
+import HuntsIndexActive from './hunts_index_active';
+import HuntsIndexInactive from './hunts_index_inactive';
+import { withRouter } from 'react-router-dom';
 
 class HuntsIndexPage extends React.Component {
   constructor(props){
     super(props);
-    
+    this.state = {
+      hunts: false
+    }
   }
 
   render() {
     return (
-      <div className="hunts-index">
-        <div className="hunts-index-list card-styling">
-          <ul className="hunts-collection-list">
-            <HuntCollectionItem />
-            <HuntCollectionItem />
-            <HuntCollectionItem />
-            <HuntCollectionItem />
-          </ul>
-        </div>
-        <div className="hunts-index-page-right">
-          <div className="hunt-photo-collection card-styling">
-            Looks like you have no hunts... <a className="empty-index-link">Create a hunt!</a>
-          </div>
-          <button className="hunts-index-create"> Create a Hunt!</button>
-        </div>
-      </div>
-    );
+      true ? 
+      <HuntsIndexActive /> 
+      : 
+      <HuntsIndexInactive />
+    )
   }
 }
 

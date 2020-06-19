@@ -13,7 +13,6 @@ import { fetchUserHunts } from './actions/user_hunt_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     const token = getToken();
-    // debugger;
     if (token) {
         setAuthToken(token);
 
