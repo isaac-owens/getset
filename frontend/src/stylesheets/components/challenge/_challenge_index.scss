@@ -88,8 +88,11 @@
   object-fit: cover;
 }
 .challenge-toggle {
-  background-color: $yellow;
-  width: 100%;
+  width: 85%;
   font-weight: 900;
   letter-spacing: .1em;
 }
+
+// .challenge-toggle:active {
+//   background-color: $lavender;
+// }

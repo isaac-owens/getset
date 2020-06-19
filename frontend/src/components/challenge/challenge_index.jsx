@@ -34,6 +34,14 @@ class ChallengeIndexPage extends React.Component {
 
   render(){
     const {challenges, categories} = this.props;
+    let styleRemove = {
+      backgroundColor: "#f3d250"
+    }
+
+    let styleAdd = {
+      backgroundColor: '#c5cbe3',
+    }
+
       return (
         <div className="challenge-index">
           <div className="challenge-index-list">
@@ -65,10 +73,10 @@ class ChallengeIndexPage extends React.Component {
             {
               this.state.selectedChallenge ? 
               this.props.myChallenges.includes(this.state.selectedChallenge._id)?
-              <button onClick={this.toggleMyChallage("remove")} className="challenge-toggle">
+                  <button onClick={this.toggleMyChallage("remove")} style={styleRemove} className="challenge-toggle">
                 Remove This Challenge!
               </button> :
-              <button onClick={this.toggleMyChallage("add")} className="challenge-toggle">
+                  <button onClick={this.toggleMyChallage("add")} style={styleAdd} className="challenge-toggle">
               Accept this Challenge!
               </button>
             : <></>
