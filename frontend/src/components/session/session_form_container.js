@@ -3,7 +3,6 @@ import { login, signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const mSTP = state => {
-  debugger
     return {
       errors: Object.values(Object.values(state.errors.session)),
   };

@@ -35,10 +35,8 @@ export const fetchChallenges = () => dispatch =>{
 
 
 export const addToMyChallenges= (challengeId)=>dispatch =>{
-    debugger
    return APIUtil.addToMyChallenges(challengeId).then(
         () => {
-            debugger
            return dispatch(receiveMyChallenges(challengeId))
         }
     )
