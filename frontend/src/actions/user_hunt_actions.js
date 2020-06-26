@@ -35,7 +35,11 @@ export const fetchUserHunt = huntId => dispatch =>(
 
 export const createUserHunt = hunt => dispatch =>(
     APIUtil.createUserHunt(hunt).then(
-        hunt => dispatch(receiveUserHunt(hunt.data)),
-        err => dispatch(receiveUserErrors(err.response.data))
+        hunt => {
+          return dispatch(receiveUserHunt(hunt.data))
+        },
+        err => {
+          return dispatch(receiveUserErrors(err.response.data))
+        }
     )
 );

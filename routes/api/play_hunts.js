@@ -7,7 +7,7 @@ const PlayHunt = require("../../models/PlayHunt");
 var AWS = require("aws-sdk");
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
-const keys = require('../../config/keys_dev');
+const keys = require('../../config/keys');
 var fs = require('file-system');
 var fsy = require("fs");
 var resemble = require('resemblejs');
@@ -51,9 +51,9 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
             if (!isValid) return res.status(400).json(errors);
 
             let s3bucket = new AWS.S3({
-                accessKeyId: process.env.AWS_ACCESS_KEY_ID || keys.AWS_ACCESS_KEY_ID,
-                secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || keys.AWS_SECRET_ACCESS_KEY,
-                region: process.env.AWS_REGION || keys.AWS_REGION
+                accessKeyId: keys.AWS_ACCESS_KEY_ID,
+                secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+                region: keys.AWS_REGION
             });
 
             const numFiles = req.files.length;
@@ -65,7 +65,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
             req.files.map((item, idx) => {
                 //setting params for aws
                 var params = {
-                    Bucket: process.env.AWS_BUCKET_NAME || keys.AWS_BUCKET_NAME,
+                    Bucket: keys.AWS_BUCKET_NAME,
                     Key: item.originalname,
                     Body: fs.createReadStream(item.path),
                     ACL: 'public-read'

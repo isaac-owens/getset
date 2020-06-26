@@ -32,8 +32,13 @@ const SessionReducer = (state = initialState, action) => {
                 nextState.user.hunts = action.hunts;
             return nextState;
         case RECEIVE_USER_HUNT:
-            nextState.user.hunts.push(action.hunt);
+            if (nextState.user.hunts) {
+              nextState.user.hunts.push(action.hunt)
+            } else {
+              nextState.user.hunts = [action.hunt];
+            }
             return nextState;
+            
         case RECEIVE_MY_CHALLENGES:
             if(nextState.user.myChallenges){
                 nextState.user.myChallenges.push(action.challengeId);
