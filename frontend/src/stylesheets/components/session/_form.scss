@@ -1,26 +1,36 @@
 .sign-up {
-  width: 1825px;
+  width: 919px;
+  height: 850px;
   background-color: $red;
   position: relative;
 }
 
 .login {
-  width: 1012px;
+  width: 550px;
+  height: 850px;
   background-color: $blue;
   position: relative;
 }
 
 .password-disclaimer {
-  width: 580px;
-  margin-bottom: 10px;
+  width: 720px;
+  margin-bottom: 45px;
+  font-size: 27px;
+  letter-spacing: .12em;
+  font-weight: bolder;
 }
 
 .session-button {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 20px 50px;
+  justify-content: center;
+  padding: 18px 45px;
   background-color: $yellow;
   color: $red;
+  font-weight: bolder;
+  font-size: 25px;
+  letter-spacing: .1em;
 }
 
 .session-button:hover {
@@ -54,7 +64,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: -25%;
 }
 
 // .signup-form-error-card {
@@ -75,16 +84,17 @@
 .login-form-error-card {
   position: absolute;
   background-color: $lavender;
-  height: 200px;
-  width: 200px;
-  transform: rotate(10deg);
+  height: 225px;
+  width: 229px;
+  transform: rotate(16.4deg);
   top: 33%;
-  left: -26%;
+  left: -60%;
   color: $red;
   font-weight: bolder;
   padding: 25px;
   font-size: 30px;
   letter-spacing: .2em;
   border-color:  rgba(243, 235, 235, 0.943);
+  z-index: 3;
 }
 
