@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone';
 class MyChallenges extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedCollectionIdx: 0, errors: "", potoFile: undefined, photoUrl: undefined}
+    this.state = {selectedCollectionIdx: 0, errors: "", photoFiles: [], photoUrls: []}
 
     this.onCollectionClick = this.onCollectionClick.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -17,31 +17,49 @@ class MyChallenges extends React.Component {
 
   onCollectionClick(selectedIdx){
     return e=>{
-      this.setState({selectedCollectionIdx: selectedIdx})
+      // TODO warn user, changing the hunt will discard all the images added!
+
+      const selectedChallenge = this.props.challenges[selectedIdx][0];
+      const photoCollectionCount = selectedChallenge.photo_collection.length;
+      //reset state to prepare for new play hunt submission
+      this.setState({selectedCollectionIdx: selectedIdx,
+        errors: "",
+        photoFiles: new Array(photoCollectionCount).fill(undefined),
+        photoUrls: new Array(photoCollectionCount).fill(undefined)})
     }
   }
 
    // handle drop of photoFiles in drop zone
-   handleDrop(photoFiles){
-    //update photoFiles array as user drag photoFiles to drop zone
-    if (photoFiles) {
-      //set drop zone error to empty if there is any error
-      // if(this.state.errors.length !== 0){
-      //   this.setState({errors: ""})
-      // }
-      let fileReader = new FileReader();
-      const photoFile =  photoFiles[0];
-      fileReader.onloadend = () => {
-          //update photoFiles and photoUrls in state
-        this.setState({ photoFile: URL.createObjectURL(photoFile),
-            photoUrl: photoFile});
-      };
-      fileReader.readAsDataURL(photoFile);
+   handleDrop(idx){
+    return (photoFiles) =>{
+      //update photoFiles array as user drag photoFiles to drop zone
+      if (photoFiles) {
+        //set drop zone error to empty if there is any error
+        // if(this.state.errors.length !== 0){
+        //   this.setState({errors: ""})
+        // }
+        let fileReader = new FileReader();
+        const photoFile =  photoFiles[0];
+        fileReader.onloadend = () => {
+            //update photoFiles and photoUrls in state
+            const photoFilesArr = this.state.photoFiles;
+            const photoUrlsArr  = this.state.photoUrls;
+
+            photoFilesArr.splice(idx, 1, URL.createObjectURL(photoFile))
+            photoUrlsArr.splice(idx, 1, photoFile)
+          this.setState({ 
+            photoFiles: photoFilesArr,
+            photoUrls: photoUrlsArr
+          });
+        };
+        fileReader.readAsDataURL(photoFile);
+      }
     }
   }
 
   // Component that will render if the user has made one or more hunts
   render() {
+    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx][0];
     return (
       <div className="my-challenges">
         <div className="my-challenges-list card-styling">
@@ -58,9 +76,8 @@ class MyChallenges extends React.Component {
             <ul className="my-challenges-comparison-list">
               
               {
-                this.props.challenges[this.state.selectedCollectionIdx][0]? 
-
-                this.props.challenges[this.state.selectedCollectionIdx][0].photo_collection.map((photo, idx)=>{
+                selectedChallenge? 
+                selectedChallenge.photo_collection.map((photo, idx)=>{
                   return (
                     <li key={idx} className="comparison-zone">
                       <div className="my-challenges-photo">
@@ -69,9 +86,9 @@ class MyChallenges extends React.Component {
                       <div className="my-challenges-drop-zone">
                         {
                           // show image if selected 
-                          this.state.photoFile ? <img src={this.state.photoFile} ></img> :
+                          this.state.photoFiles && this.state.photoFiles[idx] ? <img src={ this.state.photoFiles[idx]} ></img> :
                           // show drop zone if no image is being selected
-                          <Dropzone  onDrop={this.handleDrop}>
+                          <Dropzone  onDrop={this.handleDrop(idx)}>
                             {({ getRootProps, getInputProps }) => (
                               <div {...getRootProps({ className: "drop-zone" })}>
                                 <input {...getInputProps()} />
