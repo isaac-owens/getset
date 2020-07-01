@@ -66,18 +66,22 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json("No hunt exists with this id"))
 })
 
+// router.get("/stats", (req, res) => {
+    // > db.student.update({ "subjects": "gkn" }, { $push: { "achieve": 95 } });
+// })
+
 
 //add hunt to user play future list
-router.post('/add/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    User.update(
-        { _id : req.user.id},
-        { $push: {"my_challenges": req.body.hunt_id}
-    })
-    .then((user) => {
-      return  res.json("Hunt Added")
-    })
-    .catch(err => res.status(404).json(err))
-})
+// router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+//     User.updateOne(
+//         { _id : req.user.id},
+//         { $push: {"my_challenges": req.body.hunt_id},
+//     })
+//     .then((user) => {
+//       return  res.json("Hunt Added")
+//     })
+//     .catch(err => res.status(404).json(err))
+// })
 
 //remove hunt from future play list
 router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -149,8 +153,17 @@ router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('
                         close_date: req.body.close_date,
                         photo_collection: imageAwsPath 
                     })
+
                 
-                    hunt.save().then(hunt => res.json(hunt));
+                    hunt.save()
+                    // .then(hunt.user.update({$push: {"my_challenges": req.body.hunt_id}}))
+                    User.updateOne(
+                        { _id : req.user.id},
+                        { $push: {"my_challenges": hunt._id},
+                    })
+                        .then(() => {
+                            return  res.json(hunt)
+                        })
                 }
 
             }

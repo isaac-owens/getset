@@ -10,6 +10,9 @@ const UserSchema = new Schema({
     my_challenges: {
         type: Array,
     },
+    my_played_challenges: {
+        type: Array
+    },
     email: {
         type: String,
         required: true

@@ -4,6 +4,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const validatePlayHuntInput = require("../../validation/play_hunt");
 const PlayHunt = require("../../models/PlayHunt");
+const Hunt = require("../../models/Hunt")
 var AWS = require("aws-sdk");
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
