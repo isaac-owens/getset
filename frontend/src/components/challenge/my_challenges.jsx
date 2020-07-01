@@ -2,6 +2,8 @@ import React from 'react';
 import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
 import { ERRORS_PLAY_CHALLENGE } from '../../actions/challenge_actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 class MyChallenges extends React.Component {
   constructor(props) {
@@ -13,8 +15,7 @@ class MyChallenges extends React.Component {
     this.onCollectionClick = this.onCollectionClick.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.submitChallenge = this.submitChallenge.bind(this);
-
-    this.resetState();
+    this.removeUserSelection = this.removeUserSelection.bind(this);
   }
 
   resetState(){
@@ -28,7 +29,6 @@ class MyChallenges extends React.Component {
   onCollectionClick(selectedIdx){
     return e=>{
       // TODO warn user, changing the hunt will discard all the images added!
-
       const selectedChallenge = this.props.challenges[selectedIdx][0];
       const photoCollectionCount = selectedChallenge.photo_collection.length;
       //reset state to prepare for new play hunt submission
@@ -40,6 +40,7 @@ class MyChallenges extends React.Component {
   }
 
 
+  //submit challenge
   submitChallenge(e){
     const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx][0];
     //check all photos sumitted
@@ -61,6 +62,23 @@ class MyChallenges extends React.Component {
        this.resetState();
       }
     });
+    }
+  }
+
+  //removes image selected by user to complete a challenge
+  removeUserSelection(idx){
+    return e=>{
+      // TODO warn user, image will be deleted
+      //update photoFiles and photoUrls in state
+      const photoFilesArr = this.state.photoFiles;
+      const photoUrlsArr  = this.state.photoUrls;
+
+      photoFilesArr.splice(idx, 1, undefined)
+      photoUrlsArr.splice(idx, 1, undefined)
+      this.setState({ 
+        photoFiles: photoFilesArr,
+        photoUrls: photoUrlsArr
+      });
     }
   }
 
@@ -95,6 +113,8 @@ class MyChallenges extends React.Component {
   // Component that will render if the user has made one or more hunts
   render() {
     const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx][0];
+    let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
+
     return (
       <div className="my-challenges">
         <div className="my-challenges-list card-styling">
@@ -122,8 +142,9 @@ class MyChallenges extends React.Component {
                         {
                           // show image if selected 
                           this.state.photoFiles && this.state.photoFiles[idx] ?
-                          <div>
-                           <img src={ this.state.photoFiles[idx]} ></img> 
+                          <div className="my-challenges-user-submission-container">
+                            <img className="my-challenges-user-submission" src={ this.state.photoFiles[idx]} ></img> 
+                            <div className='my-challenges-user-submission-remove' onClick={this.removeUserSelection(idx)}>{redEx}</div>
                           </div> :
                           // show drop zone if no image is being selected
                           <Dropzone  onDrop={this.handleDrop(idx)}>
