@@ -19,7 +19,7 @@ class HuntCollectionItem extends React.Component {
         hunt ? 
           <li  onClick={this.props.onCollectionClick}  className={klassName}>
             {hunt.title}
-            <div className='red-ex hunt-collection-ex'>{redEx}</div>
+            <div className='hunt-collection-ex'>{redEx}</div>
           </li> 
           : 
           <li  className={klassName}>

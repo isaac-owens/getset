@@ -35,15 +35,35 @@
 }
 
 .mini-cards-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   box-sizing: border-box;
   height: 100px;
   width: 120px;
   margin-bottom: 50px;
-  background-color: yellow;
+  background-color: $yellow;
   margin: 15px auto;
   text-align: center;
-  border: 1px solid red;
+  border: 5px inset;
+  border-radius: 6px;
+}
 
+.hunt-collection-ex {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 117%;
+  top: -10%;
+  z-index: 50 !important;
+}
+
+
+
+.hunt-collection-ex svg {
+  color: red;
 }
 
 .hunt-photo-collection-active {
@@ -117,10 +137,4 @@
 .empty-index-link-active:hover {
   text-decoration: underline;
   letter-spacing: .15em;
-}
-
-.hunt-collection-ex {
-  position: absolute;
-  left: 97%;
-  top: -100%;
 }
