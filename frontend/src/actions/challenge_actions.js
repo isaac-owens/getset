@@ -1,9 +1,11 @@
 import * as APIUtil from '../util/challenge_util';
+import { ERRORS_USER_HUNT } from './user_hunt_actions';
 
 export const RECEIVE_CHALLENGES = "RECEIVE_CHALLENGES";
 export const RECEIVE_MY_CHALLENGES = "RECEIVE_MY_CHALLENGES";
 export const RECEIVE_MY_CHALLENGES_DATA = "RECEIVE_MY_CHALLENGES_DATA";
-export const RECEIVE_PLAYED_CHALLENGES = "RECEIVE_PLAYED_CHALLENGES";
+export const RECEIVE_PLAY_CHALLENGE = "RECEIVE_PLAY_CHALLENGE";
+export const ERRORS_PLAY_CHALLENGE = "ERRORS_PLAY_CHALLENGE";
 export const REMOVE_MY_CHALLENGES = "REMOVE_MY_CHALLENGES";
 
 const receiveChallenges = challenges =>({
@@ -16,10 +18,15 @@ const receiveMyChallenges = challengeId =>({
     challengeId
 });
 
-const receivePlayedChallenges = challengeId =>({
-    type: RECEIVE_PLAYED_CHALLENGES,
-    challengeId
+const receivePlayChallenge = challenge =>({
+    type: RECEIVE_PLAY_CHALLENGE,
+    challenge
 });
+
+const errorsPlayChallenge = errors =>({
+    type: ERRORS_PLAY_CHALLENGE,
+    errors
+})
 
 const receiveMyChallengesData = challenges =>({
     type: RECEIVE_MY_CHALLENGES_DATA,
@@ -46,7 +53,18 @@ export const addToMyChallenges= (challengeId)=>dispatch =>{
            return dispatch(receiveMyChallenges(challengeId))
         }
     )
-    };
+};
+
+export const addPlayChallenge= (challenge)=>dispatch =>{
+    return APIUtil.addPlayChallenge(challenge).then(
+         (challenge) => {
+            return dispatch(receivePlayChallenge(challenge));
+         },
+         (errors) => {
+             return dispatch(errorsPlayChallenge(errors.response.data));
+         }
+     )
+ };
 
 export const deleteChallenges= (challengeId)=>dispatch =>(
     APIUtil.deleteChallenges(challengeId).then(

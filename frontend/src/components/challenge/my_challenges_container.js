@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import MyChallenges from './my_challenges';
-import {fetchMyChallenges} from '../../actions/challenge_actions'
+import {fetchMyChallenges, addPlayChallenge} from '../../actions/challenge_actions'
 
 const mSTP = state => (
     {
@@ -10,7 +10,8 @@ const mSTP = state => (
 
 const mDTP = dispatch => (
     {
-        fetchMyChallenges: ()=>dispatch(fetchMyChallenges())
+        fetchMyChallenges: ()=>dispatch(fetchMyChallenges()),
+        addPlayChallenge: (challenge)=>dispatch(addPlayChallenge(challenge))
     }
 );
 

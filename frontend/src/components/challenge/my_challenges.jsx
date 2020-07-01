@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone';
 class MyChallenges extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedCollectionIdx: 0, errors: "", potoFile: undefined, photoUrl: undefined};
+    this.state = {selectedCollectionIdx: 0, errors: "", potoFile: undefined, photoUrl: undefined}
 
     this.onCollectionClick = this.onCollectionClick.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
@@ -71,19 +71,19 @@ class MyChallenges extends React.Component {
                           // show image if selected 
                           this.state.photoFile ? <img src={this.state.photoFile} ></img> :
                           // show drop zone if no image is being selected
-                        <Dropzone  onDrop={this.handleDrop}>
-                          {({ getRootProps, getInputProps }) => (
-                            <div {...getRootProps({ className: "drop-zone" })}>
-                              <input {...getInputProps()} />
-                              <div className="my-challenges-drop-zone-message">
-                                <p>
-                                  Drag'n'drop photo here, or click to select photoFile
-                                </p>
+                          <Dropzone  onDrop={this.handleDrop}>
+                            {({ getRootProps, getInputProps }) => (
+                              <div {...getRootProps({ className: "drop-zone" })}>
+                                <input {...getInputProps()} />
+                                <div className="my-challenges-drop-zone-message">
+                                  <p>
+                                    Drag'n'drop photo here, or click to select photoFile
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          )}
-                        </Dropzone>   
-                      }   
+                            )}
+                          </Dropzone>   
+                        }   
                       </div>
                     </li>
                   )
