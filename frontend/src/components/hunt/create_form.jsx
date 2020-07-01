@@ -143,7 +143,7 @@ class CreateForm extends React.Component {
       </div>
       {/* These are the create form errors from backend */}
 
-      <div className="create-form-header">Create a Hunt</div>
+      {/* <div className="create-form-header">Create a Hunt</div> */}
       <div className="card card-styling one"></div>
 
 
