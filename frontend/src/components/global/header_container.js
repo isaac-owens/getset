@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 import Header from './header';
 import {logout} from '../../actions/session_actions';
 
@@ -14,4 +15,4 @@ const mDTP = dispatch => (
     }
 );
 
-export default connect(mSTP, mDTP)(Header);
+export default withRouter(connect(mSTP, mDTP)(Header));
