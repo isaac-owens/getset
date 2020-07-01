@@ -39,20 +39,28 @@ h4 {
 
 .session-form-input-field-container-login {
   height: 20%;
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.session-form-input-field-container .input-field,
-.session-form-input-field-container-login .input-field {
+.session-form-input-field-container .input-field {
   position: absolute;
   border: 1px solid rgba(216, 216, 216, 0.877);
   border-radius: 12px;
   transition: .5s;
   height: 42px;
   width: 35%;
+}
+
+.session-form-input-field-container-login .input-field {
+  position: absolute;
+  border: 1px solid rgba(216, 216, 216, 0.877);
+  border-radius: 12px;
+  transition: .5s;
+  height: 42px;
+  width: 63%;
 }
 
 .session-form-input-field-container .input-label,
