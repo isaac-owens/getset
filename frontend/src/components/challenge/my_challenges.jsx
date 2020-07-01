@@ -1,12 +1,14 @@
 import React from 'react';
 import HuntCollectionItem from '../hunt/hunt_collection_item';
+import Dropzone from 'react-dropzone';
 
 class MyChallenges extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedCollectionIdx: 0}
+    this.state = {selectedCollectionIdx: 0, errors: "", potoFile: undefined, photoUrl: undefined};
 
     this.onCollectionClick = this.onCollectionClick.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
   }
 
   componentDidMount(){
@@ -16,6 +18,25 @@ class MyChallenges extends React.Component {
   onCollectionClick(selectedIdx){
     return e=>{
       this.setState({selectedCollectionIdx: selectedIdx})
+    }
+  }
+
+   // handle drop of photoFiles in drop zone
+   handleDrop(photoFiles){
+    //update photoFiles array as user drag photoFiles to drop zone
+    if (photoFiles) {
+      //set drop zone error to empty if there is any error
+      // if(this.state.errors.length !== 0){
+      //   this.setState({errors: ""})
+      // }
+      let fileReader = new FileReader();
+      const photoFile =  photoFiles[0];
+      fileReader.onloadend = () => {
+          //update photoFiles and photoUrls in state
+        this.setState({ photoFile: URL.createObjectURL(photoFile),
+            photoUrl: photoFile});
+      };
+      fileReader.readAsDataURL(photoFile);
     }
   }
 
@@ -45,7 +66,25 @@ class MyChallenges extends React.Component {
                       <div className="my-challenges-photo">
                         <img src={photo} ></img>
                       </div>
-                      <div className="my-challenges-drop-zone"><span className="my-challenges-drop-zone-message">drop zone component</span></div>
+                      <div className="my-challenges-drop-zone">
+                        {
+                          // show image if selected 
+                          this.state.photoFile ? <img src={this.state.photoFile} ></img> :
+                          // show drop zone if no image is being selected
+                        <Dropzone  onDrop={this.handleDrop}>
+                          {({ getRootProps, getInputProps }) => (
+                            <div {...getRootProps({ className: "drop-zone" })}>
+                              <input {...getInputProps()} />
+                              <div className="my-challenges-drop-zone-message">
+                                <p>
+                                  Drag'n'drop photo here, or click to select photoFile
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                        </Dropzone>   
+                      }   
+                      </div>
                     </li>
                   )
                 }):

@@ -3,6 +3,7 @@ import * as APIUtil from '../util/challenge_util';
 export const RECEIVE_CHALLENGES = "RECEIVE_CHALLENGES";
 export const RECEIVE_MY_CHALLENGES = "RECEIVE_MY_CHALLENGES";
 export const RECEIVE_MY_CHALLENGES_DATA = "RECEIVE_MY_CHALLENGES_DATA";
+export const RECEIVE_PLAYED_CHALLENGES = "RECEIVE_PLAYED_CHALLENGES";
 export const REMOVE_MY_CHALLENGES = "REMOVE_MY_CHALLENGES";
 
 const receiveChallenges = challenges =>({
@@ -12,6 +13,11 @@ const receiveChallenges = challenges =>({
 
 const receiveMyChallenges = challengeId =>({
     type: RECEIVE_MY_CHALLENGES,
+    challengeId
+});
+
+const receivePlayedChallenges = challengeId =>({
+    type: RECEIVE_PLAYED_CHALLENGES,
     challengeId
 });
 
@@ -54,3 +60,4 @@ export const fetchMyChallenges= ()=>dispatch =>(
         (challenges) => dispatch(receiveMyChallengesData(challenges.data))
     )
 );
+
