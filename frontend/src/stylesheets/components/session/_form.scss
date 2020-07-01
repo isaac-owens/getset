@@ -6,25 +6,28 @@
 }
 
 .login {
-  width: 500px;
+  width: 550px;
   height: 850px;
   background-color: $blue;
   position: relative;
 }
 
 .password-disclaimer {
-  width: 580px;
-  margin-bottom: 10px;
+  width: 720px;
+  margin-bottom: 45px;
+  font-size: 27px;
+  letter-spacing: .12em;
+  font-weight: bolder;
 }
 
 .session-button {
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 18px 45px;
   background-color: $yellow;
   color: $red;
-  justify-content: center;
   font-weight: bolder;
   font-size: 25px;
   letter-spacing: .1em;
@@ -61,7 +64,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: -25%;
 }
 
 // .signup-form-error-card {
@@ -82,16 +84,17 @@
 .login-form-error-card {
   position: absolute;
   background-color: $lavender;
-  height: 250px;
-  width: 265px;
+  height: 225px;
+  width: 229px;
   transform: rotate(16.4deg);
   top: 33%;
-  left: -74%;
+  left: -60%;
   color: $red;
   font-weight: bolder;
   padding: 25px;
   font-size: 30px;
   letter-spacing: .2em;
   border-color:  rgba(243, 235, 235, 0.943);
+  z-index: 3;
 }
 
