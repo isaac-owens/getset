@@ -17,7 +17,7 @@ export const addPlayChallenge = (challenge)=> (
     axios({
         method: 'post',
         url: '/api/playhunts',
-        data: {images: challenge.images, hunt_id: challenge.id},
+        data: challenge,
         headers: { 'Content-Type': 'multipart/form-data' }
     })
 );

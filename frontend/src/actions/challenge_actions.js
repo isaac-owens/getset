@@ -58,7 +58,7 @@ export const addToMyChallenges= (challengeId)=>dispatch =>{
 export const addPlayChallenge= (challenge)=>dispatch =>{
     return APIUtil.addPlayChallenge(challenge).then(
          (challenge) => {
-            return dispatch(receivePlayChallenge(challenge));
+            return dispatch(receivePlayChallenge(challenge.data));
          },
          (errors) => {
              return dispatch(errorsPlayChallenge(errors.response.data));

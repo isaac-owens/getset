@@ -1,14 +1,24 @@
 import React from 'react';
 import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
+import { ERRORS_PLAY_CHALLENGE } from '../../actions/challenge_actions';
 
 class MyChallenges extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {selectedCollectionIdx: 0, errors: "", photoFiles: [], photoUrls: []}
 
+    this.resetState = this.resetState.bind(this);
     this.onCollectionClick = this.onCollectionClick.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
+    this.submitChallenge = this.submitChallenge.bind(this);
+
+    this.resetState();
+  }
+
+  resetState(){
+    this.setState({selectedCollectionIdx: 0, errors: "", photoFiles: [], photoUrls: []});
   }
 
   componentDidMount(){
@@ -25,7 +35,32 @@ class MyChallenges extends React.Component {
       this.setState({selectedCollectionIdx: selectedIdx,
         errors: "",
         photoFiles: new Array(photoCollectionCount).fill(undefined),
-        photoUrls: new Array(photoCollectionCount).fill(undefined)})
+        photoUrls: new Array(photoCollectionCount).fill(undefined)});
+    }
+  }
+
+
+  submitChallenge(e){
+    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx][0];
+    //check all photos sumitted
+    if(this.state.photoUrls.filter((url) => url !== undefined).length === selectedChallenge.photo_collection.length){
+      //all photos of the challenge has been submitted
+      let formData = new FormData();
+
+      formData.set("hunt_id", selectedChallenge._id);
+      for (let i = 0; i < this.state.photoFiles.length; i++) {
+        formData.append("images", this.state.photoUrls[i]);
+      }  
+
+      //submitting to server
+    this.props.addPlayChallenge(formData)
+    .then(res=>{
+      if(res.type !== ERRORS_PLAY_CHALLENGE){
+        console.log(res);
+        //reset state on success
+       this.resetState();
+      }
+    });
     }
   }
 
@@ -86,7 +121,10 @@ class MyChallenges extends React.Component {
                       <div className="my-challenges-drop-zone">
                         {
                           // show image if selected 
-                          this.state.photoFiles && this.state.photoFiles[idx] ? <img src={ this.state.photoFiles[idx]} ></img> :
+                          this.state.photoFiles && this.state.photoFiles[idx] ?
+                          <div>
+                           <img src={ this.state.photoFiles[idx]} ></img> 
+                          </div> :
                           // show drop zone if no image is being selected
                           <Dropzone  onDrop={this.handleDrop(idx)}>
                             {({ getRootProps, getInputProps }) => (
@@ -113,7 +151,7 @@ class MyChallenges extends React.Component {
               }
             </ul>
           </div>
-          <button className="my-challenges-create">Complete Challenge!</button>
+          <button className="my-challenges-create" onClick={this.submitChallenge}>Complete Challenge!</button>
         </div>
       </div>
     );
