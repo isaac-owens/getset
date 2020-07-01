@@ -30,34 +30,30 @@ class Stats extends React.Component {
             </tr>
             <tr className='challenge'>
                 <td>c4</td>
-                <td>t</td>
-                <td>Danny - 96%</td>
+                <td>test data</td>
+                <td>test data</td>
             </tr>
             <tr className='challenge'>
-                <td>Animals and their lovers</td>
-                <td>22%</td>
-                <td>Danny - 96%</td>
+                <td>c5</td>
+                <td>test data</td>
+                <td>test data</td>
             </tr>
             <tr className='challenge'>
-                <td>Animals and their lovers</td>
-                <td>22%</td>
-                <td>Danny - 96%</td>
+                <td>c6</td>
+                <td>test data</td>
+                <td>test data</td>
             </tr>
-            {/* < className="stat-card-one">  */}
-              {/* <ul className="challenge-selector">
+            <tr className='challenge'>
+                <td>c7</td>
+                <td>test data</td>
+                <td>test data</td>
+            </tr>
+            <tr className='challenge'>
+                <td>c8</td>
+                <td>test data</td>
+                <td>test data</td>
+            </tr>
 
-              </ul>
-            </col>
-            <div className="stat-card-two">
-              <ul className='selected-user-score'>
-
-              </ul>
-            </div>
-            <div className="stat-card-three">
-              <ul className="selected-leader-board">
-
-              </ul>
-            </div> */}
           </table>
         );
     }
