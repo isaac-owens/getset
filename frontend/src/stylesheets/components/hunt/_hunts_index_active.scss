@@ -27,22 +27,25 @@
   background-color: $blue;
 }
 
-.hunts-collection-list-active{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: hidden;
+.hunts-collection-list-active {
+  // display: flex;
+  // flex-direction: column;
   overflow-y: scroll;
+  overflow-x: hidden;
+  justify-content: space-evenly;
+  // align-items: center;
   width: 87%;
   height: 90%;
+  background-color: orange;
+  // z-index: 200;
 }
 
 .mini-cards-active {
   box-sizing: border-box;
   height: 100px;
   width: 120px;
-  margin-bottom: 70px;
+  // margin-bottom: 70px;
+  background-color: yellow;
 }
 
 .hunt-photo-collection-active {
@@ -64,7 +67,7 @@
 .hunt-photo-collection-images-container{
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
   align-items: center;
   height: 100%;

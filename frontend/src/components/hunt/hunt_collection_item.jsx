@@ -14,17 +14,13 @@ class HuntCollectionItem extends React.Component {
 
       return(
         hunt ? 
-          <div  onClick={this.props.onCollectionClick}  className={klassName}>
-            <div  className="mini-card mini-one">
-            </div>
-            <div   className="mini-card mini-two">
+          <li  onClick={this.props.onCollectionClick}  className={klassName}>
+
             {hunt.title}
-            </div>
-            <div  className="mini-card mini-three">
-            </div>
-          </div> 
+
+          </li> 
           : 
-          <div  className={klassName}>
+          <li  className={klassName}>
             <div className="mini-card mini-one">
             </div>
             <div className="mini-card mini-two">
@@ -32,7 +28,7 @@ class HuntCollectionItem extends React.Component {
             </div>
             <div className="mini-card mini-three">
             </div>
-          </div> 
+          </li> 
       )
   }
 }
