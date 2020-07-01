@@ -67,7 +67,7 @@ router.get("/:id", (req, res) => {
 })
 
 // router.get("/stats", (req, res) => {
-    // > db.student.update({ "subjects": "gkn" }, { $push: { "achieve": 95 } });
+    
 // })
 
 
