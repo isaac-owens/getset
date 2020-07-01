@@ -20,35 +20,41 @@ class Header extends React.Component {
       } else if (this.props.currentUser) {
               return (
                 <div>
-                  <ul className="header-nav-links">
+                  <ul className='drop-down'>
                     <li>
-                      <Link to={CREATE}
-                      className="header-nav-link">Create-a-Hunt</Link>
-                    </li>
-                    <li>
-                      <Link to={CINDEX}
-                      className="header-nav-link">FindChallenges</Link>
-                    </li>
-                    <li>
-                      <Link to={INDEX}
-                      className="header-nav-link">MyHunts</Link>
-                    </li>
-                    <li>
-                      <Link to={MYCHALL}
-                      className="header-nav-link">MyChallenges</Link>
-                    </li>
-                    <li>
-                      <Link to={STATS}
-                      className="header-nav-link"
-                      >MyStats</Link>
-                    </li>
-                    <li className="header-button-container">
                       <div className="header-hello">
-                        Hi {this.props.currentUser.username}!
+                        {this.props.currentUser.username[0].toUpperCase()}
                       </div>
-                      <button onClick={this.logoutUser} className="session-button">
-                        Logout
-                      </button>
+                      <ul className="header-nav-links sub-drop-down">
+                        <div>
+                          <li>
+                            <Link to={CREATE}
+                            className="header-nav-link">Create-a-Hunt</Link>
+                          </li>
+                          <li>
+                            <Link to={CINDEX}
+                            className="header-nav-link">FindChallenges</Link>
+                          </li>
+                          <li>
+                            <Link to={INDEX}
+                            className="header-nav-link">MyHunts</Link>
+                          </li>
+                          <li>
+                            <Link to={MYCHALL}
+                            className="header-nav-link">MyChallenges</Link>
+                          </li>
+                          <li>
+                            <Link to={STATS}
+                              className="header-nav-link">MyStats
+                            </Link>
+                          </li>
+                          <li className="header-button-container">
+                            <button onClick={this.logoutUser} className="session-button">
+                              Logout
+                            </button>
+                          </li>
+                        </div>
+                      </ul>
                     </li>
                   </ul>
                 </div>
