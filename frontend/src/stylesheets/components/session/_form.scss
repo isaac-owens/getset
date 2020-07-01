@@ -16,11 +16,16 @@
 }
 
 .session-button {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 20px 50px;
+  padding: 18px 45px;
   background-color: $yellow;
   color: $red;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 25px;
+  letter-spacing: .1em;
 }
 
 .session-button:hover {
