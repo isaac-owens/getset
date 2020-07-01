@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AUTH, CREATE, INDEX, CINDEX, SPLASH, MYCHALL } from '../../util/route_util';
+import { AUTH, CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL } from '../../util/route_util';
 
 class Header extends React.Component {
     constructor(props) {
@@ -37,9 +37,11 @@ class Header extends React.Component {
                       <Link to={MYCHALL}
                       className="header-nav-link">MyChallenges</Link>
                     </li>
-                    {/* <li>
-                      <Link to={STATS}>Stats</Link>
-                    </li> */}
+                    <li>
+                      <Link to={STATS}
+                      className="header-nav-link"
+                      >MyStats</Link>
+                    </li>
                     <li className="header-button-container">
                       <div className="header-hello">
                         Hi {this.props.currentUser.username}!

@@ -1,9 +1,62 @@
+.stats-table {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    width: 98%;
+    height: 500px;
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.stats-headers{
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: .1em;
+}
+
+// top left
+tr:first-child th:first-child {
+    border-top-left-radius: 25px;
+}
+// top right
+tr:first-child th:last-child {
+    border-top-right-radius: 25px;
+}
+// bottom left
+tr:last-child td:first-child {
+    border-bottom-left-radius: 25px;
+}
+// bottom right
+tr:last-child td:last-child {
+    border-bottom-right-radius: 25px;
+}
+
+
+.challenge{
+    border-top: 2px solid white;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 25px;
+}
+
 .stat-card-one{
-    
+  height: 500px;
+  width: 400px;
+  border-radius: 25px;
+  border: 20px solid rgba(255, 255, 255, 0.943); 
+  box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
 }
 .stat-card-two{
-
+  height: 500px;
+  width: 400px;
+  border-radius: 25px;
+  border: 20px solid rgba(255, 255, 255, 0.943); 
+  box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
 }
 .stat-card-three{
-
+  height: 500px;
+  width: 400px;
+  border-radius: 25px;
+  border: 20px solid rgba(255, 255, 255, 0.943); 
+  box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
 }

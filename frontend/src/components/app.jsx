@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-    AuthRoute, ProtectedRoute, SPLASH, AUTH, DASH, INDEX, CREATE, CINDEX, MYCHALL
+    AuthRoute, ProtectedRoute, SPLASH, AUTH, DASH, INDEX, CREATE, CINDEX, MYCHALL, STATS
 } from '../util/route_util';
 import { Route, Switch, Link } from 'react-router-dom';
 
@@ -13,6 +13,7 @@ import DashboardContainer from './dashboard/dashboard_contianer';
 import HuntsIndexPageContainer from './hunt/hunts_index_page_container';
 import MyChallengesContainer from './challenge/my_challenges_container';
 import ChallengeIndexContainer from './challenge/challenge_index_container';
+import StatsContainer from './stats/stats_container';
 
 const App = () => (
     <div className='app'>
@@ -25,6 +26,7 @@ const App = () => (
                 <ProtectedRoute exact path={INDEX} component={HuntsIndexPageContainer} />
                 <ProtectedRoute exact path={CINDEX} component={ChallengeIndexContainer} />
                 <ProtectedRoute exact path={MYCHALL} component={MyChallengesContainer} />
+                <ProtectedRoute exact path={STATS} component={StatsContainer} />
             </Switch>
          <Footer />
     </div>
