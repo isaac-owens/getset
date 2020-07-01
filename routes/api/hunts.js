@@ -17,22 +17,22 @@ const { route } = require("./play_hunts");
 
 router.get("/test", (req, res) => res.json({msg: "This is the hunts route"}))
 
-//fetch hunts based on categories
-//res will be each category id will have all hunts under it
+//fetch challenges based on categories
+//res will be each category id with all challenges under it
 router.get("/", (req, res) => {
     Category.find()
     .sort({date: -1})
     .then(categories => {
        let combo = {}
         for (let i = 0; i < categories.length; i++) {
-            Hunt.find({category: categories[i]}).then(hunts=>{
-                combo[categories[i]._id] = hunts;
+            Hunt.find({category: categories[i]}).then(challenges=>{
+                combo[categories[i]._id] = challenges;
                 if(i==categories.length-1){
                     return res.json(combo)
                 }
             })
         }
-    }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
+    }).catch(error => res.status(404).json({error: "No challenges were found"}))
 });
 
 //fetch user created hunts
@@ -41,29 +41,30 @@ router.get("/:user_id", (req, res) => {
     .sort({date: -1})
     .then(hunts => {
         return res.json(hunts);
-    }).catch(err=> res.status(404).json({nohuntsfound: "No hunts were found"}))
+    }).catch(error => res.status(404).json({error: "No hunts were found"}))
 });
 
-//fetch user state, play a hunt score
+// move to challenges
+// fetch user's completed challenge stats
 router.get("/stats/:user_id", (req, res) => {
     PlayHunt.find({user: req.params.user_id})
-    .sort({date: -1})
-    .then(playHunts => res.json(playHunts))
-        .catch(err => res.status(404).json({ nohuntsfound: "No hunts were found" }))
+    // .sort({date: -1})
+    .then(completedChallenges=> res.json(completedChallenges))
+        .catch(error => res.status(404).json({error: "No challenges were found" }))
 })
 
-//fetch hunt detail by Id
-router.get("/:hunt_id", (req, res) => {
-    Hunt.find({hunt: req.params.hunt_id})
-    .then(hunts => res.json(hunts))
-    .catch(err => res.status(404).json({nohuntfound: "This hunt was not found"}))
-})
+// //fetch hunt detail by Id
+// router.get("/:hunt_id", (req, res) => {
+//     Hunt.find({hunt: req.params.hunt_id})
+//     .then(hunts => res.json(hunts))
+//     .catch(err => res.status(404).json({nohuntfound: "This hunt was not found"}))
+// })
 
 //fetch hunt detail by Id
 router.get("/:id", (req, res) => {
     Hunt.findById(req.params.id)
     .then(hunt => res.json(hunt))
-    .catch(err => res.status(404).json("No hunt exists with this id"))
+    .catch(error => res.status(404).json({error: "No hunt exists with this id"}))
 })
 
 // router.get("/stats", (req, res) => {
@@ -71,19 +72,19 @@ router.get("/:id", (req, res) => {
 // })
 
 
-//add hunt to user play future list
-// router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-//     User.updateOne(
-//         { _id : req.user.id},
-//         { $push: {"my_challenges": req.body.hunt_id},
-//     })
-//     .then((user) => {
-//       return  res.json("Hunt Added")
-//     })
-//     .catch(err => res.status(404).json(err))
-// })
+//add challenge to my_challenge list
+router.post('/add/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.updateOne(
+        { _id : req.user.id},
+        { $push: {"my_challenges": req.body.hunt_id},
+    })
+    .then((user) => {
+      return  res.json("Challenge Added")
+    })
+    .catch(error => res.status(404).json({error: 'Challenge not added'}))
+})
 
-//remove hunt from future play list
+//remove challenge from my_challenge play list
 router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
     User.update(
         { _id : req.user.id},
@@ -92,7 +93,7 @@ router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) 
     .then((user) => {
       return  res.json(user)
     })
-    .catch(err => res.status(404).json(err))
+    .catch(error => res.status(404).json({error: 'Challenge not removed'}))
 })
 
 
@@ -104,14 +105,14 @@ router.get("/my/challenges", passport.authenticate('jwt', { session: false }), (
             let combo = {}
             for (let i = 0; i < user.my_challenges.length; i++) {
                 const myChallenges = user.my_challenges[i];
-                Hunt.find({ _id: myChallenges }).then(hunts => {
-                    combo[myChallenges] = hunts;
+                Hunt.find({ _id: myChallenges }).then(challenges => {
+                    combo[myChallenges] = challenges;
                     if (i == user.my_challenges.length - 1) {
                         return res.json(combo)
                     }
                 })
             }
-        }).catch(err => res.status(404).json({ nohuntsfound: "No hunts were found" }))
+        }).catch(error => res.status(404).json({ error: "No challenges were found" }))
 });
 
 
@@ -159,7 +160,7 @@ router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('
                     // .then(hunt.user.update({$push: {"my_challenges": req.body.hunt_id}}))
                     User.updateOne(
                         { _id : req.user.id},
-                        { $push: {"my_challenges": hunt._id},
+                        { $push: {"my_hunts": hunt._id},
                     })
                         .then(() => {
                             return  res.json(hunt)

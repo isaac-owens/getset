@@ -29,6 +29,9 @@ const HuntSchema = new Schema({
     photo_collection: {
         type: Array,
         required: true
+    },
+    winner: {
+        type: Object
     }
 })
 module.exports = Hunt = mongoose.model("Hunt", HuntSchema);

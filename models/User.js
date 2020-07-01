@@ -7,10 +7,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    my_challenges: {
+    my_hunts: {
         type: Array,
     },
-    my_played_challenges: {
+    my_challenges: {
         type: Array
     },
     email: {
