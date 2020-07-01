@@ -1,7 +1,7 @@
 .stats-table {
     display:block;
     // width: 98%;
-    height: 500px;
+    height: 700px;
     border-spacing: 0;
     border-collapse: separate;
     background-color: $blue;
@@ -13,16 +13,9 @@
     font-size: 40px;
     font-weight: bold;
     letter-spacing: .1em;
+    background-color: $red;
 }
 
-// top left
-tr:first-child th:first-child {
-    border-top-left-radius: 25px;
-}
-// top right
-tr:first-child th:last-child {
-    border-top-right-radius: 25px;
-}
 // bottom left
 tr:last-child td:first-child {
     border-bottom-left-radius: 25px;
