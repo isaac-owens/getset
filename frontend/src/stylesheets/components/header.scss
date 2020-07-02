@@ -13,7 +13,7 @@
   background: $tan;
   text-align: center;
   box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
-  z-index: 20;
+  z-index: 50;
 }
   
 .header-nav-link-container {
@@ -33,4 +33,3 @@
 .header-nav-link:hover {
   color: $yellow;
 }
-
