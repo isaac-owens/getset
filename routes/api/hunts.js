@@ -86,7 +86,7 @@ router.post('/add/', passport.authenticate('jwt', { session: false }), (req, res
 
 //remove challenge from my_challenge play list
 router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    User.update(
+    User.updateOne(
         { _id : req.user.id},
         { $pull: {"my_challenges": req.body.hunt_id}
     })
@@ -104,10 +104,10 @@ router.get("/my/challenges", passport.authenticate('jwt', { session: false }), (
         .then(user => {
             let combo = {}
             for (let i = 0; i < user.my_challenges.length; i++) {
-                const myChallenges = user.my_challenges[i];
-                Hunt.find({ _id: myChallenges }).then(challenges => {
-                    combo[myChallenges] = challenges;
-                    if (i == user.my_challenges.length - 1) {
+                const challengeId = user.my_challenges[i];
+                Hunt.find({ _id: challengeId }).then(challenge => {
+                    combo[challengeId] = challenge[0];
+                    if (i == user.my_challenge.length - 1) {
                         return res.json(combo)
                     }
                 })
