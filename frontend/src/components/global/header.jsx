@@ -6,21 +6,14 @@ import { AUTH, CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL } from '../../util/
 class Header extends React.Component {
     constructor(props) {
       super(props);
-      this.logoutUser = this.logoutUser.bind(this);
       this.getLinks = this.getLinks.bind(this);
     }
-
-    logoutUser(e) {
-        e.preventDefault();
-        this.props.logout();
-    }
-
 
     getLinks() {
       if(this.props.location.pathname === AUTH){
         return (<div></div>);  
       } else if (this.props.currentUser) {
-          return (<DropDown username={this.props.currentUser.username} />)
+          return (<DropDown logout={this.props.logout} username={this.props.currentUser.username} />)
         }else {
           return (
             <div className="header-nav-links">

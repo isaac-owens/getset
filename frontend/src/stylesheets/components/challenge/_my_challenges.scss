@@ -93,29 +93,43 @@
   text-align: center;
   border: 5px inset;
   border-radius: 25px;
-  overflow: hidden;
 }
 
 .my-challenges-drop-zone:hover {
   background-color: $lavender;
 }
 
-.my-challenges-drop-zone-message{
+.my-challenges-drop-zone-message {
   padding: 45px;
   width: 55%;
   border: 4px dashed rgba($color: #ffffff, $alpha: .7);
   border-width: 6px;
   border-radius: 20px;
 }
-.my-challenges-user-submission-container{
 
+.my-challenges-user-submission-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 .my-challenges-user-submission{
-  // display: none;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
 }
 
-.my-challenges-user-submission-remove{
- 
+.my-challenges-user-submission-remove {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  top: 0;
+  left: 86%;
+  z-index: 50 !important;
+}
+
+.my-challenges-user-submission-remove svg {
+  color: red;
 }
 
 .my-challenges-create {

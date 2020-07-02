@@ -12,6 +12,7 @@ class DropDown extends React.Component {
         this.handleDropClick = this.handleDropClick.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
     }
     
     handleDropClick = () => {
@@ -19,6 +20,11 @@ class DropDown extends React.Component {
         open: !this.state.open
       })
     };
+
+  logoutUser(e) {
+    e.preventDefault();
+    this.props.logout();
+  }
 
     handleClickOutside() {
       // console.log('click outside');
