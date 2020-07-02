@@ -13,22 +13,24 @@
   background: $tan;
   text-align: center;
   box-shadow: 5px 10px rgba(3, 3, 3, 0.162);
-  // display: none
+  z-index: 20;
+}
+  
+.header-nav-link-container {
+  border-bottom: 2px solid $lavender;
+}
+.header-nav-link-container:hover {
+  background-color: $blue;
 }
 
-// .header-nav-links:focus{
-  
-  // }
-  
-  .header-nav-link {
-    color: $lavender;
-    letter-spacing: .1em;
-    font-size: 32px;
-    font-weight: 700;
-    border-bottom: 2px solid $lavender;
+.header-nav-link {
+  color: $lavender;
+  letter-spacing: .1em;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .header-nav-link:hover {
-    color: $yellow;
+  color: $yellow;
 }
 
