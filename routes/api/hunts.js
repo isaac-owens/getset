@@ -96,6 +96,18 @@ router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) 
     .catch(error => res.status(404).json({error: 'Challenge not removed'}))
 })
 
+//remove hunt from my_hunts list
+//Change the actual url route
+router.delete('/', passport.authenticate("jwt", {session: false}), (req, res) => {
+    User.update(
+        {_id: req.user.id},
+        { $pull: {"my_hunts": req.body.hunt_id}})
+    .then(user => {
+        return res.json(user)
+    })
+    .catch(error => res.status(404).json({error: 'Hunt not removed'}))
+})
+
 
 //fetch added challenges details
 router.get("/my/challenges", passport.authenticate('jwt', { session: false }), (req, res) => {

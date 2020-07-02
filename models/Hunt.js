@@ -31,7 +31,11 @@ const HuntSchema = new Schema({
         required: true
     },
     winner: {
-        type: Object
+        type: Object,
+        default: {
+            "user_id": '',
+            "score": 0
+        }
     }
 })
 module.exports = Hunt = mongoose.model("Hunt", HuntSchema);

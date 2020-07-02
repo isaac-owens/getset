@@ -1,0 +1,41 @@
+.stats-table {
+    display:block;
+    // width: 98%;
+    height: 650px;
+    border-spacing: 0;
+    border-collapse: separate;
+    background-color: $blue;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.stats-headers{
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    background-color: $red;
+}
+
+// bottom left
+tr:last-child td:first-child {
+    border-bottom-left-radius: 25px;
+}
+// bottom right
+tr:last-child td:last-child {
+    border-bottom-right-radius: 25px;
+}
+
+.challenge{
+    text-align: center;
+    font-size: 30px;
+    color: $green;
+    font-weight: bold;
+    height: 89px;
+}
+
+td {
+    width: 400px;
+    padding: 10px;
+    margin-left: 5px;
+    border-top: 2px solid white;
+}
