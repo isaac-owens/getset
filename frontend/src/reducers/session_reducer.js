@@ -58,7 +58,7 @@ const SessionReducer = (state = initialState, action) => {
             return nextState;
         case REMOVE_MY_CHALLENGE:
             //delete challange from user myChallenges slice
-            if(nextState.user.myChallengesData)
+            if(nextState.user.myChallenges)
             {
                 delete nextState.user.myChallenges[action.challengeId];
             }

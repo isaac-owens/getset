@@ -1,9 +1,8 @@
 import * as APIUtil from '../util/challenge_util';
-import { ERRORS_USER_HUNT } from './user_hunt_actions';
 
 export const RECEIVE_CHALLENGES = "RECEIVE_CHALLENGES";
+export const RECEIVE_MY_CHALLENGES = "RECEIVE_MY_CHALLENGES";
 export const RECEIVE_MY_CHALLENGE = "RECEIVE_MY_CHALLENGE";
-export const RECEIVE_MY_CHALLENGES_DATA = "RECEIVE_MY_CHALLENGES_DATA";
 export const RECEIVE_COMPLETE_CHALLENGE = "RECEIVE_COMPLETE_CHALLENGE";
 export const ERRORS_COMPLETE_CHALLENGE = "ERRORS_COMPLETE_CHALLENGE";
 export const REMOVE_MY_CHALLENGE = "REMOVE_MY_CHALLENGE";
@@ -11,11 +10,6 @@ export const REMOVE_MY_CHALLENGE = "REMOVE_MY_CHALLENGE";
 const receiveChallenges = challenges =>({
     type: RECEIVE_CHALLENGES,
     challenges
-});
-
-const receiveMyChallenge = challengeId =>({
-    type: RECEIVE_MY_CHALLENGE,
-    challengeId
 });
 
 const receiveCompleteChallenge = challenge =>({
@@ -28,9 +22,14 @@ const errorsCompleteChallenge = errors =>({
     errors
 })
 
-const receiveMyChallengesData = challenges =>({
-    type: RECEIVE_MY_CHALLENGES_DATA,
+const receiveMyChallenges = challenges =>({
+    type: RECEIVE_MY_CHALLENGES,
     challenges
+});
+
+const receiveMyChallenge = challenge =>({
+    type: RECEIVE_MY_CHALLENGE,
+    challenge
 });
 
 const removeMyChallenge = challengeId =>({
@@ -47,10 +46,10 @@ export const fetchChallenges = () => dispatch =>{
 };
 
 
-export const addToMyChallenge= (challengeId)=>dispatch =>{
-   return APIUtil.addToMyChallenge(challengeId).then(
+export const addToMyChallenge= (challenge)=>dispatch =>{
+   return APIUtil.addToMyChallenge(challenge._id).then(
         () => {
-           return dispatch(receiveMyChallenge(challengeId))
+           return dispatch(receiveMyChallenge(challenge))
         }
     )
 };
@@ -73,9 +72,11 @@ export const deleteChallenge= (challengeId)=>dispatch =>{
     };
 
 
-export const fetchMyChallenges= ()=>dispatch =>(
-    APIUtil.fetchMyChallenges().then(
-        (challenges) => dispatch(receiveMyChallengesData(challenges.data))
+export const fetchMyChallenges= ()=>dispatch =>{
+   return APIUtil.fetchMyChallenges().then(
+        (challenges) => {
+           return dispatch(receiveMyChallenges(challenges.data));
+        }
     )
-);
+};
 

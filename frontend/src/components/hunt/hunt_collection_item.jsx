@@ -17,7 +17,7 @@ class HuntCollectionItem extends React.Component {
         hunt ? 
           <li  onClick={this.props.onCollectionClick}  className={klassName}>
             {hunt.title}
-            <div className='hunt-collection-ex' onClick={this.props.onCollectionRemove}>{redEx}</div>
+            <div className='hunt-collection-ex' onClick={this.props.removeChallengeCollection}>{redEx}</div>
           </li> 
           : 
           <li  className={klassName}>

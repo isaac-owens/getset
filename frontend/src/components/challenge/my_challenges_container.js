@@ -8,7 +8,7 @@ import {
 
 const mSTP = state => {
   return  {
-        challenges: state.session.user.myChallengesData ? Object.values(state.session.user.myChallengesData): [[]],
+        challenges: state.session.user.myChallenges ? Object.values(state.session.user.myChallenges): [],
     }
 };
 
@@ -16,7 +16,7 @@ const mDTP = dispatch => (
     {
         fetchMyChallenges: ()=>dispatch(fetchMyChallenges()),
         completeChallenge: (challenge)=>dispatch(completeChallenge(challenge)),
-        deleteChallenge: (id) => dispatch(deleteChallenge(id)), 
+        deleteChallenge: (challengeId) => dispatch(deleteChallenge(challengeId)), 
     }
 );
 

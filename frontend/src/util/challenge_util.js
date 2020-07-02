@@ -24,6 +24,6 @@ export const completeChallenge = (challenge)=> (
 
 
 export const deleteChallenge = (challengeId)=> (
-    axios.delete('/api/hunts', {hunt_id: challengeId})
+    axios.delete(`/api/hunts/my/challenges/${challengeId}`)
 );
 
