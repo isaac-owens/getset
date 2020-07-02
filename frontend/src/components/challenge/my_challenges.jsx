@@ -13,7 +13,7 @@ class MyChallenges extends React.Component {
 
     this.resetState = this.resetState.bind(this);
     this.onCollectionClick = this.onCollectionClick.bind(this);
-    this.onCollectionRemove = this.onCollectionRemove.bind(this);
+    this.removeChallengeCollection = this.removeChallengeCollection.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.submitChallenge = this.submitChallenge.bind(this);
     this.removeUserSelection = this.removeUserSelection.bind(this);
@@ -30,7 +30,7 @@ class MyChallenges extends React.Component {
   onCollectionClick(selectedIdx){
     return e=>{
       // TODO warn user, changing the hunt will discard all the images added!
-      const selectedChallenge = this.props.challenges[selectedIdx][0];
+      const selectedChallenge = this.props.challenges[selectedIdx];
       const photoCollectionCount = selectedChallenge.photo_collection.length;
       //reset state to prepare for new play hunt submission
       this.setState({selectedCollectionIdx: selectedIdx,
@@ -40,9 +40,9 @@ class MyChallenges extends React.Component {
     }
   }
 
-  onCollectionRemove(selectedIdx){
+  removeChallengeCollection(selectedIdx){
     return e => {
-      const selectedChallenge = this.props.challenges[selectedIdx][0];
+      const selectedChallenge = this.props.challenges[selectedIdx];
       this.props.deleteChallenge(selectedChallenge._id);
     }
   }
@@ -50,7 +50,7 @@ class MyChallenges extends React.Component {
 
   //submit challenge
   submitChallenge(e){
-    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx][0];
+    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx];
     //check all photos sumitted
     if(this.state.photoUrls.filter((url) => url !== undefined).length === selectedChallenge.photo_collection.length){
       //all photos of the challenge has been submitted
@@ -118,7 +118,7 @@ class MyChallenges extends React.Component {
 
   // Component that will render if the user has made one or more hunts
   render() {
-    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx] ? this.props.challenges[this.state.selectedCollectionIdx][0] : undefined;
+    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx];
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
 
     return (
@@ -127,8 +127,8 @@ class MyChallenges extends React.Component {
           <ul className="my-challenges-collection-list">
             {/* dynamically build user's accepted challenges list */}
             {this.props.challenges.map((challenge, idx) => {
-              return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge[0]}
-              onCollectionRemove = {this.onCollectionRemove(idx)}
+              return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge}
+              removeChallengeCollection = {this.removeChallengeCollection(idx)}
                 onCollectionClick={this.onCollectionClick(idx)}/>
             })}
           </ul>
@@ -138,7 +138,7 @@ class MyChallenges extends React.Component {
             <ul className="my-challenges-comparison-list">
               
               {
-                selectedChallenge? 
+                selectedChallenge ? 
                 selectedChallenge.photo_collection.map((photo, idx)=>{
                   return (
                     <li key={idx} className="comparison-zone">
