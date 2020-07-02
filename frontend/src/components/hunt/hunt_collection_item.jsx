@@ -7,8 +7,6 @@ class HuntCollectionItem extends React.Component {
     super(props);
   }
 
-
-
   render() {
     // conditionally render class name based on props for styling
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
@@ -19,7 +17,7 @@ class HuntCollectionItem extends React.Component {
         hunt ? 
           <li  onClick={this.props.onCollectionClick}  className={klassName}>
             {hunt.title}
-            <div className='hunt-collection-ex'>{redEx}</div>
+            <div className='hunt-collection-ex' onClick={this.props.onCollectionRemove}>{redEx}</div>
           </li> 
           : 
           <li  className={klassName}>
@@ -34,6 +32,8 @@ class HuntCollectionItem extends React.Component {
       )
   }
 }
+
+
 
 
 export default HuntCollectionItem;

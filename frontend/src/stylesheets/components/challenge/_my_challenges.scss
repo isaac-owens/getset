@@ -96,6 +96,7 @@
   text-align: center;
   border: 5px inset;
   border-radius: 25px;
+  overflow: hidden;
 }
 
 .my-challenges-drop-zone:hover {
@@ -108,6 +109,16 @@
   border: 4px dashed rgba($color: #ffffff, $alpha: .7);
   border-width: 6px;
   border-radius: 20px;
+}
+.my-challenges-user-submission-container{
+
+}
+.my-challenges-user-submission{
+  // display: none;
+}
+
+.my-challenges-user-submission-remove{
+ 
 }
 
 .my-challenges-create {

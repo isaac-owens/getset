@@ -9,11 +9,21 @@ export const fetchMyChallenges = ()=>{
    return axios.get('/api/hunts/my/challenges');
 }
 
-export const addToMyChallenges = (challegeId)=> (
-    axios.post(`/api/hunts/add`, {hunt_id: challegeId})
+export const addToMyChallenge = (challengeId)=> (
+    axios.post(`/api/hunts/add`, {hunt_id: challengeId})
 );
 
-export const deleteChallenges = (challegeId)=> (
-    axios.delete('/api/hunts', {hunt_id: challegeId})
+export const completeChallenge = (challenge)=> (
+    axios({
+        method: 'post',
+        url: '/api/playhunts',
+        data: challenge,
+        headers: { 'Content-Type': 'multipart/form-data' }
+    })
+);
+
+
+export const deleteChallenge = (challengeId)=> (
+    axios.delete('/api/hunts', {hunt_id: challengeId})
 );
 

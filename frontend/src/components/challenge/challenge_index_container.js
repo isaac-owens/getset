@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ChallengeIndexPage from './challenge_index';
-import {fetchChallenges, addToMyChallenges, deleteChallenges} from '../../actions/challenge_actions'
+import {fetchChallenges, addToMyChallenge, deleteChallenge} from '../../actions/challenge_actions'
 import {fetchCategories} from '../../actions/category_actions'
 
 const mSTP = state =>{
@@ -14,8 +14,8 @@ const mSTP = state =>{
 const mDTP = dispatch =>(
     {
         fetchChallenges: () => dispatch(fetchChallenges()),
-        addToMyChallenges: (id) => dispatch(addToMyChallenges(id)),
-        deleteChallenges: (id) => dispatch(deleteChallenges(id)),
+        addToMyChallenge: (id) => dispatch(addToMyChallenge(id)),
+        deleteChallenge: (id) => dispatch(deleteChallenge(id)),
         fetchCategories: () => dispatch(fetchCategories())
     }
 )
