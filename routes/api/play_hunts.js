@@ -13,6 +13,7 @@ var fs = require('file-system');
 var fsy = require("fs");
 var resemble = require('resemblejs');
 var http = require("http");
+const hunt = require("../../validation/hunt");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the play hunts route" }));
 
@@ -97,7 +98,34 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                                 score: ele / numFiles,
                                                 images: imageAwsPath
                                             })
-                                            playHunt.save().then(playHunt => res.json(playHunt));
+                                            // winningScore = Hunt.findById(playHunt.hunt_id)
+                                            
+                                            playHunt.save()
+                                            Hunt.findById(req.body.hunt_id)
+                                            .then((hunt) => {
+                                                debugger
+                                                if (hunt.winner.score < playHunt.score) {
+                                                    Hunt.updateOne(
+                                                        {_id: playHunt.hunt_id},
+                                                        {"winner": {id: playHunt.user, score: playHunt.score}}
+                                                        ).then(err => {
+                                                            debugger
+                                                       res.json})
+                                                       .catch(err => {
+                                                           debugger
+                                                           res.json(err)
+                                                       })
+                                                }
+                                                return res.json(playHunt)
+                                            })
+                                            
+                                            
+                                            // if (score > hunt_id.winner.value) {
+                                            //     Hunt.updateOne(
+                                            //         {hunt_id: playHunt.hunt_id},
+                                            //         {"winner": {user : score}}
+                                            //     )
+                                            // }
                                         }
                                         
                                     })
