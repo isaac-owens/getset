@@ -103,16 +103,13 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                             playHunt.save()
                                             Hunt.findById(req.body.hunt_id)
                                             .then((hunt) => {
-                                                debugger
                                                 if (hunt.winner.score < playHunt.score) {
                                                     Hunt.updateOne(
                                                         {_id: playHunt.hunt_id},
                                                         {"winner": {id: playHunt.user, score: playHunt.score}}
                                                         ).then(err => {
-                                                            debugger
                                                        res.json})
                                                        .catch(err => {
-                                                           debugger
                                                            res.json(err)
                                                        })
                                                 }

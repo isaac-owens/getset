@@ -6,7 +6,7 @@ import {
     RECEIVE_USER_HUNT 
 } from '../actions/user_hunt_actions';
 import {
-    RECEIVE_MY_CHALLENGE, REMOVE_MY_CHALLENGE, RECEIVE_MY_CHALLENGES_DATA
+    RECEIVE_MY_CHALLENGE, REMOVE_MY_CHALLENGE, RECEIVE_MY_CHALLENGES
 } from '../actions/challenge_actions';
 
 
@@ -40,32 +40,29 @@ const SessionReducer = (state = initialState, action) => {
             return nextState;
             
         case RECEIVE_MY_CHALLENGE:
-            if(nextState.user.myChallenges){
-                nextState.user.myChallenges.push(action.challengeId);
-            }else{
-                nextState.user.myChallenges = [action.challengeId];
-            }
-            return nextState;
-        case RECEIVE_MY_CHALLENGES_DATA:
-            //add challanges data in user slice of state
-            nextState.user.myChallengesData = action.challenges;
 
-            //add challanges id in user slice of state
-            nextState.user.myChallenges = Object.keys(action.challenges);
+            //initialize my challenge with empty object if not exist
+            if(!nextState.user.myChallenges){
+                nextState.user.myChallenges = {};
+            }
+
+            //add challenge to user slice of state
+            nextState.user.myChallenges[action.challenge._id] = [action.challenge];
+
+            return nextState;
+        case RECEIVE_MY_CHALLENGES:
+
+            //add challanges in user slice of state
+            nextState.user.myChallenges = action.challenges;
+
             return nextState;
         case REMOVE_MY_CHALLENGE:
             //delete challange from user myChallenges slice
-            if(nextState.user.myChallenges){
-                const index = nextState.user.myChallenges.indexOf(action.challengeId);
-                nextState.user.myChallenges.splice(index,1);
-                //delete challange from user myChallengesData slice
-                if(nextState.user.myChallengesData)
-                {
-                    // debugger
-                    // nextState.user.myChallengesData[action.challengeId] = "";
-                    delete nextState.user.myChallengesData[action.challengeId];
-                }
+            if(nextState.user.myChallenges)
+            {
+                delete nextState.user.myChallenges[action.challengeId];
             }
+            
             return nextState;
         case RECEIVE_USER_LOGOUT:
             return {

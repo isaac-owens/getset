@@ -7,7 +7,7 @@ class ChallengeIndexPage extends React.Component {
     super(props);
     this.state = {selectedChallenge: undefined};
     this.onChallengeClick = this.onChallengeClick.bind(this);
-    this.toggleMyChallage = this.toggleMyChallage.bind(this);
+    this.toggleMyChallenge = this.toggleMyChallenge.bind(this);
   }
 
   componentDidMount(){
@@ -21,11 +21,11 @@ class ChallengeIndexPage extends React.Component {
     }
   }
 
-  toggleMyChallage(toggle){
+  toggleMyChallenge(toggle){
 
     return e=>{
       if(toggle == "add"){
-        this.props.addToMyChallenge(this.state.selectedChallenge._id);
+        this.props.addToMyChallenge(this.state.selectedChallenge);
       }else{
         this.props.deleteChallenge(this.state.selectedChallenge._id);
       }
@@ -71,11 +71,11 @@ class ChallengeIndexPage extends React.Component {
             </div>
             {
               this.state.selectedChallenge ? 
-              this.props.myChallenges.includes(this.state.selectedChallenge._id)?
-                  <button onClick={this.toggleMyChallage("remove")} style={styleRemove} className="challenge-toggle">
+              this.props.myChallenges[this.state.selectedChallenge._id] ?
+                  <button onClick={this.toggleMyChallenge("remove")} style={styleRemove} className="challenge-toggle">
                 Remove This Challenge!
               </button> :
-                  <button onClick={this.toggleMyChallage("add")} style={styleAdd} className="challenge-toggle">
+                  <button onClick={this.toggleMyChallenge("add")} style={styleAdd} className="challenge-toggle">
               Accept this Challenge!
               </button>
             : <></>
