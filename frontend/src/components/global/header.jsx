@@ -8,21 +8,35 @@ class Header extends React.Component {
       this.logoutUser = this.logoutUser.bind(this);
       this.getLinks = this.getLinks.bind(this);
       this.state = {
-        open: true
+        open: false
       }
+      this.container = React.createRef();
       this.handleDropClick = this.handleDropClick.bind(this);
+      // this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     handleDropClick = () => {
-      console.log('click');
       this.setState({
         open: !this.state.open
       })
     };
+
+    handleClickOutside() {
+      // console.log('click outside');
+      return (e) => {
+        if (this.container.current && !this.container.current.contains(e.target)){
+          this.setState({ open: false })
+        }
+      }
+    }
     
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
+    }
+
+    componentDidMount() {
+      document.addEventListener('mousedown', this.handleClickOutside());
     }
 
     getLinks() {
@@ -31,14 +45,15 @@ class Header extends React.Component {
       } else if (this.props.currentUser) {
           return (
             <div>
-              <div className="drop-down-trigger">
+              <div className="drop-down-trigger"
+               >
                 <button onClick={this.handleDropClick} className="session-button"
                 >
                   Hi {this.props.currentUser.username}!
                 </button>
               </div>
               {this.state.open ? (
-                <ul className="header-nav-links">
+                <ul ref={this.container} className="header-nav-links">
                   <Link to={CREATE} className="header-nav-link">
                     <li className="header-nav-link-container">Create-a-Hunt</li>
                   </Link>
