@@ -5,15 +5,23 @@
     border-spacing: 0;
     border-collapse: separate;
     background-color: $blue;
-    overflow: hidden;
-    overflow-y: scroll;
+    overflow-x: hidden;
+ 
 }
 
-.stats-headers{
-    font-size: 40px;
-    font-weight: bold;
-    letter-spacing: .1em;
-    background-color: $red;
+.stats-headers {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: .1em;
+  background-color: $red;
+}
+  
+thead {
+  position: sticky;    
+}
+
+tbody {
+  overflow: auto;
 }
 
 // bottom left

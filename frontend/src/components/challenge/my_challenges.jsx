@@ -129,7 +129,7 @@ class MyChallenges extends React.Component {
             {this.props.challenges.map((challenge, idx) => {
               return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge[0]}
               onCollectionRemove = {this.onCollectionRemove(idx)}
-                onCollectionClick={this.onCollectionClick(idx)}/>
+              onCollectionClick={this.onCollectionClick(idx)}/>
             })}
           </ul>
         </div>
