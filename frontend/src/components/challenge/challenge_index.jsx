@@ -25,9 +25,9 @@ class ChallengeIndexPage extends React.Component {
 
     return e=>{
       if(toggle == "add"){
-        this.props.addToMyChallenges(this.state.selectedChallenge._id);
+        this.props.addToMyChallenge(this.state.selectedChallenge._id);
       }else{
-        this.props.deleteChallenges(this.state.selectedChallenge._id);
+        this.props.deleteChallenge(this.state.selectedChallenge._id);
       }
     }
   }

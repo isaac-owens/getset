@@ -5,10 +5,10 @@ const ChallengeReducer = (state={}, action) => {
     Object.freeze(state);
     switch(action.type){
       case RECEIVE_CHALLENGES:
-            const nextState = Object.assign({}, action.challenges);
-            return nextState
-        default:
-            return state;
+        const nextState = Object.assign({}, action.challenges);
+        return nextState
+      default:
+        return state;
     }
 };
 
