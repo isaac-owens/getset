@@ -1,7 +1,7 @@
 import React from 'react';
 import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
-import { ERRORS_PLAY_CHALLENGE } from '../../actions/challenge_actions';
+import { ERRORS_COMPLETE_CHALLENGE } from '../../actions/challenge_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,6 +13,7 @@ class MyChallenges extends React.Component {
 
     this.resetState = this.resetState.bind(this);
     this.onCollectionClick = this.onCollectionClick.bind(this);
+    this.onCollectionRemove = this.onCollectionRemove.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.submitChallenge = this.submitChallenge.bind(this);
     this.removeUserSelection = this.removeUserSelection.bind(this);
@@ -39,6 +40,13 @@ class MyChallenges extends React.Component {
     }
   }
 
+  onCollectionRemove(selectedIdx){
+    return e => {
+      const selectedChallenge = this.props.challenges[selectedIdx][0];
+      this.props.deleteChallenge(selectedChallenge._id);
+    }
+  }
+
 
   //submit challenge
   submitChallenge(e){
@@ -54,14 +62,16 @@ class MyChallenges extends React.Component {
       }  
 
       //submitting to server
-    this.props.addPlayChallenge(formData)
-    .then(res=>{
-      if(res.type !== ERRORS_PLAY_CHALLENGE){
-        console.log(res);
-        //reset state on success
-       this.resetState();
-      }
-    });
+      this.props.completeChallenge(formData)
+      .then(res=>{
+        if(res.type !== ERRORS_COMPLETE_CHALLENGE){
+          console.log(res);
+          //reset state on success submission of challenge
+        this.resetState();
+        }
+      });
+    } else {
+      //show user error message, upload all images to complete challenge
     }
   }
 
@@ -87,10 +97,6 @@ class MyChallenges extends React.Component {
     return (photoFiles) =>{
       //update photoFiles array as user drag photoFiles to drop zone
       if (photoFiles) {
-        //set drop zone error to empty if there is any error
-        // if(this.state.errors.length !== 0){
-        //   this.setState({errors: ""})
-        // }
         let fileReader = new FileReader();
         const photoFile =  photoFiles[0];
         fileReader.onloadend = () => {
@@ -112,7 +118,7 @@ class MyChallenges extends React.Component {
 
   // Component that will render if the user has made one or more hunts
   render() {
-    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx][0];
+    const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx] ? this.props.challenges[this.state.selectedCollectionIdx][0] : undefined;
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
 
     return (
@@ -122,6 +128,7 @@ class MyChallenges extends React.Component {
             {/* dynamically build user's accepted challenges list */}
             {this.props.challenges.map((challenge, idx) => {
               return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge[0]}
+              onCollectionRemove = {this.onCollectionRemove(idx)}
                 onCollectionClick={this.onCollectionClick(idx)}/>
             })}
           </ul>

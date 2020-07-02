@@ -9,11 +9,11 @@ export const fetchMyChallenges = ()=>{
    return axios.get('/api/hunts/my/challenges');
 }
 
-export const addToMyChallenges = (challengeId)=> (
+export const addToMyChallenge = (challengeId)=> (
     axios.post(`/api/hunts/add`, {hunt_id: challengeId})
 );
 
-export const addPlayChallenge = (challenge)=> (
+export const completeChallenge = (challenge)=> (
     axios({
         method: 'post',
         url: '/api/playhunts',
@@ -22,7 +22,8 @@ export const addPlayChallenge = (challenge)=> (
     })
 );
 
-export const deleteChallenges = (challengeId)=> (
+
+export const deleteChallenge = (challengeId)=> (
     axios.delete('/api/hunts', {hunt_id: challengeId})
 );
 
