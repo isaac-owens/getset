@@ -98,14 +98,25 @@ router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) 
 
 //remove hunt from my_hunts list
 //Change the actual url route
-router.delete('/', passport.authenticate("jwt", {session: false}), (req, res) => {
-    User.update(
+router.delete('/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
+    User.updateOne(
         {_id: req.user.id},
-        { $pull: {"my_hunts": req.body.hunt_id}})
+        { $pull: {"my_hunts": req.params.hunt_id}})
     .then(user => {
         return res.json(user)
     })
     .catch(error => res.status(404).json({error: 'Hunt not removed'}))
+})
+
+//remove user challenges
+router.delete('/my/challenges/:challenge_id', passport.authenticate("jwt", {session: false}), (req, res) => {
+    User.updateOne(
+        {_id: req.user.id},
+        { $pull: {"my_challenges": req.params.challenge_id}})
+    .then(user => {
+        return res.json(user)
+    })
+    .catch(error => res.status(404).json({error: 'Challenge not removed'}))
 })
 
 
@@ -119,7 +130,7 @@ router.get("/my/challenges", passport.authenticate('jwt', { session: false }), (
                 const challengeId = user.my_challenges[i];
                 Hunt.find({ _id: challengeId }).then(challenge => {
                     combo[challengeId] = challenge[0];
-                    if (i == user.my_challenge.length - 1) {
+                    if (i == user.my_challenges.length - 1) {
                         return res.json(combo)
                     }
                 })
