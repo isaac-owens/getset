@@ -8,6 +8,7 @@ class Category extends React.Component {
     this.state = {
       open: false,
     };
+    this.shrinkButton = this.shrinkButton.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -27,18 +28,10 @@ class Category extends React.Component {
     e.preventDefault();
     this.setState({ open: !this.state.open });
   }
-  // expandCategory(e) {
-  //   e.target.style = {
-  //     width: "150%",
-  //     backgroundColor: "#f3d250"
-  //   };
-  // }
 
-  // closeCategory(e) {
-  //   e.target.style = {
-  //     width: "100%",
-  //   }
-  // }
+  shrinkButton() {
+    this.setState({open: false});
+  }
 
   render() {
     // Menu styling
@@ -84,7 +77,7 @@ class Category extends React.Component {
     } else {
       return (
         <div ref={this.container}>
-            <button className="category card-styling" style={buttonStyle} onClick={this.handleClick}>
+            <button onBlur={this.shrinkButton} className="category card-styling" style={buttonStyle} onClick={this.handleClick}>
                 <span className="category-title">
                   {category.name}
                 </span>
