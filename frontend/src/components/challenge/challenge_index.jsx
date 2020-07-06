@@ -21,8 +21,8 @@ class ChallengeIndexPage extends React.Component {
     }
   }
 
+  // Add and remove challenge to user's 'My Challenge' list
   toggleMyChallenge(toggle){
-
     return e=>{
       if(toggle == "add"){
         this.props.addToMyChallenge(this.state.selectedChallenge);

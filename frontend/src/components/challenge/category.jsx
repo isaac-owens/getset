@@ -8,38 +8,55 @@ class Category extends React.Component {
     this.state = {
       open: false,
     };
-    // this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.shrinkButton = this.shrinkButton.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClickOutside() {
+    // console.log('click outside');
+    return (e) => {
+      if (this.container.current &&
+        !this.container.current.contains(e.target)) {
+        this.setState({ open: false })
+      }
+    }
+  }
+
+  // Open and close the challenge menu
   handleClick(e) {
     e.preventDefault();
     this.setState({ open: !this.state.open });
   }
 
+  shrinkButton() {
+    this.setState({open: false});
+  }
+
   render() {
-    // Menu styling
-    const myStyle = {
-      height: "180px",
-      display: "flex",
-      alignContent: 'flex-end',
-      flexDirection: "column",
-      top: '120%',
-      left: '69%',  
-      tabIndex: "-1",
-      position: "absolute",
-      overflowX: 'hidden',
-      overflowY: 'scroll',
-      opacity: "1",
-      pointerEvents: "auto",
-      minWidth: "208px",
-      padding: "5px 0",
-      margin: "2px 0 0",
-      backgroundClip: "padding-box",
-      borderRadius: ".25rem",
-      zIndex: "3000",
-      listStyle: "none",
-    };
+  
+    const buttonExpanded = {
+      width: "450px",
+      backgroundColor: "#f3d250",
+    }
+    
+    const buttonClosed = {
+      width: "200px",
+    }
+    
+    let buttonStyle;
+    buttonStyle = this.state.open ? buttonExpanded : buttonClosed;
+
+    const menuExpanded = {
+      opacity: "1"
+    }
+
+    const menuClosed = {
+      opacity: "0"
+    }
+    
+    let menuStyle;
+    menuStyle = this.state.open ? menuExpanded : menuClosed;
 
     const {challenges, category} = this.props;
 
@@ -47,33 +64,40 @@ class Category extends React.Component {
       return <div></div>
     } else {
       return (
-        <button className="category card-styling" onClick={this.handleClick}>
-          <li className="category-title-wrapper">
-            <span className="category-title">{category ? category.name : "No Category"}</span>
-            {this.state.open ? (
-              <ul style={myStyle}>
-                {
-                  !challenges ?
-                  <div></div> :
-                  challenges.map((challenge, idx)=>{
-                    return (
-                    <li 
-                      ref={this.container}
-                      key={challenge._id} 
-                      className="challenge-item card-styling"
-                      onClick={this.props.onChallengeClick(challenge)}
-                      >
-                      {challenge.title}
-                    </li>
-                    )
-                  })
-                }
-              </ul>
-            ) : (
-              ""
-            )}
-          </li>
-        </button>
+        <div ref={this.container}>
+            <button 
+              onClick={this.handleClick}
+              onBlur={this.shrinkButton} 
+              className="category card-styling" 
+              style={buttonStyle}>
+                <span className="category-title">
+                  {category.name}
+                </span>
+            </button>
+          {this.state.open ? (
+            <ul 
+            className="challenge-menu"
+            // style={menuStyle}
+            >
+              {!challenges ?
+                <div></div> :
+                challenges.map((challenge, idx)=>{
+                  return (
+                  <li 
+                    key={challenge._id} 
+                    className="challenge-item card-styling"
+                    onClick={this.props.onChallengeClick(challenge)}
+                    >
+                    {challenge.title}
+                  </li>
+                  )
+                })
+              }
+            </ul>
+          ) : (
+            ""
+          )}
+        </div>
       );
     }
   };
