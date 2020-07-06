@@ -12,6 +12,7 @@ class Category extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // Open and close the challenge menu
   handleClick(e) {
     e.preventDefault();
     this.setState({ open: !this.state.open });
