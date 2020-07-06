@@ -3,18 +3,21 @@ import React from 'react';
 class Category extends React.Component {
   constructor(props) {
     super(props);
-    // Sets the reference to be to this component (the category 'button')
+    // Sets the reference to be to this component (the dropdown menu)
     this.container = React.createRef();
     this.state = {
       open: false,
     };
-    this.shrinkButton = this.shrinkButton.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside());
+  }
+
   handleClickOutside() {
-    // console.log('click outside');
+    console.log('click outside');
     return (e) => {
       if (this.container.current &&
         !this.container.current.contains(e.target)) {
@@ -27,10 +30,6 @@ class Category extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.setState({ open: !this.state.open });
-  }
-
-  shrinkButton() {
-    this.setState({open: false});
   }
 
   render() {
@@ -67,7 +66,6 @@ class Category extends React.Component {
         <div ref={this.container}>
             <button 
               onClick={this.handleClick}
-              onBlur={this.shrinkButton} 
               className="category card-styling" 
               style={buttonStyle}>
                 <span className="category-title">
@@ -77,7 +75,6 @@ class Category extends React.Component {
           {this.state.open ? (
             <ul 
             className="challenge-menu"
-            // style={menuStyle}
             >
               {!challenges ?
                 <div></div> :
