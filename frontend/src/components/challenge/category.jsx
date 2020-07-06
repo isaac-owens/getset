@@ -27,22 +27,18 @@ class Category extends React.Component {
     e.preventDefault();
     this.setState({ open: !this.state.open });
   }
+  // expandCategory(e) {
+  //   e.target.style = {
+  //     width: "150%",
+  //     backgroundColor: "#f3d250"
+  //   };
+  // }
 
-  expandCategory(e) {
-    e.target.style = {
-      width: "150%",
-      outline: "none",
-      backgroundColor: "#f3d250"
-    };
-  }
-
-  closeCategory(e) {
-    e.target.style = {
-      width: "100%",
-    }
-  }
-
-
+  // closeCategory(e) {
+  //   e.target.style = {
+  //     width: "100%",
+  //   }
+  // }
 
   render() {
     // Menu styling
@@ -67,6 +63,19 @@ class Category extends React.Component {
       zIndex: "3000",
       listStyle: "none",
     };
+  
+    
+    const expanded = {
+      width: "450px",
+      backgroundColor: "#f3d250"
+    }
+    
+    const closed = {
+      width: "200px",
+    }
+    
+    let buttonStyle;
+    buttonStyle = this.state.open ? expanded : closed
 
     const {challenges, category} = this.props;
 
@@ -75,13 +84,11 @@ class Category extends React.Component {
     } else {
       return (
         <div ref={this.container}>
-          <div>
-            <button className="category card-styling" onClick={this.handleClick}>
+            <button className="category card-styling" style={buttonStyle} onClick={this.handleClick}>
                 <span className="category-title">
                   {category.name}
                 </span>
             </button>
-          </div>
           {this.state.open ? (
             <ul style={myStyle}>
               {
