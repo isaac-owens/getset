@@ -52,11 +52,12 @@
     background-color: $yellow;
 }
 
-.category:active, .category:focus {
-    width: 150%;
-    outline: none;
-    background-color: $yellow;
-} 
+// expands the button
+// .category:active, .category:focus {
+//     width: 150%;
+//     outline: none;
+//     background-color: $yellow;
+// } 
 
 .challenge-item {
   background-color: $red;

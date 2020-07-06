@@ -18,6 +18,22 @@ class Category extends React.Component {
     this.setState({ open: !this.state.open });
   }
 
+  expandCategory(e) {
+    e.target.style = {
+      width: "150%",
+      outline: "none",
+      backgroundColor: "#f3d250"
+    };
+  }
+
+  closeCategory(e) {
+    e.target.style = {
+      width: "100%",
+    }
+  }
+
+
+
   render() {
     // Menu styling
     const myStyle = {
