@@ -50,6 +50,31 @@
     background-color: $yellow;
 }
 
+.challenge-menu {
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  left : 27%;  
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  pointer-events: auto;
+  min-width: 208px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  background-clip: padding-box;
+  border-radius: .25rem;
+  z-index: 3000;
+  list-style: none;
+  animation: fadein .7s;
+}
+
+@keyframes fadein {
+  from { opacity: 0 }
+  to { opacity: 1}
+}
+
 .challenge-item {
   background-color: $red;
   border-width: 8px;

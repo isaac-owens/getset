@@ -34,38 +34,29 @@ class Category extends React.Component {
   }
 
   render() {
-    const menuStyle = {
-      height: "180px",
-      display: "flex",
-      flexDirection: "column",
-      alignContent: 'flex-end',
-      left : '27%',  
-      tabIndex: "-1",
-      position: "absolute",
-      overflowX: 'hidden',
-      overflowY: 'scroll',
-      opacity: "1",
-      pointerEvents: "auto",
-      minWidth: "208px",
-      padding: "5px 0",
-      margin: "2px 0 0",
-      backgroundClip: "padding-box",
-      borderRadius: ".25rem",
-      zIndex: "3000",
-      listStyle: "none",
-    };
   
-    const expanded = {
+    const buttonExpanded = {
       width: "450px",
-      backgroundColor: "#f3d250"
+      backgroundColor: "#f3d250",
     }
     
-    const closed = {
+    const buttonClosed = {
       width: "200px",
     }
     
     let buttonStyle;
-    buttonStyle = this.state.open ? expanded : closed
+    buttonStyle = this.state.open ? buttonExpanded : buttonClosed;
+
+    const menuExpanded = {
+      opacity: "1"
+    }
+
+    const menuClosed = {
+      opacity: "0"
+    }
+    
+    let menuStyle;
+    menuStyle = this.state.open ? menuExpanded : menuClosed;
 
     const {challenges, category} = this.props;
 
@@ -84,9 +75,11 @@ class Category extends React.Component {
                 </span>
             </button>
           {this.state.open ? (
-            <ul style={menuStyle}>
-              {
-                !challenges ?
+            <ul 
+            className="challenge-menu"
+            // style={menuStyle}
+            >
+              {!challenges ?
                 <div></div> :
                 challenges.map((challenge, idx)=>{
                   return (
