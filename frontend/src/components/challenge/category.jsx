@@ -8,8 +8,18 @@ class Category extends React.Component {
     this.state = {
       open: false,
     };
-    // this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClickOutside() {
+    // console.log('click outside');
+    return (e) => {
+      if (this.container.current &&
+        !this.container.current.contains(e.target)) {
+        this.setState({ open: false })
+      }
+    }
   }
 
   // Open and close the challenge menu
@@ -64,33 +74,36 @@ class Category extends React.Component {
       return <div></div>
     } else {
       return (
-        <button className="category card-styling" onClick={this.handleClick}>
-          <li className="category-title-wrapper">
-            <span className="category-title">{category ? category.name : "No Category"}</span>
-            {this.state.open ? (
-              <ul style={myStyle}>
-                {
-                  !challenges ?
-                  <div></div> :
-                  challenges.map((challenge, idx)=>{
-                    return (
-                    <li 
-                      ref={this.container}
-                      key={challenge._id} 
-                      className="challenge-item card-styling"
-                      onClick={this.props.onChallengeClick(challenge)}
-                      >
-                      {challenge.title}
-                    </li>
-                    )
-                  })
-                }
-              </ul>
-            ) : (
-              ""
-            )}
-          </li>
-        </button>
+        <div ref={this.container}>
+          <div>
+            <button className="category card-styling" onClick={this.handleClick}>
+                <span className="category-title">
+                  {category.name}
+                </span>
+            </button>
+          </div>
+          {this.state.open ? (
+            <ul style={myStyle}>
+              {
+                !challenges ?
+                <div></div> :
+                challenges.map((challenge, idx)=>{
+                  return (
+                  <li 
+                    key={challenge._id} 
+                    className="challenge-item card-styling"
+                    onClick={this.props.onChallengeClick(challenge)}
+                    >
+                    {challenge.title}
+                  </li>
+                  )
+                })
+              }
+            </ul>
+          ) : (
+            ""
+          )}
+        </div>
       );
     }
   };
