@@ -34,14 +34,13 @@ class Category extends React.Component {
   }
 
   render() {
-    // Menu styling
-    const myStyle = {
+    const menuStyle = {
       height: "180px",
       display: "flex",
-      alignContent: 'flex-end',
       flexDirection: "column",
-      top: '120%',
-      left: '69%',  
+      alignContent: 'flex-end',
+      top: '0',
+      left: '0',  
       tabIndex: "-1",
       position: "absolute",
       overflowX: 'hidden',
@@ -57,7 +56,6 @@ class Category extends React.Component {
       listStyle: "none",
     };
   
-    
     const expanded = {
       width: "450px",
       backgroundColor: "#f3d250"
@@ -77,13 +75,17 @@ class Category extends React.Component {
     } else {
       return (
         <div ref={this.container}>
-            <button onBlur={this.shrinkButton} className="category card-styling" style={buttonStyle} onClick={this.handleClick}>
+            <button 
+              onClick={this.handleClick}
+              onBlur={this.shrinkButton} 
+              className="category card-styling" 
+              style={buttonStyle}>
                 <span className="category-title">
                   {category.name}
                 </span>
             </button>
           {this.state.open ? (
-            <ul style={myStyle}>
+            <ul style={menuStyle}>
               {
                 !challenges ?
                 <div></div> :
