@@ -5,7 +5,7 @@
   justify-content: space-around;
   height: 100%;
   width: 100%;
-  position: sticky !important;
+  // position: sticky !important;
 }
 
 .challenge-index-list {
@@ -49,13 +49,6 @@
     outline: none;
     background-color: $yellow;
 }
-
-// expands the button
-// .category:active, .category:focus {
-//     width: 150%;
-//     outline: none;
-//     background-color: $yellow;
-// } 
 
 .challenge-item {
   background-color: $red;
