@@ -1,14 +1,11 @@
 import React from 'react';
 import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
-import ChallengeModal from '../challenge/challenge_modal';
+import { ChallengeModal, LoadingIndicator } from '../challenge/challenge_modal';
 import { ERRORS_COMPLETE_CHALLENGE } from '../../actions/challenge_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { trackPromise } from "react-promise-tracker";
-import { LoadingIndicator } from '../root';
-
-
 
 class MyChallenges extends React.Component {
   constructor(props) {

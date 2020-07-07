@@ -1,6 +1,20 @@
 import React from 'react';
+import { usePromiseTracker } from 'react-promise-tracker';
+import Loader from 'react-loader-spinner';
 
-class ChallengeModal extends React.Component {
+export const LoadingIndicator = (props) => {
+  const { promiseInProgress } = usePromiseTracker();
+  
+  return (
+    promiseInProgress && (
+      <div className="test-modal">
+        <Loader type="Grid" height="160px" width="200px" color="#fff"/>
+      </div>
+    )
+  );
+};
+
+export class ChallengeModal extends React.Component {
   constructor(props) {
     super(props);
   };

@@ -6,17 +6,10 @@ import '../stylesheets/application.scss';
 import { usePromiseTracker } from "react-promise-tracker";
 
 
-export const LoadingIndicator = (props) => {
-  const { promiseInProgress } = usePromiseTracker();
-    // debugger
-  return promiseInProgress && <div className="test-modal">Hey some async call in progress ! </div>;
-};
-
 const Root = ({ store }) =>(
     <Provider store={store}>
         <HashRouter>
             <App />
-            {/* <LoadingIndicator /> */}
         </HashRouter>
     </Provider>
 )
