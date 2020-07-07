@@ -4,7 +4,7 @@ import HuntsIndexPage from './hunts_index_page';
 
 const mSTP = state => {
   return {
-    hunts: state.session.user.hunts,
+    hunts: state.session.user.hunts? Object.values(state.session.user.hunts): [],
     currentUserId: state.session.user.id,
   }
 }

@@ -58,7 +58,6 @@ const ChallengeHelper  = {
             
             //save play hunt to mongoDB
             challenge.save();
-            debugger
             //update challenge as completed
 
             //update score if required
