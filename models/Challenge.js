@@ -1,12 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// user, image, score, hunt_id, timestamp
 
-
-
-
-const PlayHuntSchema = new Schema({
+const ChallengeSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -29,7 +25,7 @@ const PlayHuntSchema = new Schema({
     }
 })
 
-module.exports = PlayHunt = mongoose.model("PlayHunt", PlayHuntSchema);
+module.exports = Challenge = mongoose.model("Challenge", ChallengeSchema);
 
 
 

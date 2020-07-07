@@ -45,7 +45,7 @@ const PlayHuntHelper  = {
         });
     },
 
-    completeChallenge :  (avgScore,imageAwsPaths, req, onSuccess)=>{
+    completeChallenge :  (avgScore,imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
         //create a play hunt object
             const playHunt = new PlayHunt({
                 user: req.user.id,
@@ -57,22 +57,21 @@ const PlayHuntHelper  = {
             
             //save play hunt to mongoDB
             playHunt.save();
-            debugger
-            //fetch the played hunt details
-            Hunt.findById(req.body.hunt_id)
-            .then((hunt) => {
-                if (hunt.winner.score < playHunt.score) {
-                    updateHighScore(playHunt);
-                }
 
-                //building a custom response
-                const customResponse = {
-                    hunt_id: hunt._id,
-                    score: playHunt.score,
-                    hunt_name: hunt.title
-                }
-                onSuccess(customResponse);
-            });                        
+            //update challenge as completed
+
+            //update score if required
+            if (playedHuntDetails.winner.score < playHunt.score) {
+                updateHighScore(playHunt);
+            }
+
+            //building a custom response
+            const customResponse = {
+                hunt_id: playedHuntDetails._id,
+                score: playHunt.score,
+                hunt_name: playedHuntDetails.title
+            }
+            onSuccess(customResponse);                       
     },
 
     updateHighScore:  (playHunt) => {

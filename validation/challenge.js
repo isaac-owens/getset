@@ -1,6 +1,3 @@
-const Validator = require("validator");
-const validText = require('./valid-text');
-const Hunt = require("../models/Hunt");
 module.exports = function validatePlayHuntInput(data, hunt) {
     let errors = {};
     const images = data.files ? data.files : "";
