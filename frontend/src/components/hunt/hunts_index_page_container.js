@@ -7,8 +7,8 @@ const mSTP = state => {
   return {
     hunts: state.session.user.hunts,
     currentUserId: state.session.user.id,
-  }
-}
+  };
+};
 
 const mDTP = (dispatch) => ({
   fetchUserHunts: (hunts) => dispatch(fetchUserHunts(hunts)),
