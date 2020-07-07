@@ -12,7 +12,7 @@ const mSTP = state => {
 
 const mDTP = (dispatch) => ({
   fetchUserHunts: (hunts) => dispatch(fetchUserHunts(hunts)),
-  // removeHunt: (huntId) => dispatch(deleteUserHunt(huntId))
+  removeHunt: (huntId) => dispatch(deleteUserHunt(huntId))
 });
 
 export default connect(mSTP, mDTP)(HuntsIndexPage)

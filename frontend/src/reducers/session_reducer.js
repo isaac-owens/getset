@@ -40,8 +40,9 @@ const SessionReducer = (state = initialState, action) => {
             }
             return nextState;
 
-        // case REMOVE_USER_HUNT:
-
+        case REMOVE_USER_HUNT:
+          delete nextState.user.hunts[action.huntId];
+          return nextState;
             
         case RECEIVE_MY_CHALLENGE:
 
