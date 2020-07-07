@@ -49,7 +49,7 @@ export const createUserHunt = hunt => dispatch =>(
     )
 );
 
-export const deleteUserHunt = huntId = dispatch => (
+export const deleteUserHunt = huntId => dispatch => (
   APIUtil.deleteUserHunt(huntId).then(
     () => {
       return dispatch(removeUserHunt(huntId))

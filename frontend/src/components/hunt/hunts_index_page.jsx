@@ -22,7 +22,7 @@ class HuntsIndexPage extends React.Component {
       return <HuntsIndexInactive />
     } else { 
       return <HuntsIndexActive 
-      // removeHunt={this.props.removeHunt} 
+      removeHunt={this.props.removeHunt} 
       hunts={this.props.hunts}/> 
     }
   }
