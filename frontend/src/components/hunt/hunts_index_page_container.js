@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserHunts } from '../../actions/user_hunt_actions';
+import { fetchUserHunts, deleteUserHunt } from '../../actions/user_hunt_actions';
 
 import HuntsIndexPage from './hunts_index_page';
 

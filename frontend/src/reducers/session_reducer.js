@@ -16,8 +16,6 @@ const initialState = {
     user: {}
 };
 
-
-
 const SessionReducer = (state = initialState, action) => {
     Object.freeze(state);
     const nextState = Object.assign({}, state);
@@ -41,16 +39,15 @@ const SessionReducer = (state = initialState, action) => {
             return nextState;
 
         case REMOVE_USER_HUNT:
+          debugger
           delete nextState.user.hunts[action.huntId];
           return nextState;
             
         case RECEIVE_MY_CHALLENGE:
-
             //initialize my challenge with empty object if not exist
             if(!nextState.user.myChallenges){
                 nextState.user.myChallenges = {};
             }
-
             //add challenge to user slice of state
             nextState.user.myChallenges[action.challenge._id] = [action.challenge];
 

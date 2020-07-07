@@ -13,8 +13,8 @@ class HuntsIndexActive extends React.Component {
   }
 
   onCollectionClick(selectedIdx){
-    return e=>{
-      this.setState({selectedCollectionIdx: selectedIdx})
+    return e =>{
+      this.setState({ selectedCollectionIdx: selectedIdx })
     }
   }
 
