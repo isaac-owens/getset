@@ -56,33 +56,33 @@ class ChallengeIndexPage extends React.Component {
             </ul>
           </div>
           <div className="challenge-index-page-right">
+          {this.state.selectedChallenge ? 
             <div className="challenge-photo-collection card-styling">
               <ul className="challenge-photos">
-              
                 {
                   this.state.selectedChallenge ?
                   this.state.selectedChallenge.photo_collection.map((photo, idx)=>{
                     return <li key={idx} className="challenge-photo"><img src={photo}></img></li>
-                  })
-                   :
-                  <></>
+                  }) :
+                  <div></div>
                 }
               </ul>
-            </div>
-            {
-              this.state.selectedChallenge ? 
-              this.props.myChallenges[this.state.selectedChallenge._id] ?
-                  <button onClick={this.toggleMyChallenge("remove")} style={styleRemove} className="challenge-toggle">
-                Remove This Challenge!
-              </button> :
-                  <button onClick={this.toggleMyChallenge("add")} style={styleAdd} className="challenge-toggle">
+            </div> : 
+            <div className="challenge-photo-collection challenge-photo-empty">Find and pick a Challenge!</div>
+          }{
+            this.state.selectedChallenge ? 
+            this.props.myChallenges[this.state.selectedChallenge._id] ?
+            <button onClick={this.toggleMyChallenge("remove")} style={styleRemove} className="challenge-toggle">
+              Remove This Challenge!
+            </button> :
+            <button onClick={this.toggleMyChallenge("add")} style={styleAdd} className="challenge-toggle">
               Accept this Challenge!
-              </button>
-            : <></>
-            }
-          </div>
+            </button> :
+            <></>
+          }
         </div>
-      );
+      </div>
+    );
   }
   
 }
