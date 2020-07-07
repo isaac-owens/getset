@@ -13,8 +13,8 @@ class HuntsIndexActive extends React.Component {
   }
 
   onCollectionClick(selectedIdx){
-    return e=>{
-      this.setState({selectedCollectionIdx: selectedIdx})
+    return e =>{
+      this.setState({ selectedCollectionIdx: selectedIdx })
     }
   }
 
@@ -31,6 +31,7 @@ class HuntsIndexActive extends React.Component {
                   key={idx} 
                   hunt={hunt} 
                   klassName={true} 
+                  removeHunt={this.props.removeHunt}
                   onCollectionClick ={this.onCollectionClick(idx)}
                 />
               })

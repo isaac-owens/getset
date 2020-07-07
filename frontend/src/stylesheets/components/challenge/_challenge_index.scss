@@ -5,7 +5,7 @@
   justify-content: space-around;
   height: 100%;
   width: 100%;
-  // position: sticky !important;
+  overflow-y: scroll;
 }
 
 .challenge-index-list {
@@ -43,6 +43,7 @@
   width: 100;
   font-weight: bold;
   font-size: 40px;
+  letter-spacing: .15em;
 }
 
 .category:hover {
@@ -55,14 +56,15 @@
   display: flex;
   flex-direction: column;
   align-content: flex-end;
-  left : 27%;  
+  left: 25%;
   position: absolute;
   overflow-x: hidden;
   overflow-y: scroll;
   pointer-events: auto;
   min-width: 208px;
   padding: 5px 0;
-  margin: 2px 0 0;
+  margin: 2px;
+  margin-top: 10px;
   background-clip: padding-box;
   border-radius: .25rem;
   z-index: 3000;
@@ -76,9 +78,20 @@
 }
 
 .challenge-item {
+  box-sizing: border-box;
+  width: 229px;
+  height: 90px;
+  padding: 3px;
   background-color: $red;
   border-width: 8px;
   margin-top: 6px;
+  text-align: center;
+  box-shadow: none;
+  font-size: 23px;
+  font-weight: bolder;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .challenge-item:hover, .challenge-item:active {
@@ -121,6 +134,15 @@
   margin-top: 5px;
   object-fit: cover;
 }
+
+.challenge-photo-empty {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+}
+
 .challenge-toggle {
   width: 85%;
   font-weight: 900;
