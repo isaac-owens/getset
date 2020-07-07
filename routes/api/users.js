@@ -142,9 +142,9 @@ router.get("/challenges", passport.authenticate('jwt', { session: false }), (req
         .then(user => {
             let combo = {}
             for (let i = 0; i < user.challenges.length; i++) {
-                const huntId = user.challenges[i];
-                Hunt.find({ _id: huntId }).then(challenge => {
-                    combo[huntId] = challenge[0];
+                const challengeId = user.challenges[i];
+                Hunt.find({ _id: challengeId }).then(challenge => {
+                    combo[challengeId] = challenge[0];
                     if (i == user.challenges.length - 1) {
                         return res.json(combo)
                     }
@@ -159,9 +159,9 @@ router.delete('/challenges/:challenge_id', passport.authenticate('jwt', { sessio
         { _id : req.user.id},
         { $pull: {"challenges": req.params.challenge_id}
     }).then((user) => {
-        return  success(user);
+        return  res.json(user);
       })
-      .catch(error => failure({error: 'Challenge not removed'}))
+      .catch(error => res.json({error: 'Challenge not removed'}))
 });
 
 

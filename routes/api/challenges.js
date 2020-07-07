@@ -76,7 +76,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
             const { errors, isValid } = validateChallengeInput(req, huntDetails);
             if (!isValid) return res.status(400).json(errors);
 
-            PlayHuntHelper.uploadToAWS(req, imageAwsPaths=>{
+            ChallengeHelper.uploadToAWS(req, imageAwsPaths=>{
 
                 //images uploaded to aws and imageAwsPaths is path to those images
                 let scoreSum = 0, numFiles = imageAwsPaths.length;
@@ -91,9 +91,8 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                             scoreSum += 100 - data.misMatchPercentage;
                             if (numFiles - i === 1) {
                                //we have result of all images summed up in scoreSum
-                                debugger
-                                const avgScore = scoreSum / numFiles;
-                                PlayHuntHelper.completeChallenge(avgScore,imageAwsPaths, req, huntDetails, (customResponse)=>{
+                               const avgScore = scoreSum / numFiles;
+                                ChallengeHelper.completeChallenge(avgScore,imageAwsPaths, req, huntDetails, (customResponse)=>{
                                     return res.json(customResponse);
                                 });
                             }

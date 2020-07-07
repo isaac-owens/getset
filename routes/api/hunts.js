@@ -93,7 +93,7 @@ router.post("/", [passport.authenticate('jwt', {session: false}), upload.array('
                     // .then(hunt.user.update({$push: {"my_challenges": req.body.hunt_id}}))
                     User.updateOne(
                         { _id : req.user.id},
-                        { $push: {"my_hunts": hunt._id},
+                        { $push: {"hunts": hunt._id},
                     })
                         .then(() => {
                             return  res.json(hunt)
