@@ -5,6 +5,10 @@ import ChallengeModal from '../challenge/challenge_modal';
 import { ERRORS_COMPLETE_CHALLENGE } from '../../actions/challenge_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { trackPromise } from "react-promise-tracker";
+import { LoadingIndicator } from '../root';
+
+
 
 class MyChallenges extends React.Component {
   constructor(props) {
@@ -15,9 +19,7 @@ class MyChallenges extends React.Component {
       errors: "", 
       photoFiles: [], 
       photoUrls: [],
-      modalOpen: false,
-      loading: false,
-
+      modalOpen: false
     }
 
     this.resetState = this.resetState.bind(this);
@@ -78,19 +80,20 @@ class MyChallenges extends React.Component {
       }  
 
       //submitting to server
-      this.props.completeChallenge(formData)
-      .then(res => {
-        if(res.type !== ERRORS_COMPLETE_CHALLENGE){
-          console.log(res);
-          debugger
-          //reset state on success submission of challenge
-          // this.resetState();
-          this.setState({ 
-            modalOpen: true,
-            loading: false
-          });
-        }
-      });
+      trackPromise(
+        this.props.completeChallenge(formData)
+        .then(res => {
+          if(res.type !== ERRORS_COMPLETE_CHALLENGE){
+            console.log(res);
+            // debugger
+            //reset state on success submission of challenge
+            // this.resetState();
+            this.setState({ 
+              modalOpen: true
+            });
+          }
+        })
+      )
     } else {
       //show user error message, upload all images to complete challenge
     }
@@ -210,6 +213,7 @@ class MyChallenges extends React.Component {
           onClick={this.submitChallenge}>Complete Challenge!</button>
         </div>
       </div>
+      <LoadingIndicator />
       {this.state.modalOpen ? 
       <>
       <div
