@@ -20,11 +20,38 @@ router.get("/test", (req, res) => res.json({ msg: "This is the challenges route"
 //     .catch(err => res.status(404).json("this user does not have any challenges"))
 // })
 
-//fetch challenge by challenge id
+//fetch challenges based on categories
+//res will be each category id with all challenges under it
+router.get("/", (req, res) => {
+    Category.find()
+    .sort({date: -1})
+    .then(categories => {
+       let combo = {}
+        for (let i = 0; i < categories.length; i++) {
+            Hunt.find({category: categories[i]}).then(challenges=>{
+                combo[categories[i]._id] = challenges;
+                if(i==categories.length-1){
+                    return res.json(combo)
+                }
+            })
+        }
+    }).catch(error => res.status(404).json({error: "No challenges were found"}))
+});
+
+//fetch specific challenge by challenge id
 router.get("/:id", (req, res) => {
     Challenge.findById(req.params.id)
     .then(challenge => res.json(challenge))
     .catch(err => res.status(404).json("No challenge exists with this id"))
+});
+
+
+// fetch user's completed challenge stats
+router.get("/stats/:user_id", (req, res) => {
+    Challenge.find({user: req.params.user_id})
+    // .sort({date: -1})
+    .then(completedChallenges=> res.json(completedChallenges))
+        .catch(error => res.status(404).json({error: "No challenges were found" }))
 })
 
 // router.get("/", (req, res) => {

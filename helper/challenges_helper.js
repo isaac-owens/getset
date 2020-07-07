@@ -3,7 +3,7 @@ var fs = require('file-system');
 const keys = require('../config/keys');
 const Hunt = require("../models/Hunt");
 
-const PlayHuntHelper  = { 
+const ChallengeHelper  = { 
     uploadToAWS : (req, cb)=>{
         //set up aws bucket
         let s3bucket = new AWS.S3({
@@ -84,4 +84,4 @@ const PlayHuntHelper  = {
     }
 }
 
-module.exports = PlayHuntHelper;
+module.exports = ChallengeHelper;
