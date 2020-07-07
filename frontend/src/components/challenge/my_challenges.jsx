@@ -15,7 +15,9 @@ class MyChallenges extends React.Component {
       errors: "", 
       photoFiles: [], 
       photoUrls: [],
-      modalOpen: true
+      modalOpen: false,
+      loading: false,
+
     }
 
     this.resetState = this.resetState.bind(this);
@@ -24,6 +26,7 @@ class MyChallenges extends React.Component {
     this.handleDrop = this.handleDrop.bind(this);
     this.submitChallenge = this.submitChallenge.bind(this);
     this.removeUserSelection = this.removeUserSelection.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   resetState(){
@@ -81,8 +84,11 @@ class MyChallenges extends React.Component {
           console.log(res);
           debugger
           //reset state on success submission of challenge
-        // this.resetState();
-        this.setState({ modalOpen: true });
+          // this.resetState();
+          this.setState({ 
+            modalOpen: true,
+            loading: false
+          });
         }
       });
     } else {
@@ -129,6 +135,10 @@ class MyChallenges extends React.Component {
         fileReader.readAsDataURL(photoFile);
       }
     }
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
   }
 
   // Component that will render if the user has made one or more hunts
@@ -200,7 +210,15 @@ class MyChallenges extends React.Component {
           onClick={this.submitChallenge}>Complete Challenge!</button>
         </div>
       </div>
-      {this.state.modalOpen ? <ChallengeModal /> : <div></div>}
+      {this.state.modalOpen ? 
+      <>
+      <div
+      className="modal-ex" 
+      onClick={this.closeModal}>{redEx}</div>
+      <ChallengeModal /> 
+      </>
+      : 
+      <div></div>}
       </>
     );
   }
