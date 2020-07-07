@@ -56,6 +56,7 @@ class ChallengeIndexPage extends React.Component {
             </ul>
           </div>
           <div className="challenge-index-page-right">
+            {this.state.selectedChallenge ? 
             <div className="challenge-photo-collection card-styling">
               <ul className="challenge-photos">
               
@@ -65,10 +66,11 @@ class ChallengeIndexPage extends React.Component {
                     return <li key={idx} className="challenge-photo"><img src={photo}></img></li>
                   })
                    :
-                  <></>
+                  <div></div>
                 }
               </ul>
-            </div>
+            </div> : 
+            <div className="challenge-photo-collection challenge-photo-empty">Find and pick a Challenge!</div>}
             {
               this.state.selectedChallenge ? 
               this.props.myChallenges[this.state.selectedChallenge._id] ?

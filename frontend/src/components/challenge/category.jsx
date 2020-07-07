@@ -80,13 +80,13 @@ class Category extends React.Component {
                 <div></div> :
                 challenges.map((challenge, idx)=>{
                   return (
-                  <li 
+                  <div 
                     key={challenge._id} 
                     className="challenge-item card-styling"
                     onClick={this.props.onChallengeClick(challenge)}
                     >
                     {challenge.title}
-                  </li>
+                  </div>
                   )
                 })
               }
