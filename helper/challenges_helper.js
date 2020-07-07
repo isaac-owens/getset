@@ -2,6 +2,7 @@ var AWS = require("aws-sdk");
 var fs = require('file-system');
 const keys = require('../config/keys');
 const Hunt = require("../models/Hunt");
+const Challenge = require("../models/Challenge");
 
 const ChallengeHelper  = { 
     uploadToAWS : (req, cb)=>{
@@ -47,7 +48,7 @@ const ChallengeHelper  = {
 
     completeChallenge :  (avgScore,imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
         //create a play hunt object
-            const playHunt = new PlayHunt({
+            const challenge = new Challenge({
                 user: req.user.id,
                 hunt_id: req.body.hunt_id,
                 timestamps: req.body.timestamps,
@@ -56,32 +57,33 @@ const ChallengeHelper  = {
             })  
             
             //save play hunt to mongoDB
-            playHunt.save();
-
+            challenge.save();
+            debugger
             //update challenge as completed
 
             //update score if required
-            if (playedHuntDetails.winner.score < playHunt.score) {
-                updateHighScore(playHunt);
+            if (playedHuntDetails.winner.score < challenge.score) {
+                Hunt.updateOne(
+                    {_id: challenge.hunt_id},
+                    {"winner": {id: challenge.user, score: challenge.score}
+                    }).catch(err => {
+                        // return  res.json(err)
+                    })
             }
 
             //building a custom response
             const customResponse = {
                 hunt_id: playedHuntDetails._id,
-                score: playHunt.score,
+                score: challenge.score,
                 hunt_name: playedHuntDetails.title
             }
             onSuccess(customResponse);                       
     },
 
-    updateHighScore:  (playHunt) => {
-        Hunt.updateOne(
-            {_id: playHunt.hunt_id},
-            {"winner": {id: playHunt.user, score: playHunt.score}
-            }).catch(err => {
-                // return  res.json(err)
-            })
-    }
+    // updateHighScore:  (challenge) => {
+    //     debugger
+        
+    // }
 }
 
 module.exports = ChallengeHelper;

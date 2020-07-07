@@ -1,4 +1,4 @@
-module.exports = function validatePlayHuntInput(data, hunt) {
+module.exports = function validateChallengeInput(data, hunt) {
     let errors = {};
     const images = data.files ? data.files : "";
     if (images.length === 0 || hunt.photo_collection.length !== images.length) {
