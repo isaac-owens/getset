@@ -124,10 +124,10 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 
 
 //add challenge to my_challenge list
-router.post('/mychallenges', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/challenges', passport.authenticate('jwt', { session: false }), (req, res) => {
     User.updateOne(
         { _id : req.user.id},
-        { $push: {"my_challenges": req.body.hunt_id},
+        { $push: {"challenges": req.body.challenge_id},
     })
     .then((user) => {
       return  res.json("Challenge Added")
@@ -136,16 +136,16 @@ router.post('/mychallenges', passport.authenticate('jwt', { session: false }), (
 });
 
 //fetch user my challenges with details
-router.get("/mychallenges", passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get("/challenges", passport.authenticate('jwt', { session: false }), (req, res) => {
     User.findById(req.user.id)
         .sort({ date: -1 })
         .then(user => {
             let combo = {}
-            for (let i = 0; i < user.my_challenges.length; i++) {
-                const huntId = user.my_challenges[i];
+            for (let i = 0; i < user.challenges.length; i++) {
+                const huntId = user.challenges[i];
                 Hunt.find({ _id: huntId }).then(challenge => {
                     combo[huntId] = challenge[0];
-                    if (i == user.my_challenges.length - 1) {
+                    if (i == user.challenges.length - 1) {
                         return res.json(combo)
                     }
                 })
@@ -154,10 +154,10 @@ router.get("/mychallenges", passport.authenticate('jwt', { session: false }), (r
 });
 
 //remove challenge from my_challenge  list
-router.delete('/mychallenges/:challenge_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.delete('/challenges/:challenge_id', passport.authenticate('jwt', { session: false }), (req, res) => {
     User.updateOne(
         { _id : req.user.id},
-        { $pull: {"my_challenges": req.params.challenge_id}
+        { $pull: {"challenges": req.params.challenge_id}
     }).then((user) => {
         return  success(user);
       })
@@ -166,16 +166,16 @@ router.delete('/mychallenges/:challenge_id', passport.authenticate('jwt', { sess
 
 
 //fetch user my hunts with details
-router.get("/myhunts", passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get("/hunts", passport.authenticate('jwt', { session: false }), (req, res) => {
     User.findById(req.user.id)
         .sort({ date: -1 })
         .then(user => {
             let combo = {}
-            for (let i = 0; i < user.my_hunts.length; i++) {
-                const huntId = user.my_hunts[i];
+            for (let i = 0; i < user.hunts.length; i++) {
+                const huntId = user.hunts[i];
                 Hunt.find({ _id: huntId }).then(challenge => {
                     combo[huntId] = challenge[0];
-                    if (i == user.my_hunts.length - 1) {
+                    if (i == user.hunts.length - 1) {
                         return res.json(combo)
                     }
                 })
@@ -184,10 +184,10 @@ router.get("/myhunts", passport.authenticate('jwt', { session: false }), (req, r
 });
 
 //remove hunt from my_hunts list
-router.delete('/myhunts/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
+router.delete('/hunts/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
     User.updateOne(
         {_id: req.user.id},
-        { $pull: {"my_hunts": req.params.hunt_id}})
+        { $pull: {"hunts": req.params.hunt_id}})
     .then(user => {
         return res.json(user)
     })
