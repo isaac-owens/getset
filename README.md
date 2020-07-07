@@ -27,6 +27,7 @@ Axios was our technology of choice when it came to our frontend HTTP requests.  
 GetSet uses Node.js to manage JavaScript dependencies, bundle the JavaScript with webpack, and as a runtime for our local server.  We really liked that Node.js made it easy for us to allow multiple events to occur at the same time on the backend.  Very fun!
 
 ### [Resemble.JS](https://github.com/rsmbl/Resemble.js):
+Resemble is our API of choice when it came down to the actual comparing of photos.  We originally had considered a few other APIs including Rembrandt but we found that the criterion for comparison was not as rich and customizable as Resemble.  Backend and Flex worked very hard to understand the 'under-the-hood' workings of Resemble to customize the callback information to exactly what we needed for our game.  Good job fellas!
 
 ### [multer package](https://www.npmjs.com/package/multer):
 
@@ -67,14 +68,19 @@ The main feature of GetSet is photo comparison which posed the question "How do 
 
 ### Frontend
 ---
-GetSet utilizes a bit of drag and drop functionality that none of us previously had any exposure to. 
+GetSet utilizes a bit of drag and drop functionality that none of us previously had any exposure to. Our Team Flex Zohaib was able to figure out this functionality by studying...
 
+Frontend Lead Kevin worked tirelessly to provide the card game aesthetics of GetSet.  He utilized a lot of absolute positioning techniques through CSS to make sure our site was pixel perfect and felt fun to use!
 
 ### Lead
 ---
 
 
 # Meet the Team!
+## <img src="frontend/public/isaac.jpg" width="58" height="72"> Isaac
+### Team Lead
+
+Isaac's favorite game is Catan.  He really loves the arts and looks forward to being able to combine his passions with technology.
  ## <img src="frontend/public/zohaib2.jpg" width="58" height="72"> Zohaib
 ### Team Lead Asst. / Flex
 Zohaib's favorite games are cricket and foosball. He has worked as a Software Engineer with experience developing android applications. Hit him up if you're looking to hire!
@@ -86,10 +92,6 @@ Kevin's favorite game is Portal.  He wants you to know that cake in not a matter
 ## <img src="frontend/public/danny.png" width="58" height="72"> Danny
 ### Backend Lead
 Danny's favorite games are basketball and golf. Aside from coding, his real dream is to become a professional poker player.
-
-## <img src="frontend/public/isaac.jpg" width="58" height="72"> Isaac
-### Team Lead
-Isaac's favorite game is Catan.  He really loves the arts and looks forward to being able to combine his passions with technology.
   
 # Future Directions
   * Create a mobile version of GetSet

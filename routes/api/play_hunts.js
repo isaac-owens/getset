@@ -64,6 +64,7 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
             
 
 
+            //iterating through the files submitted in the request
             req.files.map((item, idx) => {
                 //setting params for aws
                 var params = {
@@ -97,44 +98,32 @@ router.post("/", [passport.authenticate('jwt', { session: false }), upload.array
                                                 timestamps: req.body.timestamps,
                                                 score: ele / numFiles,
                                                 images: imageAwsPath
-                                            })
-                                            // winningScore = Hunt.findById(playHunt.hunt_id)
-                                            
+                                            })                                            
                                             playHunt.save()
                                             Hunt.findById(req.body.hunt_id)
                                             .then((hunt) => {
                                                 if (hunt.winner.score < playHunt.score) {
                                                     Hunt.updateOne(
                                                         {_id: playHunt.hunt_id},
-                                                        {"winner": {id: playHunt.user, score: playHunt.score}}
-                                                        ).then(err => {
-                                                       res.json})
-                                                       .catch(err => {
-                                                           res.json(err)
+                                                        {"winner": {id: playHunt.user, score: playHunt.score}
+                                                        }).catch(err => {
+                                                         return  res.json(err)
                                                        })
                                                 }
-                                                return res.json(playHunt)
+                                                //building a custom response
+                                                const customResponse = {
+                                                    hunt_id: hunt._id,
+                                                    score: playHunt.score,
+                                                    hunt_name: hunt.title
+                                                }
+                                                return res.json(customResponse);
                                             })
-                                            
-                                            
-                                            // if (score > hunt_id.winner.value) {
-                                            //     Hunt.updateOne(
-                                            //         {hunt_id: playHunt.hunt_id},
-                                            //         {"winner": {user : score}}
-                                            //     )
-                                            // }
                                         }
                                         
                                     })
                             }
-
-                            
-
                         }
-
-
                     }
-
                 })
             });
 
