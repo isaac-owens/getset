@@ -68,23 +68,24 @@
 }
 
 .my-challenges-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 350px;
-  width: 35%;
-  text-align: center;
-  border: 5px inset;
-  border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 35%;
+    text-align: center;
+    border: 5px inset;
+    border-radius: 25px;
 }
 
 .my-challenges-photo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
 }
 
 .my-challenges-drop-zone {
+    cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
