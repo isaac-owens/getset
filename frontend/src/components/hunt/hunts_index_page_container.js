@@ -15,4 +15,4 @@ const mDTP = (dispatch) => ({
   removeHunt: (huntId) => dispatch(deleteUserHunt(huntId))
 });
 
-export default connect(mSTP, mDTP)(HuntsIndexPage)
+export default connect(mSTP, mDTP)(HuntsIndexPage);

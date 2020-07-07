@@ -17,7 +17,7 @@ class MyChallenges extends React.Component {
       photoFiles: [], 
       photoUrls: [],
       modalOpen: false
-    }
+    };
 
     this.resetState = this.resetState.bind(this);
     this.onCollectionClick = this.onCollectionClick.bind(this);
@@ -53,14 +53,14 @@ class MyChallenges extends React.Component {
         photoFiles: new Array(photoCollectionCount).fill(undefined),
         photoUrls: new Array(photoCollectionCount).fill(undefined)
       });
-    }
+    };
   }
 
   removeChallengeCollection(selectedIdx){
     return e => {
       const selectedChallenge = this.props.challenges[selectedIdx];
       this.props.deleteChallenge(selectedChallenge._id);
-    }
+    };
   }
 
   //submit challenge
@@ -90,7 +90,7 @@ class MyChallenges extends React.Component {
             });
           }
         })
-      )
+      );
     } else {
       //show user error message, upload all images to complete challenge
     }
@@ -110,7 +110,7 @@ class MyChallenges extends React.Component {
         photoFiles: photoFilesArr,
         photoUrls: photoUrlsArr
       });
-    }
+    };
   }
 
    // handle drop of photoFiles in drop zone
@@ -134,7 +134,7 @@ class MyChallenges extends React.Component {
         };
         fileReader.readAsDataURL(photoFile);
       }
-    }
+    };
   }
 
   closeModal() {
