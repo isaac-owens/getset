@@ -116,10 +116,6 @@
   color: red;
 }
 
-// .hunt-photo img:hover .red-ex {
-//   color: rgba($color: #e66060, $alpha: 1.0)
-// }
-
 .create-form-body-right {
   display: flex;
   flex-direction: column;
@@ -136,6 +132,7 @@
   background-color: $red;
   opacity: .6;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .create-form-drop-zone:hover {
