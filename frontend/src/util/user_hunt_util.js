@@ -18,3 +18,10 @@ export const createUserHunt = hunt => (
         headers: { 'Content-Type': 'multipart/form-data' }
     })
 );
+
+// export const deleteUserHunt = huntId => (
+//   axios({
+//     method: 'delete',
+//     url: `api/hunts/${huntId}`,
+//   })
+// )
