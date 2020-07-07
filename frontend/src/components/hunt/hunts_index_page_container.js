@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUserHunts } from '../../actions/user_hunt_actions';
+
 import HuntsIndexPage from './hunts_index_page';
 
 const mSTP = state => {
@@ -9,10 +10,9 @@ const mSTP = state => {
   }
 }
 
-const mDTP = dispatch => (
-    {
-      fetchUserHunts: hunts => dispatch(fetchUserHunts(hunts))
-    }
-)
+const mDTP = (dispatch) => ({
+  fetchUserHunts: (hunts) => dispatch(fetchUserHunts(hunts)),
+  // removeHunt: (huntId) => dispatch(deleteUserHunt(huntId))
+});
 
 export default connect(mSTP, mDTP)(HuntsIndexPage)

@@ -21,6 +21,11 @@ const receiveUserErrors = errors =>({
     errors
 });
 
+const removeUserHunt = huntId => ({
+  type: REMOVE_USER_HUNT,
+  huntId
+})
+
 export const fetchUserHunts = userId => dispatch =>(
     APIUtil.fetchUserHunts(userId).then(
         hunts => dispatch(receiveUserHunts(hunts.data))
@@ -43,3 +48,14 @@ export const createUserHunt = hunt => dispatch =>(
         }
     )
 );
+
+// export const deleteUserHunt = huntId = dispatch => (
+//   APIUtil.deleteUserHunt(huntId).then(
+//     huntId => {
+//       return dispatch(removeUserHunt(huntId))
+//     },
+//     err => {
+//       return dispatch(receiveUserErrors(err.response.data))
+//     }
+//   )
+// )

@@ -46,7 +46,7 @@ export const fetchChallenges = () => dispatch =>{
 };
 
 
-export const addToMyChallenge= (challenge)=>dispatch =>{
+export const addToMyChallenge = (challenge)=>dispatch =>{
    return APIUtil.addToMyChallenge(challenge._id).then(
         () => {
            return dispatch(receiveMyChallenge(challenge))
@@ -54,7 +54,7 @@ export const addToMyChallenge= (challenge)=>dispatch =>{
     )
 };
 
-export const completeChallenge= (challenge)=>dispatch =>{
+export const completeChallenge = (challenge) => dispatch =>{
     return APIUtil.completeChallenge(challenge).then(
          (challenge) => {
             return dispatch(receiveCompleteChallenge(challenge.data));
@@ -65,14 +65,14 @@ export const completeChallenge= (challenge)=>dispatch =>{
      )
  };
 
-export const deleteChallenge= (challengeId)=>dispatch =>{
+export const deleteChallenge = (challengeId) => dispatch =>{
  return   APIUtil.deleteChallenge(challengeId).then(
         (res) => dispatch(removeMyChallenge(challengeId))
     )
     };
 
 
-export const fetchMyChallenges= ()=>dispatch =>{
+export const fetchMyChallenges = () => dispatch =>{
    return APIUtil.fetchMyChallenges().then(
         (challenges) => {
            return dispatch(receiveMyChallenges(challenges.data));

@@ -21,7 +21,9 @@ class HuntsIndexPage extends React.Component {
     } else if (this.props.hunts.length === 0) {
       return <HuntsIndexInactive />
     } else { 
-      return <HuntsIndexActive hunts={this.props.hunts}/> 
+      return <HuntsIndexActive 
+      // removeHunt={this.props.removeHunt} 
+      hunts={this.props.hunts}/> 
     }
   }
 }
