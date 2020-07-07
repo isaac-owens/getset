@@ -1,6 +1,7 @@
 import React from 'react';
 import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
+import ChallengeModal from '../challenge/challenge_modal';
 import { ERRORS_COMPLETE_CHALLENGE } from '../../actions/challenge_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +10,13 @@ class MyChallenges extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {selectedCollectionIdx: 0, errors: "", photoFiles: [], photoUrls: []}
+    this.state = {
+      selectedCollectionIdx: 0, 
+      errors: "", 
+      photoFiles: [], 
+      photoUrls: [],
+      modalOpen: true
+    }
 
     this.resetState = this.resetState.bind(this);
     this.onCollectionClick = this.onCollectionClick.bind(this);
@@ -20,7 +27,12 @@ class MyChallenges extends React.Component {
   }
 
   resetState(){
-    this.setState({selectedCollectionIdx: 0, errors: "", photoFiles: [], photoUrls: []});
+    this.setState({
+      selectedCollectionIdx: 0, 
+      errors: "", 
+      photoFiles: [], 
+      photoUrls: []
+    });
   }
 
   componentDidMount(){
@@ -33,10 +45,12 @@ class MyChallenges extends React.Component {
       const selectedChallenge = this.props.challenges[selectedIdx];
       const photoCollectionCount = selectedChallenge.photo_collection.length;
       //reset state to prepare for new play hunt submission
-      this.setState({selectedCollectionIdx: selectedIdx,
+      this.setState({
+        selectedCollectionIdx: selectedIdx,
         errors: "",
         photoFiles: new Array(photoCollectionCount).fill(undefined),
-        photoUrls: new Array(photoCollectionCount).fill(undefined)});
+        photoUrls: new Array(photoCollectionCount).fill(undefined)
+      });
     }
   }
 
@@ -46,7 +60,6 @@ class MyChallenges extends React.Component {
       this.props.deleteChallenge(selectedChallenge._id);
     }
   }
-
 
   //submit challenge
   submitChallenge(e){
@@ -63,11 +76,13 @@ class MyChallenges extends React.Component {
 
       //submitting to server
       this.props.completeChallenge(formData)
-      .then(res=>{
+      .then(res => {
         if(res.type !== ERRORS_COMPLETE_CHALLENGE){
           console.log(res);
+          debugger
           //reset state on success submission of challenge
-        this.resetState();
+        // this.resetState();
+        this.setState({ modalOpen: true });
         }
       });
     } else {
@@ -122,6 +137,7 @@ class MyChallenges extends React.Component {
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
 
     return (
+      <>
       <div className="my-challenges">
         <div className="my-challenges-list card-styling">
           <ul className="my-challenges-collection-list">
@@ -179,9 +195,13 @@ class MyChallenges extends React.Component {
               }
             </ul>
           </div>
-          <button className="my-challenges-create" onClick={this.submitChallenge}>Complete Challenge!</button>
+          <button 
+          className="my-challenges-create" 
+          onClick={this.submitChallenge}>Complete Challenge!</button>
         </div>
       </div>
+      {this.state.modalOpen ? <ChallengeModal /> : <div></div>}
+      </>
     );
   }
 }
