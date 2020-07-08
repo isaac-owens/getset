@@ -58,7 +58,9 @@ const ChallengeHelper  = {
             })  
             
             //save completed challenge to mongoDB 
-            challenge.save()
+            challenge.save();
+
+            //update user complete and incomplete challenges array. 
             User.updateOne(
                 { _id : req.user.id},
                 { 

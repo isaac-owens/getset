@@ -135,6 +135,9 @@ class MyChallenges extends React.Component {
   }
 
   closeModal() {
+    //remove challenge from global state
+    this.props.removeMyChallenge(this.state.result.hunt_id);
+
     //reset state on success submission of challenge
     this.resetState();
   }

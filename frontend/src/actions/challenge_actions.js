@@ -32,7 +32,7 @@ const receiveMyChallenge = challenge =>({
     challenge
 });
 
-const removeMyChallenge = challengeId =>({
+export const removeMyChallenge = challengeId =>({
     type: REMOVE_MY_CHALLENGE,
     challengeId
 });
