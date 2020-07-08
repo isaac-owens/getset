@@ -84,7 +84,7 @@ class MyChallenges extends React.Component {
             // this.resetState();
             this.setState({ 
               modalOpen: true,
-              result: res
+              result: res.challenge
             });
           }
         })
