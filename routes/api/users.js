@@ -155,6 +155,7 @@ router.get("/challenges", passport.authenticate('jwt', { session: false }), (req
 
 //remove challenge from my_challenge  list
 router.delete('/challenges/:challenge_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    debugger
     User.updateOne(
         { _id : req.user.id},
         { $pull: {"challenges": req.params.challenge_id}
@@ -164,6 +165,18 @@ router.delete('/challenges/:challenge_id', passport.authenticate('jwt', { sessio
       .catch(error => res.json({error: 'Challenge not removed'}))
 });
 
+//remove hunt from my_hunts list
+router.delete('/hunts/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
+    debugger
+    User.updateOne(
+        {_id: req.user.id},
+        { $pull: {"hunts": req.params.hunt_id}})
+    .then(user => {
+        debugger
+        return res.json(user)
+    })
+    .catch(error => res.status(404).json({error: 'Hunt not removed'}))
+});
 
 //fetch user my hunts with details
 router.get("/hunts", passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -183,15 +196,6 @@ router.get("/hunts", passport.authenticate('jwt', { session: false }), (req, res
         }).catch(error => res.status(404).json({ error: "No hunts were found" }))
 });
 
-//remove hunt from my_hunts list
-router.delete('/hunts/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
-    User.updateOne(
-        {_id: req.user.id},
-        { $pull: {"hunts": req.params.hunt_id}})
-    .then(user => {
-        return res.json(user)
-    })
-    .catch(error => res.status(404).json({error: 'Hunt not removed'}))
-});
+
 
 module.exports = router;
