@@ -195,10 +195,11 @@ class MyChallenges extends React.Component {
                     </li>
                   )
                 }):
-
                   <li className="comparison-zone">
                       <div className="my-challenges-photo">image</div>
-                      <div className="my-challenges-drop-zone"><span className="my-challenges-drop-zone-message">drop zone component</span></div>
+                      <div className="my-challenges-drop-zone">
+                                            <span className="my-challenges-drop-zone-message">Drag'n'drop photo here, or click to select photoFile</span>
+                      </div>
                   </li>
               }
             </ul>

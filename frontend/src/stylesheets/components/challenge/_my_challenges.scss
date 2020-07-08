@@ -85,7 +85,7 @@
 }
 
 .my-challenges-drop-zone {
-    cursor: pointer;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,8 +101,9 @@
 }
 
 .my-challenges-drop-zone-message {
-  padding: 45px;
-  width: 55%;
+  padding: 40px;
+  width: 52%;
+  height: 67%;
   border: 4px dashed rgba($color: #ffffff, $alpha: .7);
   border-width: 6px;
   border-radius: 20px;
@@ -125,7 +126,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  top: 0;
+//   top: 0;
   left: 86%;
 }
 
