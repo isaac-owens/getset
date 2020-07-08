@@ -1,6 +1,7 @@
 import React from 'react';
-import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
+
+import HuntCollectionItem from '../hunt/hunt_collection_item';
 import { ChallengeModal, LoadingIndicator } from '../challenge/challenge_modal';
 import { ERRORS_COMPLETE_CHALLENGE } from '../../actions/challenge_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,7 +29,7 @@ class MyChallenges extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  resetState(){
+  resetState() {
     this.setState({
       selectedCollectionIdx: 0, 
       errors: "", 
@@ -75,8 +76,8 @@ class MyChallenges extends React.Component {
       }  
 
       //submitting to server
-      trackPromise(
-        this.props.completeChallenge(formData)
+    trackPromise(
+      this.props.completeChallenge(formData)
         .then(res => {
           if(res.type !== ERRORS_COMPLETE_CHALLENGE){
             console.log(res);
