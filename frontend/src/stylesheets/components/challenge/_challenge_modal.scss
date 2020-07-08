@@ -6,7 +6,7 @@
   align-items: center;
   color: white;
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: rgba(0,0,0,.8909);
 }
@@ -35,9 +35,9 @@
 
 .modal-ex {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-end;
   font-size: 34px;
   top: 8.8%;
   left: 71.4%;
