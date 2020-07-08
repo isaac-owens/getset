@@ -20,6 +20,7 @@ export class ChallengeModal extends React.Component {
   };
 
   render() {
+    let { name, score } = this.props.challengeResult;
     return (
         <div className="challenge-modal">
             <div className="challenge-modal-content card-styling">

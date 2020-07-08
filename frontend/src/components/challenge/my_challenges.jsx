@@ -61,7 +61,7 @@ class MyChallenges extends React.Component {
   }
 
   //submit challenge
-  submitChallenge(e){
+  submitChallenge(e) {
     const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx];
     //check all photos sumitted
     if(this.state.photoUrls.filter((url) => url !== undefined).length === selectedChallenge.photo_collection.length){
@@ -83,7 +83,8 @@ class MyChallenges extends React.Component {
             //reset state on success submission of challenge
             // this.resetState();
             this.setState({ 
-              modalOpen: true
+              modalOpen: true,
+              result: res
             });
           }
         })
@@ -213,7 +214,7 @@ class MyChallenges extends React.Component {
       <div
       className="modal-ex" 
       onClick={this.closeModal}>{redEx}</div>
-      <ChallengeModal /> 
+      <ChallengeModal challengeResult={this.state.result} /> 
       </>
       : 
       <div></div>}
