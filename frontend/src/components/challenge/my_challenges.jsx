@@ -1,6 +1,7 @@
 import React from 'react';
-import HuntCollectionItem from '../hunt/hunt_collection_item';
 import Dropzone from 'react-dropzone';
+
+import HuntCollectionItem from '../hunt/hunt_collection_item';
 import { ChallengeModal, LoadingIndicator } from '../challenge/challenge_modal';
 import { ERRORS_COMPLETE_CHALLENGE } from '../../actions/challenge_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,12 +29,13 @@ class MyChallenges extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  resetState(){
+  resetState() {
     this.setState({
       selectedCollectionIdx: 0, 
       errors: "", 
       photoFiles: [], 
-      photoUrls: []
+      photoUrls: [],
+      modalOpen: false,
     });
   }
 
@@ -61,7 +63,7 @@ class MyChallenges extends React.Component {
   }
 
   //submit challenge
-  submitChallenge(e){
+  submitChallenge(e) {
     const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx];
     //check all photos sumitted
     if(this.state.photoUrls.filter((url) => url !== undefined).length === selectedChallenge.photo_collection.length){
@@ -74,16 +76,14 @@ class MyChallenges extends React.Component {
       }  
 
       //submitting to server
-      trackPromise(
-        this.props.completeChallenge(formData)
+    trackPromise(
+      this.props.completeChallenge(formData)
         .then(res => {
           if(res.type !== ERRORS_COMPLETE_CHALLENGE){
             console.log(res);
-            // debugger
-            //reset state on success submission of challenge
-            // this.resetState();
             this.setState({ 
-              modalOpen: true
+              modalOpen: true,
+              result: res.challenge
             });
           }
         })
@@ -95,7 +95,7 @@ class MyChallenges extends React.Component {
 
   //removes image selected by user to complete a challenge
   removeUserSelection(idx){
-    return e=>{
+    return e => {
       // TODO warn user, image will be deleted
       //update photoFiles and photoUrls in state
       const photoFilesArr = this.state.photoFiles;
@@ -135,7 +135,8 @@ class MyChallenges extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    //reset state on success submission of challenge
+    this.resetState();
   }
 
   // Component that will render if the user has made one or more hunts
@@ -213,7 +214,7 @@ class MyChallenges extends React.Component {
       <div
       className="modal-ex" 
       onClick={this.closeModal}>{redEx}</div>
-      <ChallengeModal /> 
+      <ChallengeModal challengeResult={this.state.result} /> 
       </>
       : 
       <div></div>}

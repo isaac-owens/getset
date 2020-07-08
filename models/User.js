@@ -11,7 +11,7 @@ const UserSchema = new Schema({
         type: Array,
     },
     challenges: {
-        type: Array
+        type: Array,
     },
     email: {
         type: String,
