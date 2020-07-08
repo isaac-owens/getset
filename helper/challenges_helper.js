@@ -47,7 +47,7 @@ const ChallengeHelper  = {
     },
 
     completeChallenge :  (avgScore,imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
-        //create a play hunt object
+        //create a new challenge object
             const challenge = new Challenge({
                 user: req.user.id,
                 hunt_id: req.body.hunt_id,
@@ -56,9 +56,16 @@ const ChallengeHelper  = {
                 images: imageAwsPaths
             })  
             
-            //save play hunt to mongoDB
-            challenge.save();
-            //update challenge as completed
+            //save completed challenge to mongoDB 
+            challenge.save()
+              User.updateOne(
+                { _id: req.user.id },
+                { 
+                  // Add new challenge to complete_challenges and remove hunt from incomplete_challenges
+                  // $push : { "complete_challenges": challenge.id },
+                  $pull : {"incomplete_challenges": challenge.hunt_id.toString()}, 
+                }
+              )
 
             //update score if required
             if (playedHuntDetails.winner.score < challenge.score) {
