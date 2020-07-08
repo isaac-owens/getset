@@ -10,8 +10,11 @@ const UserSchema = new Schema({
     hunts: {
         type: Array,
     },
-    challenges: {
+    complete_challenges: {
         type: Array,
+    },
+    incomplete_challenges: {
+      type: Array,
     },
     email: {
         type: String,
