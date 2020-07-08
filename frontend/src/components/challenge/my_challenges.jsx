@@ -56,11 +56,8 @@ class MyChallenges extends React.Component {
     };
   }
 
-  removeChallengeCollection(selectedIdx){
-    return e => {
-      const selectedChallenge = this.props.challenges[selectedIdx];
-      this.props.deleteChallenge(selectedChallenge._id);
-    };
+  removeChallengeCollection(id){
+      this.props.deleteChallenge(id);
   }
 
   //submit challenge
@@ -154,7 +151,7 @@ class MyChallenges extends React.Component {
             {/* dynamically build user's accepted challenges list */}
             {this.props.challenges.map((challenge, idx) => {
               return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge}
-              removeCollection = {this.removeChallengeCollection(idx)}
+              removeCollection = {this.removeChallengeCollection}
                 onCollectionClick={this.onCollectionClick(idx)}/>
             })}
           </ul>

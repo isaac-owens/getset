@@ -19,11 +19,8 @@ class HuntsIndexActive extends React.Component {
     }
   }
 
-  removeHuntCollection(idx){
-    return e => {
-      const huntId = this.props.hunts[idx]._id
-      this.props.removeHunt(huntId);
-    }
+  removeHuntCollection(id){
+      this.props.removeHunt(id);
     
   }
 
@@ -40,7 +37,7 @@ class HuntsIndexActive extends React.Component {
                   key={idx} 
                   hunt={hunt} 
                   klassName={true} 
-                  removeCollection={this.removeHuntCollection(idx)}
+                  removeCollection={this.removeHuntCollection}
                   onCollectionClick ={this.onCollectionClick(idx)}
                 />
               })
