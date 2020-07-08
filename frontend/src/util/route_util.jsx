@@ -10,6 +10,7 @@ export const CREATE = '/hunts/create';
 export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
 export const MYCHALL = '/mychallenges';
+export const TEAM = '/meettheteam';
 
 const mapStateToProps = state => {
     return({

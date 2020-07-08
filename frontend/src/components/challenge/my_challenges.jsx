@@ -17,7 +17,7 @@ class MyChallenges extends React.Component {
       photoFiles: [], 
       photoUrls: [],
       modalOpen: false
-    }
+    };
 
     this.resetState = this.resetState.bind(this);
     this.onCollectionClick = this.onCollectionClick.bind(this);
@@ -53,14 +53,11 @@ class MyChallenges extends React.Component {
         photoFiles: new Array(photoCollectionCount).fill(undefined),
         photoUrls: new Array(photoCollectionCount).fill(undefined)
       });
-    }
+    };
   }
 
-  removeChallengeCollection(selectedIdx){
-    return e => {
-      const selectedChallenge = this.props.challenges[selectedIdx];
-      this.props.deleteChallenge(selectedChallenge._id);
-    }
+  removeChallengeCollection(id){
+      this.props.deleteChallenge(id);
   }
 
   //submit challenge
@@ -90,7 +87,7 @@ class MyChallenges extends React.Component {
             });
           }
         })
-      )
+      );
     } else {
       //show user error message, upload all images to complete challenge
     }
@@ -110,7 +107,7 @@ class MyChallenges extends React.Component {
         photoFiles: photoFilesArr,
         photoUrls: photoUrlsArr
       });
-    }
+    };
   }
 
    // handle drop of photoFiles in drop zone
@@ -134,7 +131,7 @@ class MyChallenges extends React.Component {
         };
         fileReader.readAsDataURL(photoFile);
       }
-    }
+    };
   }
 
   closeModal() {
@@ -154,7 +151,7 @@ class MyChallenges extends React.Component {
             {/* dynamically build user's accepted challenges list */}
             {this.props.challenges.map((challenge, idx) => {
               return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge}
-              removeChallengeCollection = {this.removeChallengeCollection(idx)}
+              removeCollection = {this.removeChallengeCollection}
                 onCollectionClick={this.onCollectionClick(idx)}/>
             })}
           </ul>
