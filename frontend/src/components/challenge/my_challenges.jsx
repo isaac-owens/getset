@@ -33,7 +33,8 @@ class MyChallenges extends React.Component {
       selectedCollectionIdx: 0, 
       errors: "", 
       photoFiles: [], 
-      photoUrls: []
+      photoUrls: [],
+      modalOpen: false,
     });
   }
 
@@ -79,9 +80,6 @@ class MyChallenges extends React.Component {
         .then(res => {
           if(res.type !== ERRORS_COMPLETE_CHALLENGE){
             console.log(res);
-            // debugger
-            //reset state on success submission of challenge
-            // this.resetState();
             this.setState({ 
               modalOpen: true,
               result: res.challenge
@@ -96,7 +94,7 @@ class MyChallenges extends React.Component {
 
   //removes image selected by user to complete a challenge
   removeUserSelection(idx){
-    return e=>{
+    return e => {
       // TODO warn user, image will be deleted
       //update photoFiles and photoUrls in state
       const photoFilesArr = this.state.photoFiles;
@@ -136,7 +134,8 @@ class MyChallenges extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    //reset state on success submission of challenge
+    this.resetState();
   }
 
   // Component that will render if the user has made one or more hunts
