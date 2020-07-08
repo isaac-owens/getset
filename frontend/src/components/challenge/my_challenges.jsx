@@ -154,7 +154,7 @@ class MyChallenges extends React.Component {
             {/* dynamically build user's accepted challenges list */}
             {this.props.challenges.map((challenge, idx) => {
               return <HuntCollectionItem klassName={true}  key={idx} hunt={challenge}
-              removeChallengeCollection = {this.removeChallengeCollection(idx)}
+              removeCollection = {this.removeChallengeCollection(idx)}
                 onCollectionClick={this.onCollectionClick(idx)}/>
             })}
           </ul>

@@ -21,6 +21,6 @@ export const createUserHunt = hunt => (
 export const deleteUserHunt = huntId => (
   axios({
     method: 'delete',
-    url: `api/hunts/${huntId}`,
+    url: `api/users/hunts/${huntId}`,
   })
 );

@@ -37,9 +37,7 @@ const SessionReducer = (state = initialState, action) => {
               nextState.user.hunts = [action.hunt];
             }
             return nextState;
-
         case REMOVE_USER_HUNT:
-          debugger
           delete nextState.user.hunts[action.huntId];
           return nextState;
             
