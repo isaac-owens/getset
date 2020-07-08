@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import App from './app';
 import { HashRouter } from 'react-router-dom';
 import '../stylesheets/application.scss';
-import { usePromiseTracker } from "react-promise-tracker";
 
 
 const Root = ({ store }) =>(

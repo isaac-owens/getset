@@ -10,12 +10,18 @@ class HuntsIndexActive extends React.Component {
     this.state = {selectedCollectionIdx: 0}
 
     this.onCollectionClick = this.onCollectionClick.bind(this);
+    this.removeHuntCollection = this.removeHuntCollection.bind(this);
   }
 
   onCollectionClick(selectedIdx){
     return e =>{
       this.setState({ selectedCollectionIdx: selectedIdx })
     }
+  }
+
+  removeHuntCollection(id){
+      this.props.removeHunt(id);
+    
   }
 
   // Component that will render if the user has made one or more hunts
@@ -31,7 +37,7 @@ class HuntsIndexActive extends React.Component {
                   key={idx} 
                   hunt={hunt} 
                   klassName={true} 
-                  removeHunt={this.props.removeHunt}
+                  removeCollection={this.removeHuntCollection}
                   onCollectionClick ={this.onCollectionClick(idx)}
                 />
               })

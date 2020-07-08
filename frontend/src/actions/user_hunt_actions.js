@@ -49,8 +49,8 @@ export const createUserHunt = hunt => dispatch =>(
     )
 );
 
-export const deleteUserHunt = huntId => dispatch => (
-  APIUtil.deleteUserHunt(huntId).then(
+export const deleteUserHunt = huntId => dispatch => {
+ return APIUtil.deleteUserHunt(huntId).then(
     () => {
       return dispatch(removeUserHunt(huntId))
     },
@@ -58,4 +58,4 @@ export const deleteUserHunt = huntId => dispatch => (
       return dispatch(receiveUserErrors(err.response.data))
     }
   )
-)
+}

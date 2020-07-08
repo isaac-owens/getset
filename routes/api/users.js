@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const passport = require('passport')
+const { UsersHelper } = require("../../helper/users_helper");
 
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
@@ -120,6 +121,81 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         email: req.user.email
     });
 })
+
+
+//add challenge to my_challenge list
+router.post('/challenges', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.updateOne(
+        { _id : req.user.id},
+        { $push: {"challenges": req.body.challenge_id},
+    })
+    .then((user) => {
+      return  res.json("Challenge Added")
+    })
+    .catch(error => res.status(404).json({error: 'Challenge not added'}))
+});
+
+//fetch user my challenges with details
+router.get("/challenges", passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findById(req.user.id)
+        .sort({ date: -1 })
+        .then(user => {
+            let combo = {}
+            for (let i = 0; i < user.challenges.length; i++) {
+                const challengeId = user.challenges[i];
+                Hunt.find({ _id: challengeId }).then(challenge => {
+                    combo[challengeId] = challenge[0];
+                    if (i == user.challenges.length - 1) {
+                        return res.json(combo)
+                    }
+                })
+            }
+        }).catch(error => res.status(404).json({ error: "No challenges were found" }))
+});
+
+//remove challenge from my_challenge  list
+router.delete('/challenges/:challenge_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    debugger
+    User.updateOne(
+        { _id : req.user.id},
+        { $pull: {"challenges": req.params.challenge_id}
+    }).then((user) => {
+        return  res.json(user);
+      })
+      .catch(error => res.json({error: 'Challenge not removed'}))
+});
+
+//remove hunt from my_hunts list
+router.delete('/hunts/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
+    debugger
+    User.updateOne(
+        {_id: req.user.id},
+        { $pull: {"hunts": req.params.hunt_id}})
+    .then(user => {
+        debugger
+        return res.json(user)
+    })
+    .catch(error => res.status(404).json({error: 'Hunt not removed'}))
+});
+
+//fetch user my hunts with details
+router.get("/hunts", passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findById(req.user.id)
+        .sort({ date: -1 })
+        .then(user => {
+            let combo = {}
+            for (let i = 0; i < user.hunts.length; i++) {
+                const huntId = user.hunts[i];
+                Hunt.find({ _id: huntId }).then(challenge => {
+                    combo[huntId] = challenge[0];
+                    if (i == user.hunts.length - 1) {
+                        return res.json(combo)
+                    }
+                })
+            }
+        }).catch(error => res.status(404).json({ error: "No hunts were found" }))
+});
+
 
 
 module.exports = router;
