@@ -3,7 +3,8 @@ import MyChallenges from './my_challenges';
 import {
     fetchMyChallenges, 
     completeChallenge, 
-    deleteChallenge
+    deleteChallenge,
+    removeMyChallenge
 } from '../../actions/challenge_actions'
 
 const mSTP = state => {
@@ -16,7 +17,8 @@ const mDTP = dispatch => (
     {
         fetchMyChallenges: ()=>dispatch(fetchMyChallenges()),
         completeChallenge: (challenge)=>dispatch(completeChallenge(challenge)),
-        deleteChallenge: (challengeId) => dispatch(deleteChallenge(challengeId)), 
+        deleteChallenge: (challengeId) => dispatch(deleteChallenge(challengeId)),
+        removeMyChallenge: (challengeId) => dispatch(removeMyChallenge(challengeId)) 
     }
 );
 
