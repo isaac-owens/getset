@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
       confirmEmail: "",
       username: "",
       password: "",
+      errors:[]
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +24,9 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-      this.props.signup(this.state);
+      this.props.signup(this.state).then( res => {
+        this.setState({ errors: Object.values(res.errors) });
+      });
   }
 
   render() {
@@ -35,7 +38,7 @@ class SessionForm extends React.Component {
       >
         <div className="signup-form-error-card card-styling">
           <ul>
-            {this.props.errors.map((error, idx) => 
+            {this.state.errors.map((error, idx) => 
             <li key={idx}>*{error}</li>
             )}
           </ul>
