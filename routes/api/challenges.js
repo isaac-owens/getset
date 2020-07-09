@@ -33,49 +33,37 @@ router.get("/", (req, res) => {
 
 // fetch user's completed challenge stats
 router.get("/stats", [passport.authenticate('jwt', { session: false })], (req, res) => {
+    debugger
   Challenge.find({ user: req.user.id })
     .sort({ timestamps: -1 })
     .then(completedChallenges => {
+        debugger
       let stats = [];
       let date = new Date();
       for (let i = 0; i < completedChallenges.length; i++) {
         const completedChallenge = completedChallenges[i];
-        Hunt.aggregate([{
-            $lookup: {
-                from: 'users',
-                localField: 'winner.user_id',
-                foreignField: '_id',
-                as: 'user_data'
-            }
-      }]).then(user_data=>{
-          debugger
-      })
+        Hunt.findById(completedChallenge.hunt_id)
+        .then(hunt => {
+            debugger
+          const stat = {}
+          stat.hunt_name = hunt.title;
+          stat.user_score = completedChallenge.score;
+          // deadline has been met
+          if (hunt.close_date <= date) {
+            stat.winner = hunt.winner.name;
+            stat.winner_score = hunt.winner.score;
+          } else {
+            stat.winner = "-";
+            stat.winner_score = "-";
+          }
+          stats.push(stat);
+          if(i === completedChallenges.length - 1) 
+            return res.json(stats);
+        })
       }
-      return res.json(stats);
     })
     .catch(error => res.status(404).json({ error: "No challenges were found" }))
 })
-
-
-// Hunt.findById(completedChallenge.hunt_id)
-//         .then(hunt => {
-//           const stat = {}
-//           stat.hunt_name = hunt.title;
-//           stat.user_score = completedChallenge.score;
-//           // deadline has been met
-//           if (hunt.close_date <= date) {
-//             User.findById(hunt.winner.user_id)
-//             .then(user => {
-//               stat.winner = user.username;
-//               stat.winner_score = hunt.winner.score;
-//               stats.push(stat);
-//             })
-//           } else {
-//             stat.winner = "-";
-//             stat.winner_score = "-";
-//             stats.push(stat);
-//           }
-//         })
 
 //complete a challenge
 router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {

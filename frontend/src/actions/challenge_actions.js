@@ -88,7 +88,7 @@ export const fetchMyChallenges = () => dispatch =>{
 export const fetchMyStats = () => dispatch => {
   return APIUtil.receiveMyStats().then(
     stats => {
-      return dispatch(receiveMyStats(stats));
+      return dispatch(receiveMyStats(stats.data));
     }
   )
 }
