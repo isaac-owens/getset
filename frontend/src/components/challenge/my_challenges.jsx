@@ -143,8 +143,7 @@ class MyChallenges extends React.Component {
   }
 
   // Component that will render if the user has made one or more hunts
-  render() {
-    debugger
+  render() { 
     const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx];
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
 

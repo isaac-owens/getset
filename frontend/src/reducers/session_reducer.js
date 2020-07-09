@@ -51,7 +51,6 @@ const SessionReducer = (state = initialState, action) => {
 
             return nextState;
         case RECEIVE_MY_CHALLENGES:
-            debugger
             //add challanges in user slice of state
             nextState.user.myChallenges = action.challenges;
 

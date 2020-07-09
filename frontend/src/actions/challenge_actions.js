@@ -38,8 +38,9 @@ export const removeMyChallenge = challengeId =>({
     challengeId
 });
 
-export const receiveMyStats = () => ({
+export const receiveMyStats = (stats) => ({
   type: RECEIVE_MY_STATS,
+  stats
 })
 
 export const fetchChallenges = () => dispatch =>{
@@ -49,7 +50,6 @@ export const fetchChallenges = () => dispatch =>{
         }
     )
 };
-
 
 export const addToMyChallenge = (challenge)=>dispatch =>{
    return APIUtil.addToMyChallenge(challenge._id).then(
@@ -88,7 +88,7 @@ export const fetchMyChallenges = () => dispatch =>{
 export const fetchMyStats = () => dispatch => {
   return APIUtil.receiveMyStats().then(
     stats => {
-      return dispatch(receiveMyStats());
+      return dispatch(receiveMyStats(stats));
     }
   )
 }

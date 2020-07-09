@@ -67,9 +67,7 @@ const ChallengeHelper  = {
                     $pull: {"incomplete_challenges": challenge.hunt_id.toString()},
                     $push: {"complete_challenges": challenge.id}
                 }
-            ).catch(error =>{ 
-                  debugger
-            })
+            ).catch(error =>{})
 
             //update score if required
             if (playedHuntDetails.winner.score < challenge.score) {
@@ -89,11 +87,6 @@ const ChallengeHelper  = {
             }
             onSuccess(customResponse);                       
     },
-
-    // updateHighScore:  (challenge) => {
-    //     debugger
-        
-    // }
 }
 
 module.exports = ChallengeHelper;

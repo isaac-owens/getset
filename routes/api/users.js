@@ -138,11 +138,9 @@ router.post('/challenges', passport.authenticate('jwt', { session: false }), (re
 
 //fetch user's incomplete challenges with details
 router.get("/challenges", passport.authenticate('jwt', { session: false }), (req, res) => {
-  debugger
     User.findById(req.user.id)
         .sort({ date: -1 })
         .then(user => {
-          debugger
             let combo = {}
             for (let i = 0; i < user.incomplete_challenges.length; i++) {
                 const challengeId = user.incomplete_challenges[i];
@@ -188,12 +186,10 @@ router.get("/hunts", passport.authenticate('jwt', { session: false }), (req, res
 
 //remove hunt from my_hunts list
 router.delete('/hunts/:hunt_id', passport.authenticate("jwt", {session: false}), (req, res) => {
-    debugger
     User.updateOne(
         {_id: req.user.id},
         { $pull: {"hunts": req.params.hunt_id}})
     .then(user => {
-        debugger
         return res.json(user)
     })
     .catch(error => res.status(404).json({error: 'Hunt not removed'}))
