@@ -57,7 +57,7 @@ class DropDown extends React.Component {
             <div ref={this.container}>
                 <div className="drop-down-trigger">
                   <button onClick={this.handleDropClick}  className="session-button">
-                  <span>Hi {this.props.username}!</span> 
+                  <span className="button-greeting">Hi {this.props.username}!</span> 
                   {
                   this.state.open ?
                   <div>{arrowUp}</div> :
