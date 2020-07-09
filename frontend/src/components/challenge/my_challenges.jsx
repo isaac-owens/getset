@@ -170,7 +170,7 @@ class MyChallenges extends React.Component {
                   return (
                     <li key={idx} className="comparison-zone">
                       <div className="my-challenges-photo">
-                        <img src={photo} ></img>
+                        <img src={photo} alt="selection from challenge" ></img>
                       </div>
                       <div className="my-challenges-drop-zone">
                         {
