@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL, TEAM } from '../../util/route_util';
  
 class DropDown extends React.Component {
@@ -48,11 +51,18 @@ class DropDown extends React.Component {
     }
     
     render() {
+      let arrowUp = <FontAwesomeIcon icon={faChevronUp} size="1x" />
+      let arrowDown = <FontAwesomeIcon icon={faChevronDown} size="1x" />
         return (
             <div ref={this.container}>
                 <div className="drop-down-trigger">
                   <button onClick={this.handleDropClick}  className="session-button">
-                      Hi {this.props.username}!
+                  <span>Hi {this.props.username}!</span> 
+                  {
+                  this.state.open ?
+                  <div>{arrowUp}</div> :
+                  <div>{arrowDown}</div>
+                  }
                   </button>
                 </div>
                 {this.state.open ? (

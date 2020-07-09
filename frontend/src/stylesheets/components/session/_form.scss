@@ -24,7 +24,8 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 300px;
   padding: 18px 45px;
   background-color: $yellow;
   color: $red;
