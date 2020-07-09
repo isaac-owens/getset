@@ -8,6 +8,7 @@ import {
 } from '../../actions/challenge_actions'
 
 const mSTP = state => {
+  debugger
   return  {
         challenges: state.session.user.myChallenges ? Object.values(state.session.user.myChallenges): [],
     }

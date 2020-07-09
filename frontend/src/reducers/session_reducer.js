@@ -47,11 +47,11 @@ const SessionReducer = (state = initialState, action) => {
                 nextState.user.myChallenges = {};
             }
             //add challenge to user slice of state
-            nextState.user.myChallenges[action.challenge._id] = [action.challenge];
+            nextState.user.myChallenges[action.challenge._id] = action.challenge;
 
             return nextState;
         case RECEIVE_MY_CHALLENGES:
-
+            debugger
             //add challanges in user slice of state
             nextState.user.myChallenges = action.challenges;
 

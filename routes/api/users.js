@@ -136,11 +136,13 @@ router.post('/challenges', passport.authenticate('jwt', { session: false }), (re
     .catch(error => res.status(404).json({ error: 'Challenge not added' }))
 });
 
-//fetch user's  incomplete challenges with details
+//fetch user's incomplete challenges with details
 router.get("/challenges", passport.authenticate('jwt', { session: false }), (req, res) => {
+  debugger
     User.findById(req.user.id)
         .sort({ date: -1 })
         .then(user => {
+          debugger
             let combo = {}
             for (let i = 0; i < user.incomplete_challenges.length; i++) {
                 const challengeId = user.incomplete_challenges[i];
