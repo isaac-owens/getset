@@ -1,4 +1,5 @@
 import React from 'react';
+import { RECEIVE_SESSION_ERRORS } from '../../actions/session_actions';
 
 class Login extends React.Component {
     constructor(props) {
@@ -25,8 +26,10 @@ class Login extends React.Component {
       e.preventDefault();
       
       this.props.login(this.state)
-      .then( res => {
-        this.setState({ errors: Object.values(res.errors) });
+      .then(res => {
+        if (res.type === RECEIVE_SESSION_ERRORS ) {
+          this.setState({ errors: Object.values(res.errors) });
+        }
       })
     }
 

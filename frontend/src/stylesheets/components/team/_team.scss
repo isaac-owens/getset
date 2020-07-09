@@ -22,9 +22,12 @@
 }
 
 .team-about {
-  height: 200px;
-  width: 200px;
+  box-sizing: border-box;
+  padding: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 350px;
+  width: 200px;
+  align-items: flex-start;
 }
