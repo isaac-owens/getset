@@ -2,7 +2,7 @@ import React from 'react';
 import { 
     AuthRoute, ProtectedRoute, SPLASH, AUTH, DASH, INDEX, CREATE, CINDEX, MYCHALL, STATS, TEAM
 } from '../util/route_util';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import CreateFormContainer from './hunt/create_form_container';
 import HeaderContainer from './global/header_container';

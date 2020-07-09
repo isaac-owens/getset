@@ -54,6 +54,7 @@ class HuntsIndexActive extends React.Component {
                     <li key={idx}>
                       <img 
                       src={photo}
+                      alt=""
                       className="my-hunts-image"></img>
                     </li>
                   )
