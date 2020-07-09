@@ -66,35 +66,38 @@
   justify-content: space-evenly;
 }
 
-// .signup-form-error-card {
-//   box-sizing: border-box;
-//   position: absolute;
-//   background-color: $blue;
-//   color: $yellow;
-//   transform: rotate(-12deg);
-//   left: 200px;
-//   height: 200px;
-//   width: 200px;
-//   font-size: 30px;
-//   font-weight: bolder;
-//   padding: 25px;
-//   letter-spacing: .1em;
-// }
+.signup-form-error-card {
+  box-sizing: border-box;
+  position: absolute;
+  background-color: $blue;
+  color: $yellow;
+  transform: rotate(-10deg);
+  left: -50px;
+  height: 320px;
+  width: 320px;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 9px;
+  letter-spacing: .1em;
+  overflow-y: scroll;
+}
 
 .login-form-error-card {
+  box-sizing: border-box;
   position: absolute;
   background-color: $lavender;
-  height: 225px;
-  width: 229px;
+  height: 320px;
+  width: 320px;
   transform: rotate(16.4deg);
   top: 33%;
   left: -60%;
   color: $red;
   font-weight: bolder;
-  padding: 25px;
+  padding: 15px;
   font-size: 30px;
   letter-spacing: .2em;
   border-color:  rgba(243, 235, 235, 0.943);
   z-index: 3;
+  overflow-y: scroll;
 }
 

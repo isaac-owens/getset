@@ -1,5 +1,4 @@
 import React from 'react';
-import CategoryContainer from './category_container';
 import Category from './category';
 
 class ChallengeIndexPage extends React.Component {
@@ -24,7 +23,7 @@ class ChallengeIndexPage extends React.Component {
   // Add and remove challenge to user's 'My Challenge' list
   toggleMyChallenge(toggle){
     return e=>{
-      if(toggle == "add"){
+      if(toggle === "add"){
         this.props.addToMyChallenge(this.state.selectedChallenge);
       }else{
         this.props.deleteChallenge(this.state.selectedChallenge._id);
@@ -48,7 +47,7 @@ class ChallengeIndexPage extends React.Component {
             <ul className="challenge-collection-list">
               {
                 categories.map((category, idx)=>{
-                  return <CategoryContainer key={idx} category={category} 
+                  return <Category key={idx} category={category} 
                   challenges={challenges[category._id]} 
                   onChallengeClick={this.onChallengeClick}/>
                 })
@@ -62,7 +61,7 @@ class ChallengeIndexPage extends React.Component {
                 {
                   this.state.selectedChallenge ?
                   this.state.selectedChallenge.photo_collection.map((photo, idx)=>{
-                    return <li key={idx} className="challenge-photo"><img src={photo}></img></li>
+                    return <li key={idx} className="challenge-photo"><img src={photo} alt="" /></li>
                   }) :
                   <div></div>
                 }

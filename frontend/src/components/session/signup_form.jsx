@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,6 +9,7 @@ class SessionForm extends React.Component {
       confirmEmail: "",
       username: "",
       password: "",
+      errors:[]
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,9 +24,9 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.state.email === this.state.confirmEmail) {
-      this.props.signup(this.state);
-    }
+      this.props.signup(this.state).then( res => {
+        this.setState({ errors: Object.values(res.errors) });
+      });
   }
 
   render() {
@@ -34,14 +34,15 @@ class SessionForm extends React.Component {
       <form
         onSubmit={this.handleSubmit}
         className="session-form-container sign-up"
+        noValidate={true}
       >
-        {/* <div className="signup-form-error-card card-styling">
+        <div className="signup-form-error-card card-styling">
           <ul>
-            {this.props.errors.map((error, idx) => 
-            <li key={idx}>{error}</li>
+            {this.state.errors.map((error, idx) => 
+            <li key={idx}>*{error}</li>
             )}
           </ul>
-        </div> */}
+        </div>
         <div className="session-form-header">
           <h3>Create a GetSet Account</h3>
         </div>

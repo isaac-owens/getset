@@ -10,6 +10,20 @@ module.exports = function validateRegisterInput(data){
     data.confirmEmail = validText(data.confirmEmail) ? data.confirmEmail : '';
     data.password = validText(data.password) ? data.password : '';
 
+    
+    if (!Validator.isEmail(data.email)) {
+      errors.email = "Email must be valid";
+    }
+    
+    if (Validator.isEmpty(data.email)) {
+      errors.email = "Email is required";
+    }
+    
+    
+    if (!Validator.equals(data.email, data.confirmEmail)) {
+      errors.email = "Emails must be the same";
+    }
+    
     if(!Validator.isLength(data.username, {min: 5, max: 14})){
         errors.username= "Username must be between 5 to 14 characters";
     }
@@ -17,20 +31,7 @@ module.exports = function validateRegisterInput(data){
     if(Validator.isEmpty(data.username)){
         errors.username = "Username is required";
     }
-
-    if (!Validator.isEmail(data.email)) {
-        errors.email = "Email must be valid";
-    }
-
-    if (Validator.isEmpty(data.email)) {
-        errors.email = "Email is required";
-    }
-
-
-    if (!Validator.equals(data.email, data.confirmEmail)) {
-        errors.email = "Emails must be the same";
-    }
-
+    
     if (!Validator.isLength(data.password, {min: 6, max: 12})) {
         errors.password = "Password must be between 6 to 12 characters"
     }

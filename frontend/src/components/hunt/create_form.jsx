@@ -176,7 +176,7 @@ class CreateForm extends React.Component {
                       >
                         {redEx}
                       </div>
-                      <img src={photoFile} />
+                      <img src={photoFile} alt="" />
                     </li>
                   );
                 })}

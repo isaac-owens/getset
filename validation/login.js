@@ -19,6 +19,10 @@ module.exports = function validateLoginInput(data) {
         errors.password = 'Password is required';
     }
 
+  if (!Validator.isLength(data.password, { min: 6, max: 12 })) {
+    errors.password = "Password must be between 6 to 12 characters"
+  }
+
     return {
         errors,
         isValid: Object.keys(errors).length === 0

@@ -170,14 +170,16 @@ class MyChallenges extends React.Component {
                   return (
                     <li key={idx} className="comparison-zone">
                       <div className="my-challenges-photo">
-                        <img src={photo} ></img>
+                        <img src={photo} alt="selection from challenge" ></img>
                       </div>
                       <div className="my-challenges-drop-zone">
                         {
                           // show image if selected 
                           this.state.photoFiles && this.state.photoFiles[idx] ?
                           <div className="my-challenges-user-submission-container">
-                            <img className="my-challenges-user-submission" src={ this.state.photoFiles[idx]} ></img> 
+                            <img className="my-challenges-user-submission" 
+                            src={ this.state.photoFiles[idx]} 
+                            alt="" />
                             <div className='my-challenges-user-submission-remove' onClick={this.removeUserSelection(idx)}>{redEx}</div>
                           </div> :
                           // show drop zone if no image is being selected

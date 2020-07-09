@@ -17,9 +17,6 @@ export const LoadingIndicator = (props) => {
 };
 
 export class ChallengeModal extends React.Component {
-  constructor(props) {
-    super(props);
-  };
 
   render() {
     let { hunt_name, score } = this.props.challengeResult;

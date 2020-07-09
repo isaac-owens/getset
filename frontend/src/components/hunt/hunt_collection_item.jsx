@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 class HuntCollectionItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     // conditionally render class name based on props for styling

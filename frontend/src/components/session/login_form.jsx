@@ -6,7 +6,8 @@ class Login extends React.Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: [],
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,9 +22,12 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-
-        this.props.login(this.state);
+      e.preventDefault();
+      
+      this.props.login(this.state)
+      .then( res => {
+        this.setState({ errors: Object.values(res.errors) });
+      })
     }
 
     populateDemo(e) {
@@ -33,20 +37,21 @@ class Login extends React.Component {
     }
 
     renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={i}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
+      return (
+        <ul>
+          {this.state.errors.map((error, idx) => (
+            <li key={idx}>
+              *{error}
+            </li>
+          ))}
+        </ul>
+      );
     }
+
 
     render() {
         return (
-          <form onSubmit={this.handleSubmit} className="session-form-container login">
+          <form onSubmit={this.handleSubmit} className="session-form-container login" noValidate={true}>
             <div className='login-form-error-card card-styling'>
               <ul>
                 {this.renderErrors()}
@@ -62,7 +67,6 @@ class Login extends React.Component {
                   value={this.state.email}
                   onChange={this.update("email")}
                   className="input-field"
-                  required=" "
                 />
                 <label className="input-label">Email</label>
               </div>
@@ -72,7 +76,6 @@ class Login extends React.Component {
                   value={this.state.password}
                   onChange={this.update("password")}
                   className="input-field"
-                  required=" "
                 />
                 <label className="input-label">Password</label>
               </div>

@@ -5,9 +5,6 @@ import Root from './components/root';
 import configureStore from './store/store';
 import { setAuthToken } from './util/session_util';
 import { getToken, decodeToken } from './util/helper';
-import axios from 'axios';
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;

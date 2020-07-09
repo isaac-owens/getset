@@ -6,10 +6,6 @@ import HuntCollectionItem from './hunt_collection_item';
 
 
 class HuntsIndexPage extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
   
   // component that renders is the user currently has made no hunts 
   render() {
