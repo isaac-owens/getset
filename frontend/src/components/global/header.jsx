@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropDown from './dropdown';
-import { AUTH, CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL } from '../../util/route_util';
+import { AUTH, SPLASH } from '../../util/route_util';
 
 class Header extends React.Component {
     constructor(props) {
