@@ -23,9 +23,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.state.email === this.state.confirmEmail) {
       this.props.signup(this.state);
-    }
   }
 
   render() {
@@ -35,6 +33,13 @@ class SessionForm extends React.Component {
         className="session-form-container sign-up"
         noValidate={true}
       >
+        <div className="signup-form-error-card card-styling">
+          <ul>
+            {this.props.errors.map((error, idx) => 
+            <li key={idx}>*{error}</li>
+            )}
+          </ul>
+        </div>
         <div className="session-form-header">
           <h3>Create a GetSet Account</h3>
         </div>

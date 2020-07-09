@@ -13,7 +13,6 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.populateDemo = this.populateDemo.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
-        this.validateFields = this.validateFields.bind(this);
     }
 
     update(field) {
@@ -22,33 +21,13 @@ class Login extends React.Component {
         };
     }
 
-    validateFields() {
-      let allErrors = [];
-      if (this.state.email === '') {
-        allErrors.push('Email cannot be blank');
-      } 
-
-      if (this.state.password === '') {
-        allErrors.push('Password cannot be blank');
-      }
-
-      if (allErrors.length === 0) {
-        return true;
-      } else {
-        this.setState({ errors: allErrors });
-        return false;
-      }
-    }
-
     handleSubmit(e) {
       e.preventDefault();
       
-      if (this.validateFields()) {
-        this.props.login(this.state)
-        .then(res => {
-          debugger
-        })
-      }
+      this.props.login(this.state)
+      .then( res => {
+        this.setState({ errors: Object.values(res.errors) });
+      })
     }
 
     populateDemo(e) {
@@ -58,22 +37,17 @@ class Login extends React.Component {
     }
 
     renderErrors() {
-        return (
-            <ol>
-                {this.state.errors.map((error, idx) => (
-                    <li key={idx}>
-                        *{error}
-                    </li>
-                ))}
-            </ol>
-        );
+      return (
+        <ul>
+          {this.state.errors.map((error, idx) => (
+            <li key={idx}>
+              *{error}
+            </li>
+          ))}
+        </ul>
+      );
     }
 
-    componentDidUpdate(prevProps) {
-      if (this.props.errors !== prevProps.errors) {
-        this.setState({ errors: this.props.errors })
-      } 
-    }
 
     render() {
         return (
