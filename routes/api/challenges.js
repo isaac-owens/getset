@@ -13,13 +13,6 @@ const ChallengeHelper = require("../../helper/challenges_helper");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the challenges route" }));
 
-// router.get("/:user_id", (req, res) => {
-//     Challenge.find({user: req.params.user_id})
-//     .sort({date: -1})
-//     .then(challenges => res.json(challenges))
-//     .catch(err => res.status(404).json("this user does not have any challenges"))
-// })
-
 //fetch challenges based on categories
 //res will be each category id with all challenges under it
 router.get("/", (req, res) => {
@@ -38,34 +31,39 @@ router.get("/", (req, res) => {
     }).catch(error => res.status(404).json({error: "No challenges were found"}))
 });
 
-//fetch specific challenge by challenge id
-router.get("/:id", (req, res) => {
-    Challenge.findById(req.params.id)
-    .then(challenge => res.json(challenge))
-    .catch(err => res.status(404).json("No challenge exists with this id"))
-});
-
-
 // fetch user's completed challenge stats
-router.get("/stats/:user_id", (req, res) => {
-    Challenge.find({user: req.params.user_id})
-    // .sort({date: -1})
-    .then(completedChallenges=> res.json(completedChallenges))
-        .catch(error => res.status(404).json({error: "No challenges were found" }))
+router.get("/stats", [passport.authenticate('jwt', { session: false })], (req, res) => {
+    debugger
+  Challenge.find({ user: req.user.id })
+    .sort({ timestamps: -1 })
+    .then(completedChallenges => {
+        debugger
+      let stats = [];
+      let date = new Date();
+      for (let i = 0; i < completedChallenges.length; i++) {
+        const completedChallenge = completedChallenges[i];
+        Hunt.findById(completedChallenge.hunt_id)
+        .then(hunt => {
+            debugger
+          const stat = {}
+          stat.hunt_name = hunt.title;
+          stat.user_score = completedChallenge.score;
+          // deadline has been met
+          if (hunt.close_date <= date) {
+            stat.winner = hunt.winner.name;
+            stat.winner_score = hunt.winner.score;
+          } else {
+            stat.winner = "-";
+            stat.winner_score = "-";
+          }
+          stats.push(stat);
+          if(i === completedChallenges.length - 1) 
+            return res.json(stats);
+        })
+      }
+    })
+    .catch(error => res.status(404).json({ error: "No challenges were found" }))
 })
-
-// router.get("/", (req, res) => {
-//     Challenge.find()
-//     .sort({date: -1})
-//     .then(challenges => res.json(challenges))
-//     .catch(err => res.status(404).json("No challenges found"))
-// })
-
-// router.delete("/:id", (req, res) => {
-//     Challenge.findByIdAndDelete(req.params.id)
-//     .then(() => res.json("Challenge deleted"))
-//     .catch(err => res.status(404).json("Challenge was not found"))
-// })
 
 //complete a challenge
 router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {

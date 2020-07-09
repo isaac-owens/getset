@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Stats from './stats';
+import { fetchMyStats } from '../../actions/challenge_actions';
 
+const mSTP = (state)=>({
+    userStats: Object.values(state.stats),
+});
 
-// const mSTP = (state)=>({
-//     userChallenges: state.challenges,
-// });
+const mDTP = (dispatch)=>({
+    fetchMyStats: () => dispatch(fetchMyStats())
+});
 
-// const mDTP = (dispatch)=>({
-//     logout: () => dispatch(logout())
-// });
-
-export default connect(null)(Stats);
+export default connect(mSTP, mDTP )(Stats);

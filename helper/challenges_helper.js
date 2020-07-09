@@ -47,13 +47,13 @@ const ChallengeHelper  = {
         });
     },
 
-    completeChallenge :  (avgScore,imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
+    completeChallenge :  (avgScore, imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
         //create a new challenge object
             const challenge = new Challenge({
                 user: req.user.id,
                 hunt_id: req.body.hunt_id,
                 timestamps: req.body.timestamps,
-                score: avgScore,
+                score: Math.floor(avgScore), 
                 images: imageAwsPaths
             })  
             
@@ -67,15 +67,13 @@ const ChallengeHelper  = {
                     $pull: {"incomplete_challenges": challenge.hunt_id.toString()},
                     $push: {"complete_challenges": challenge.id}
                 }
-            ).catch(error =>{ 
-                  debugger
-            })
+            ).catch(error =>{})
 
             //update score if required
             if (playedHuntDetails.winner.score < challenge.score) {
                 Hunt.updateOne(
                     {_id: challenge.hunt_id},
-                    {"winner": {id: challenge.user, score: challenge.score}
+                    {"winner": {name: req.user.username, score: challenge.score}
                     }).catch(err => {
                         // return  res.json(err)
                     })
@@ -89,11 +87,6 @@ const ChallengeHelper  = {
             }
             onSuccess(customResponse);                       
     },
-
-    // updateHighScore:  (challenge) => {
-    //     debugger
-        
-    // }
 }
 
 module.exports = ChallengeHelper;

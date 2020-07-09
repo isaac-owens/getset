@@ -23,8 +23,8 @@ const HuntSchema = new Schema({
     close_date: {
         type: Date,
         required: true,
-        default: () => new Date(+new Date() + 7 * 24 * 60 * 60 * 1000) 
-        //defaults to add a week from now
+        default: () => new Date(+new Date() + 7 * 24 * 60 * 60 * 1000), 
+        // defaults to add a week from now
     },
     photo_collection: {
         type: Array,
@@ -33,7 +33,7 @@ const HuntSchema = new Schema({
     winner: {
         type: Object,
         default: {
-            "user_id": '',
+            "name": '',
             "score": 0
         }
     }
