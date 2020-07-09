@@ -26,11 +26,10 @@ export class ChallengeModal extends React.Component {
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x" />
     return (
         <div className="challenge-modal">
-                <div
-                    className="modal-ex"
-                    onClick={this.props.closeModal}>{redEx}
-                </div>
             <div className="challenge-modal-content card-styling">
+                <span className="modal-ex" onClick={this.props.closeModal}>
+                    {redEx}
+                </span>
                 <h1 className="challenge-modal-header">Challenge Completed!</h1>
                 <div className='challenge-modal-title'>{hunt_name}</div>
                 <div className="challenge-modal-score">Your Score: {score}</div>
