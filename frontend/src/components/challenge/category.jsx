@@ -46,17 +46,6 @@ class Category extends React.Component {
     let buttonStyle;
     buttonStyle = this.state.open ? buttonExpanded : buttonClosed;
 
-    const menuExpanded = {
-      opacity: "1"
-    }
-
-    const menuClosed = {
-      opacity: "0"
-    }
-    
-    let menuStyle;
-    menuStyle = this.state.open ? menuExpanded : menuClosed;
-
     const {challenges, category} = this.props;
 
     if(!category || category.length === 0) {
