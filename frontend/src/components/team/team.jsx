@@ -1,11 +1,14 @@
 import React from 'react';
 // import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faUserTie } from "@fortawesome/free-solid-svg-icons";
+
 export const Team = () => {
   let github = <FontAwesomeIcon icon={faGithub} size="2x" />;    
   let linkedin = <FontAwesomeIcon icon={faLinkedin} size="2x" />;    
+  let personalSite = <FontAwesomeIcon icon={faUserTie} size="2x" />;    
   return(
         <div className="team-page">
           <div className="member-about">
@@ -19,6 +22,7 @@ export const Team = () => {
             <div className="card-styling team-about">
               {github}
               {linkedin}
+              {personalSite}
             </div>
           </div>
           <div className="member-about">
