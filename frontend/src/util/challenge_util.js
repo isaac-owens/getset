@@ -22,6 +22,9 @@ export const completeChallenge = (challenge)=> (
     })
 );
 
+export const receiveMyStats = () => (
+  axios.get('/api/challenges/stats')
+);
 
 export const deleteChallenge = (challengeId)=> (
     axios.delete(`/api/users/challenges/${challengeId}`)

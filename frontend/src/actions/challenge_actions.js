@@ -6,6 +6,7 @@ export const RECEIVE_MY_CHALLENGE = "RECEIVE_MY_CHALLENGE";
 export const RECEIVE_COMPLETE_CHALLENGE = "RECEIVE_COMPLETE_CHALLENGE";
 export const ERRORS_COMPLETE_CHALLENGE = "ERRORS_COMPLETE_CHALLENGE";
 export const REMOVE_MY_CHALLENGE = "REMOVE_MY_CHALLENGE";
+export const RECEIVE_MY_STATS = "RECEIVE_MY_STATS";
 
 const receiveChallenges = challenges =>({
     type: RECEIVE_CHALLENGES,
@@ -36,6 +37,10 @@ export const removeMyChallenge = challengeId =>({
     type: REMOVE_MY_CHALLENGE,
     challengeId
 });
+
+export const receiveMyStats = () => ({
+  type: RECEIVE_MY_STATS,
+})
 
 export const fetchChallenges = () => dispatch =>{
     return APIUtil.fetchChallenges().then(
@@ -79,4 +84,12 @@ export const fetchMyChallenges = () => dispatch =>{
         }
     )
 };
+
+export const fetchMyStats = () => dispatch => {
+  return APIUtil.receiveMyStats().then(
+    stats => {
+      return dispatch(receiveMyStats());
+    }
+  )
+}
 
