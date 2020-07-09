@@ -90,7 +90,6 @@ class Login extends React.Component {
                   value={this.state.email}
                   onChange={this.update("email")}
                   className="input-field"
-                  // required=" "
                 />
                 <label className="input-label">Email</label>
               </div>
@@ -100,7 +99,6 @@ class Login extends React.Component {
                   value={this.state.password}
                   onChange={this.update("password")}
                   className="input-field"
-                  // required=" "
                 />
                 <label className="input-label">Password</label>
               </div>

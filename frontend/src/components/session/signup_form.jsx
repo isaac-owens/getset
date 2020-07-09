@@ -35,13 +35,6 @@ class SessionForm extends React.Component {
         onSubmit={this.handleSubmit}
         className="session-form-container sign-up"
       >
-        {/* <div className="signup-form-error-card card-styling">
-          <ul>
-            {this.props.errors.map((error, idx) => 
-            <li key={idx}>{error}</li>
-            )}
-          </ul>
-        </div> */}
         <div className="session-form-header">
           <h3>Create a GetSet Account</h3>
         </div>
