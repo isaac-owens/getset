@@ -9,7 +9,7 @@ import HeaderContainer from './global/header_container';
 import Footer from './global/footer';
 import Splash from './main/splash';
 import SessionFormContainer from './session/session_form_container';
-import DashboardContainer from './dashboard/dashboard_contianer';
+import DashboardContainer from './dashboard/dashboard_container';
 import HuntsIndexPageContainer from './hunt/hunts_index_page_container';
 import MyChallengesContainer from './challenge/my_challenges_container';
 import ChallengeIndexContainer from './challenge/challenge_index_container';

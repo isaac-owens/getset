@@ -1,5 +1,4 @@
 import React from 'react';
-import CategoryContainer from './category_container';
 import Category from './category';
 
 class ChallengeIndexPage extends React.Component {
@@ -48,7 +47,7 @@ class ChallengeIndexPage extends React.Component {
             <ul className="challenge-collection-list">
               {
                 categories.map((category, idx)=>{
-                  return <CategoryContainer key={idx} category={category} 
+                  return <Category key={idx} category={category} 
                   challenges={challenges[category._id]} 
                   onChallengeClick={this.onChallengeClick}/>
                 })
