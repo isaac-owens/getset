@@ -3,7 +3,7 @@ import Stats from './stats';
 import { fetchMyStats } from '../../actions/challenge_actions';
 
 const mSTP = (state)=>({
-    userStats: state.stats,
+    userStats: Object.values(state.stats),
 });
 
 const mDTP = (dispatch)=>({
