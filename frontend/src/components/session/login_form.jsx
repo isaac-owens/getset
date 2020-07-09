@@ -43,7 +43,7 @@ class Login extends React.Component {
     handleSubmit(e) {
       e.preventDefault();
       
-      if (validateFields()) {
+      if (this.validateFields()) {
         this.props.login(this.state);
       }
     }
@@ -56,13 +56,13 @@ class Login extends React.Component {
 
     renderErrors() {
         return (
-            <ul>
+            <ol>
                 {this.state.errors.map((error, idx) => (
                     <li key={idx}>
-                        {error}
+                        *{error}
                     </li>
                 ))}
-            </ul>
+            </ol>
         );
     }
 
@@ -74,7 +74,7 @@ class Login extends React.Component {
 
     render() {
         return (
-          <form onSubmit={this.handleSubmit} className="session-form-container login">
+          <form onSubmit={this.handleSubmit} className="session-form-container login" noValidate={true}>
             <div className='login-form-error-card card-styling'>
               <ul>
                 {this.renderErrors()}
@@ -90,7 +90,7 @@ class Login extends React.Component {
                   value={this.state.email}
                   onChange={this.update("email")}
                   className="input-field"
-                  required=" "
+                  // required=" "
                 />
                 <label className="input-label">Email</label>
               </div>
@@ -100,7 +100,7 @@ class Login extends React.Component {
                   value={this.state.password}
                   onChange={this.update("password")}
                   className="input-field"
-                  required=" "
+                  // required=" "
                 />
                 <label className="input-label">Password</label>
               </div>
