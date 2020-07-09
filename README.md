@@ -87,7 +87,7 @@ Zohaib's favorite games are cricket and foosball. He has worked as a Software En
 
 ## <img src="frontend/public/kevin.png" width="58" height="72"> Kevin
 ### Frontend Lead
-Kevin's favorite game is Portal.  He wants you to know that cake in not a matter to lie about.
+Kevin's favorite game is Portal.  He wants you to know that cake is not a matter to lie about.
 
 ## <img src="frontend/public/danny.png" width="58" height="72"> Danny
 ### Backend Lead

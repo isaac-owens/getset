@@ -14,6 +14,7 @@ import HuntsIndexPageContainer from './hunt/hunts_index_page_container';
 import MyChallengesContainer from './challenge/my_challenges_container';
 import ChallengeIndexContainer from './challenge/challenge_index_container';
 import StatsContainer from './stats/stats_container';
+import { Team } from './team/team';
 
 const App = () => (
     <div className='app'>
@@ -27,7 +28,7 @@ const App = () => (
                 <ProtectedRoute exact path={CINDEX} component={ChallengeIndexContainer} />
                 <ProtectedRoute exact path={MYCHALL} component={MyChallengesContainer} />
                 <ProtectedRoute exact path={STATS} component={StatsContainer} />
-                {/* <Route exact path={TEAM} component={TeamContainer} /> */}
+                <Route exact path={TEAM} component={Team} />
             </Switch>
          <Footer />
     </div>
