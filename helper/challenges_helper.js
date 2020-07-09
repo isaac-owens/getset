@@ -47,13 +47,13 @@ const ChallengeHelper  = {
         });
     },
 
-    completeChallenge :  (avgScore,imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
+    completeChallenge :  (avgScore, imageAwsPaths, req, playedHuntDetails, onSuccess)=>{
         //create a new challenge object
             const challenge = new Challenge({
                 user: req.user.id,
                 hunt_id: req.body.hunt_id,
                 timestamps: req.body.timestamps,
-                score: avgScore,
+                score: Math.floor(avgScore), 
                 images: imageAwsPaths
             })  
             
