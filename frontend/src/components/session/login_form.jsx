@@ -44,7 +44,10 @@ class Login extends React.Component {
       e.preventDefault();
       
       if (this.validateFields()) {
-        this.props.login(this.state);
+        this.props.login(this.state)
+        .then(res => {
+          debugger
+        })
       }
     }
 

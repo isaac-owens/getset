@@ -34,6 +34,7 @@ class SessionForm extends React.Component {
       <form
         onSubmit={this.handleSubmit}
         className="session-form-container sign-up"
+        noValidate={true}
       >
         <div className="session-form-header">
           <h3>Create a GetSet Account</h3>

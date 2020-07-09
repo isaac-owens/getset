@@ -1,14 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 class Splash extends React.Component {
 
     render() {
-        let forwardIcon = <FontAwesomeIcon icon={faChevronRight} size="x" />;
-        let backIcon = <FontAwesomeIcon icon={faChevronLeft} size="x" />;
     
         return (
           <div className="splash">
@@ -22,7 +16,7 @@ class Splash extends React.Component {
                 </p>
               </div>
               <div className="splash-image-container">
-                <img className="splash-image" src={process.env.PUBLIC_URL + '/cheetah.png'} />
+                <img className="splash-image" src={process.env.PUBLIC_URL + '/cheetah.png'} alt="cheetah hunting an antelope" />
               </div>
             </div>
           </div>
