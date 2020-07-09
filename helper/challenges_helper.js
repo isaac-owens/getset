@@ -3,6 +3,7 @@ var fs = require('file-system');
 const keys = require('../config/keys');
 const Hunt = require("../models/Hunt");
 const Challenge = require("../models/Challenge");
+const User = require("../models/User");
 
 const ChallengeHelper  = { 
     uploadToAWS : (req, cb)=>{
@@ -57,15 +58,18 @@ const ChallengeHelper  = {
             })  
             
             //save completed challenge to mongoDB 
-            challenge.save()
-              User.updateOne(
-                { _id: req.user.id },
+            challenge.save();
+
+            //update user complete and incomplete challenges array. 
+            User.updateOne(
+                { _id : req.user.id},
                 { 
-                  // Add new challenge to complete_challenges and remove hunt from incomplete_challenges
-                  // $push : { "complete_challenges": challenge.id },
-                  $pull : {"incomplete_challenges": challenge.hunt_id.toString()}, 
+                    $pull: {"incomplete_challenges": challenge.hunt_id.toString()},
+                    $push: {"complete_challenges": challenge.id}
                 }
-              )
+            ).catch(error =>{ 
+                  debugger
+            })
 
             //update score if required
             if (playedHuntDetails.winner.score < challenge.score) {

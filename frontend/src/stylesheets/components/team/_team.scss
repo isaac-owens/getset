@@ -1,0 +1,30 @@
+.team-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.member-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 660px;
+}
+
+.team-image {
+  height: 200px;
+  width: 200px;
+  border: 5px inset;
+  border-radius: 25px;
+}
+
+.team-about {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

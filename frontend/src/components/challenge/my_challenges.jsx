@@ -135,12 +135,16 @@ class MyChallenges extends React.Component {
   }
 
   closeModal() {
+    //remove challenge from global state
+    this.props.removeMyChallenge(this.state.result.hunt_id);
+
     //reset state on success submission of challenge
     this.resetState();
   }
 
   // Component that will render if the user has made one or more hunts
   render() {
+    debugger
     const selectedChallenge = this.props.challenges[this.state.selectedCollectionIdx];
     let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
 

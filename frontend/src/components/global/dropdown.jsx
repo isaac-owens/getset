@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL } from '../../util/route_util';
+import { CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL, TEAM } from '../../util/route_util';
  
 class DropDown extends React.Component {
     constructor(props){
@@ -71,6 +71,9 @@ class DropDown extends React.Component {
                   </Link>
                   <Link to={STATS} className="header-nav-link" onClick={this.closeMenu()}>
                       <li className="header-nav-link-container">MyStats</li>
+                  </Link>
+                  <Link to={TEAM} className="header-nav-link" onClick={this.closeMenu()}>
+                      <li className="header-nav-link-container">MeetTheTeam</li>
                   </Link>
                   <Link
                       to={SPLASH}
