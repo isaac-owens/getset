@@ -6,7 +6,8 @@ class Login extends React.Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: [],
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,13 +36,19 @@ class Login extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={i}>
+                {this.state.errors.map((error, idx) => (
+                    <li key={idx}>
                         {error}
                     </li>
                 ))}
             </ul>
         );
+    }
+
+    componentDidUpdate(prevProps) {
+      if (this.props.errors !== prevProps.errors) {
+        this.setState({ errors: this.props.errors })
+      } 
     }
 
     render() {
