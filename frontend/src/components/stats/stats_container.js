@@ -10,4 +10,4 @@ const mDTP = (dispatch)=>({
     fetchMyStats: () => dispatch(fetchMyStats())
 });
 
-export default connect(null)(Stats);
+export default connect(mSTP, mDTP )(Stats);

@@ -73,7 +73,7 @@ const ChallengeHelper  = {
             if (playedHuntDetails.winner.score < challenge.score) {
                 Hunt.updateOne(
                     {_id: challenge.hunt_id},
-                    {"winner": {id: challenge.user, score: challenge.score}
+                    {"winner": {name: req.user.username, score: challenge.score}
                     }).catch(err => {
                         // return  res.json(err)
                     })

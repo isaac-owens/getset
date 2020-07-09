@@ -5,6 +5,10 @@ class Stats extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+      this.props.fetchMyStats();
+    }
+
     render(){
         return (
           <table className='stats-table card-styling'>

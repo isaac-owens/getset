@@ -33,7 +33,7 @@ const HuntSchema = new Schema({
     winner: {
         type: Object,
         default: {
-            "user_id": '',
+            "name": '',
             "score": 0
         }
     }
