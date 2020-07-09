@@ -177,7 +177,9 @@ class MyChallenges extends React.Component {
                           // show image if selected 
                           this.state.photoFiles && this.state.photoFiles[idx] ?
                           <div className="my-challenges-user-submission-container">
-                            <img className="my-challenges-user-submission" src={ this.state.photoFiles[idx]} ></img> 
+                            <img className="my-challenges-user-submission" 
+                            src={ this.state.photoFiles[idx]} 
+                            alt="" />
                             <div className='my-challenges-user-submission-remove' onClick={this.removeUserSelection(idx)}>{redEx}</div>
                           </div> :
                           // show drop zone if no image is being selected
