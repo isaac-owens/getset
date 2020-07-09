@@ -1,8 +1,12 @@
 import React from 'react';
 // import {connect} from 'react-redux';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 export const Team = () => {
-    return(
+  let github = <FontAwesomeIcon icon={faGithub} size="2x" />;    
+  let linkedin = <FontAwesomeIcon icon={faLinkedin} size="2x" />;    
+  return(
         <div className="team-page">
           <div className="member-about">
             <span>Isaac</span>
@@ -12,7 +16,10 @@ export const Team = () => {
           <div className="member-about">
             <span>Kevin</span>
             <img src={process.env.PUBLIC_URL + '/kevin.png'} alt=""  className="team-image" />
-            <div className="card-styling team-about"></div>
+            <div className="card-styling team-about">
+              {github}
+              {linkedin}
+            </div>
           </div>
           <div className="member-about">
             <span>Zohaib</span>
