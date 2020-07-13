@@ -31,9 +31,15 @@ export const Team = () => {
           className="team-image"
         />
         <div className="card-styling team-about">
-          {github}
-          {linkedin}
-          {personalSite}
+            <a href="https://github.com/kevinkusky">
+                {github}
+            </a>
+            <a href="https://www.linkedin.com/in/kevinkusky/">
+                {linkedin}
+            </a>
+            <a href="https://kevinkusky.github.io/">
+                {personalSite}
+            </a>
         </div>
       </div>
       <div className="member-about">
