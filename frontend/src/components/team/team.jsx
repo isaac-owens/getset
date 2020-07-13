@@ -18,8 +18,12 @@ export const Team = () => {
           className="team-image"
         />
         <div className="card-styling team-about">
-          {github}
-          {linkedin}
+            <a href="github.com/isaac-owens">
+                {github}
+            </a>
+            <a href="https://www.linkedin.com/in/isaac-owens-3a279532">
+                {linkedin}
+            </a>
           {personalSite}
         </div>
       </div>
