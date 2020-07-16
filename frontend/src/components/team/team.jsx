@@ -17,11 +17,9 @@ export const Team = () => {
           alt=""
           className="team-image"
         />
-        <div className="card-styling team-about">
-          <div>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-            eligendi adipisci fugiat, eveniet officia iure facere delectus
-            voluptas at doloribus reiciendis assumenda non expedita veniam!
+        <div className="card-styling team-about isaac">
+        <div className="about-content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil!
           </div>
           <div className="about-links">
             <a href="github.com/isaac-owens">{github}</a>
@@ -39,11 +37,9 @@ export const Team = () => {
           alt=""
           className="team-image"
         />
-        <div className="card-styling team-about">
-          <div>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-            eligendi adipisci fugiat, eveniet officia iure facere delectus
-            voluptas at doloribus reiciendis assumenda non expedita veniam!
+        <div className="card-styling team-about kevin">
+        <div className="about-content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil!
           </div>
           <div className="about-links">
             <a href="https://github.com/kevinkusky">{github}</a>
@@ -59,11 +55,9 @@ export const Team = () => {
           alt=""
           className="team-image"
         />
-        <div className="card-styling team-about">
-          <div>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-            eligendi adipisci fugiat, eveniet officia iure facere delectus
-            voluptas at doloribus reiciendis assumenda non expedita veniam!
+        <div className="card-styling team-about zohaib">
+          <div className="about-content">
+            Passionate about crafting ideas into products through coding!
           </div>
           <div className="about-links">
             <a href="https://github.com/khaliqzohaib92">{github}</a>
@@ -79,11 +73,9 @@ export const Team = () => {
           alt=""
           className="team-image"
         />
-        <div className="card-styling team-about">
-          <div>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-            eligendi adipisci fugiat, eveniet officia iure facere delectus
-            voluptas at doloribus reiciendis assumenda non expedita veniam!
+        <div className="card-styling team-about danny">
+        <div className="about-content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil!
           </div>
           <div className="about-links">
             <a href="https://github.com/dmo2412">{github}</a>
