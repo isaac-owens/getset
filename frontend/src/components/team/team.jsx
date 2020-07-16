@@ -19,7 +19,7 @@ export const Team = () => {
         />
         <div className="card-styling team-about isaac">
         <div className="about-content">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil!
+            I love the space where art and technology meet!
           </div>
           <div className="about-links">
             <a href="github.com/isaac-owens">{github}</a>
@@ -57,7 +57,7 @@ export const Team = () => {
         />
         <div className="card-styling team-about zohaib">
           <div className="about-content">
-            Passionate about crafting ideas into products through coding!
+            I'm passionate about crafting ideas into products through coding!
           </div>
           <div className="about-links">
             <a href="https://github.com/khaliqzohaib92">{github}</a>
