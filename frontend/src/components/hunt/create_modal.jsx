@@ -5,7 +5,7 @@ import { INDEX } from '../../util/route_util';
 const CreateModal = () => {
   return (
     <div className="create-modal">
-      <span classNam="create-modal-ex">X</span>
+      <span className="create-modal-ex">X</span>
       <span className="create-modal-content card-styling">
         You successfully created a Hunt! To see your hunt visit  <Link to={INDEX} className="create-modal-link"> My Hunts!</Link>
       </span>
