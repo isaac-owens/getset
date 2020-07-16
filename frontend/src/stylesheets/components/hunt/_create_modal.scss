@@ -1,15 +1,42 @@
 .create-modal {
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: 0.6;
+    background-color: rgba($color: #000000, $alpha: 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 300;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0; 
+    bottom: 0;
 }
 
 .create-modal-content {
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: $blue;
   font-size: 35px;
+  font-weight: 800;
+  height: 500px;
+  width: 1280px;
+  z-index: 300;
+  letter-spacing: .08em;
+}
+
+.create-modal-ex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-modal-link {
+  padding-left: 15px;
+}
+
+.create-modal-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
