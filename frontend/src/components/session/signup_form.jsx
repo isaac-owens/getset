@@ -1,4 +1,5 @@
 import React from 'react';
+import { RECEIVE_SESSION_ERRORS } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -25,7 +26,9 @@ class SessionForm extends React.Component {
     e.preventDefault();
 
       this.props.signup(this.state).then( res => {
-        this.setState({ errors: Object.values(res.errors) });
+        if (res.type === RECEIVE_SESSION_ERRORS ) {
+          this.setState({ errors: Object.values(res.errors) });
+        }
       });
   }
 

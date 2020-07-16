@@ -1,5 +1,4 @@
 import React from 'react';
-// import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -19,8 +18,12 @@ export const Team = () => {
           className="team-image"
         />
         <div className="card-styling team-about">
-          {github}
-          {linkedin}
+            <a href="github.com/isaac-owens">
+                {github}
+            </a>
+            <a href="https://www.linkedin.com/in/isaac-owens-3a279532">
+                {linkedin}
+            </a>
           {personalSite}
         </div>
       </div>
@@ -32,9 +35,15 @@ export const Team = () => {
           className="team-image"
         />
         <div className="card-styling team-about">
-          {github}
-          {linkedin}
-          {personalSite}
+            <a href="https://github.com/kevinkusky">
+                {github}
+            </a>
+            <a href="https://www.linkedin.com/in/kevinkusky/">
+                {linkedin}
+            </a>
+            <a href="https://kevinkusky.github.io/">
+                {personalSite}
+            </a>
         </div>
       </div>
       <div className="member-about">
@@ -45,8 +54,12 @@ export const Team = () => {
           className="team-image"
         />
         <div className="card-styling team-about">
-          {github}
-          {linkedin}
+            <a href="https://github.com/khaliqzohaib92">
+                {github}
+            </a>
+            <a href="https://www.linkedin.com/in/zohaibkhaliq/">
+                {linkedin}
+            </a>
           {personalSite}
         </div>
       </div>
@@ -58,8 +71,12 @@ export const Team = () => {
           className="team-image"
         />
         <div className="card-styling team-about">
-          {github}
-          {linkedin}
+            <a href="https://github.com/dmo2412">
+                {github}
+            </a>
+            <a href="https://www.linkedin.com/in/daniel-morgan-228739a7/">
+                {linkedin}
+            </a>
           {personalSite}
         </div>
       </div>
