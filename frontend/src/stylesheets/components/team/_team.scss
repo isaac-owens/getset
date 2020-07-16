@@ -18,6 +18,13 @@
   align-items: center;
 }
 
+.about-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .team-image {
   height: 190px;
   width: 190px;
