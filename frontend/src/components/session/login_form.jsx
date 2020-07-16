@@ -23,6 +23,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
+      debugger
       e.preventDefault();
       
       this.props.login(this.state)
@@ -34,6 +35,7 @@ class Login extends React.Component {
     }
 
     populateDemo(e) {
+      debugger
         e.preventDefault();
         this.setState({ email: 'demouser@gmail.com' });
         this.setState({ password: 'password' });
@@ -85,14 +87,14 @@ class Login extends React.Component {
             </div>
 
             <div className="bottom-form">
+              <button type="submit" className="session-button">
+                Sign In
+              </button>
               <button 
               onClick={this.populateDemo}
               className="demo-session-button session-button"
               >
                 Demo Session
-              </button>
-              <button className="session-button">
-                Sign In
               </button>
             </div>
           </form>

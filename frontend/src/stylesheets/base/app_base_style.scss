@@ -42,6 +42,17 @@
   font-family: 'Abel', sans-serif;
 }
 
+.meet-the-team {
+  margin-left: 20px;
+  font-family: 'Abel', sans-serif;
+  text-decoration: none;
+}
+
+.meet-the-team:hover {
+ text-decoration: underline;
+ cursor: pointer;
+}
+
 .footer-copyright {
   margin-right: 20px;
   font-family: 'Abel', sans-serif;
