@@ -10,9 +10,9 @@ class Header extends React.Component {
     }
 
     getLinks() {
-      if(this.props.location.pathname === AUTH){
+      if(this.props.location.pathname === AUTH){ 
         return (<div></div>);  
-      } else if (this.props.currentUser) {
+      } else if (this.props.currentUser!= null && Object.values(this.props.currentUser).length > 0) {
           return (<DropDown logout={this.props.logout} username={this.props.currentUser.username} />)
         }else {
           return (
