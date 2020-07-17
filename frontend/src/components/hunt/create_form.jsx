@@ -3,6 +3,7 @@ import Dropzone from "react-dropzone";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { ERRORS_USER_HUNT } from '../../actions/user_hunt_actions';
+import  CreateModal  from './create_modal';
 
 class CreateForm extends React.Component {
   constructor(props) {
@@ -14,14 +15,16 @@ class CreateForm extends React.Component {
       author: this.props.currentUser,
       photoFiles: [],
       photoUrls: [],
-      errors: ""
+      errors: "",
+      modalOpen: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handlePhotoFileDelete = this.handlePhotoFileDelete.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-   handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     let formData = new FormData();
 
@@ -51,6 +54,7 @@ class CreateForm extends React.Component {
           photoUrls: [],
           errors: ""
         })
+        this.setState({ modalOpen: true })
       }
     });
   }
@@ -116,8 +120,12 @@ class CreateForm extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchCategories();
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false })
   }
   
 
@@ -230,7 +238,9 @@ class CreateForm extends React.Component {
           </div>
         </div>
       </div>
+      {this.state.modalOpen ? <CreateModal closeModal={this.closeModal}/> : <div></div>}
     </div>
+
   );
   }
 }
