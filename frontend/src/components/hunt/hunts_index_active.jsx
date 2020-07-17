@@ -13,19 +13,19 @@ class HuntsIndexActive extends React.Component {
     this.removeHuntCollection = this.removeHuntCollection.bind(this);
   }
 
-  onCollectionClick(selectedIdx){
-    return e =>{
+  onCollectionClick(selectedIdx) {
+    return e => {
       this.setState({ selectedCollectionIdx: selectedIdx })
     }
   }
 
-  removeHuntCollection(id){
+  removeHuntCollection(id) {
       this.props.removeHunt(id);
-    
   }
 
   // Component that will render if the user has made one or more hunts
   render() {
+    debugger
     const {hunts} = this.props;
     return (
       <div className="hunts-index-active">
@@ -48,7 +48,7 @@ class HuntsIndexActive extends React.Component {
           <div className="hunt-photo-collection-active card-styling">
             <ul className="hunt-photo-collection-images-container">
               {
-                hunts[this.state.selectedCollectionIdx].photo_collection.map((photo, idx)=>{
+              hunts.length - 1 >= this.state.selectedCollectionIdx ? hunts[this.state.selectedCollectionIdx].photo_collection.map((photo, idx)=>{
                   console.log(photo);
                   return (
                     <li key={idx}>
@@ -58,7 +58,8 @@ class HuntsIndexActive extends React.Component {
                       className="my-hunts-image"></img>
                     </li>
                   )
-                })
+                }):
+              <></>
               }
             </ul>
           </div>

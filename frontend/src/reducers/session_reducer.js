@@ -18,7 +18,7 @@ const initialState = {
 
 const SessionReducer = (state = initialState, action) => {
     Object.freeze(state);
-    const nextState = Object.assign({}, state);
+    let nextState = Object.assign({}, state);
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
@@ -27,23 +27,27 @@ const SessionReducer = (state = initialState, action) => {
                 isAuthenticated: !!action.currentUser,
                 user: action.currentUser
             };
+
         case RECEIVE_USER_HUNTS:
                 nextState.user.hunts = action.hunts;
             return nextState;
+
         case RECEIVE_USER_HUNT:
-            if (nextState.user.hunts) {
-              nextState.user.hunts.push(action.hunt)
-            } else {
-              nextState.user.hunts = [action.hunt];
-            }
-            return nextState;
+          // debugger
+          if(!nextState.user.hunts) {
+            nextState.user.hunts = {};
+          }
+          
+          nextState.user.hunts[action.hunt._id] = action.hunt;
+          return nextState;
+
         case REMOVE_USER_HUNT:
           delete nextState.user.hunts[action.huntId];
           return nextState;
-            
+
         case RECEIVE_MY_CHALLENGE:
             //initialize my challenge with empty object if not exist
-            if(!nextState.user.myChallenges){
+            if(!nextState.user.myChallenges) {
                 nextState.user.myChallenges = {};
             }
             //add challenge to user slice of state

@@ -5,7 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const CreateModal = props => {
-  let redEx = <FontAwesomeIcon onClick={props.closeModal} icon={faTimesCircle} size="2x" />
+  let redEx = <FontAwesomeIcon 
+  className="create-modal-red-ex"
+  onClick={props.closeModal} 
+  icon={faTimesCircle} 
+  size="2x" />
 
   return (
     <div className="create-modal">
