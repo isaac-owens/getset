@@ -1,24 +1,32 @@
 .instructions-page {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
 }
 
 .instructions-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: yellow;
   height: 100%;
   width: 280px;
 }
 
 .instructions-gif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: red;
   height: 100%;
-  width: 630px;
 }
 
 .instructions-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: green;
   height: 100%;
   width: 280px;
