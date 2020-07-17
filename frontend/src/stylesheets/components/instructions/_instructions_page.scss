@@ -1,0 +1,25 @@
+.instructions-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.instructions-sidebar {
+  background-color: yellow;
+  height: 100%;
+  width: 280px;
+}
+
+.instructions-gif {
+  background-color: red;
+  height: 100%;
+  width: 630px;
+}
+
+.instructions-content {
+  background-color: green;
+  height: 100%;
+  width: 280px;
+}
