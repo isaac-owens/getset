@@ -16,7 +16,7 @@ class CreateForm extends React.Component {
       photoFiles: [],
       photoUrls: [],
       errors: "",
-      modalOpen: false
+      modalOpen: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDrop = this.handleDrop.bind(this);

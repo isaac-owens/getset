@@ -13,10 +13,12 @@
 }
 
 .create-modal-content {
+  position: relative;
   box-sizing: border-box;
   padding: 20px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   background-color: $blue;
   font-size: 35px;
@@ -28,9 +30,15 @@
 }
 
 .create-modal-ex {
+  color: red;
+  position: absolute;
+  top: 0;
+  // right: 20%;
   font-size: 40px;
   display: flex;
   justify-content: flex-end;
+  width: 1260px;
+  z-index: 301;
 }
 
 .create-modal-link {
