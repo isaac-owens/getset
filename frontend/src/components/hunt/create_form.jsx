@@ -16,11 +16,12 @@ class CreateForm extends React.Component {
       photoFiles: [],
       photoUrls: [],
       errors: "",
-      modalOpen: true
+      modalOpen: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handlePhotoFileDelete = this.handlePhotoFileDelete.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   handleSubmit(e) {
@@ -119,8 +120,12 @@ class CreateForm extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchCategories();
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false })
   }
   
 
@@ -233,7 +238,7 @@ class CreateForm extends React.Component {
           </div>
         </div>
       </div>
-      {this.state.modalOpen ? <CreateModal /> : <div></div>}
+      {this.state.modalOpen ? <CreateModal closeModal={this.closeModal}/> : <div></div>}
     </div>
 
   );

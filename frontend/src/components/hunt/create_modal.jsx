@@ -4,8 +4,8 @@ import { INDEX } from '../../util/route_util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const CreateModal = () => {
-  let redEx = <FontAwesomeIcon icon={faTimesCircle} size="2x" />
+const CreateModal = props => {
+  let redEx = <FontAwesomeIcon onClick={props.closeModal} icon={faTimesCircle} size="2x" />
 
   return (
     <div className="create-modal">
