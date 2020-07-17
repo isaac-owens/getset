@@ -1,0 +1,35 @@
+.instructions-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.instructions-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  height: 675px;
+  width: 200px;
+}
+
+.instructions-gif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  height: 675px;
+  width: 1000px;
+}
+
+.instructions-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  height: 675px;
+  width: 200px;
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL, TEAM } from '../../util/route_util';
+import { CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL, TEAM, INSTRUCT } from '../../util/route_util';
  
 class DropDown extends React.Component {
     constructor(props){
@@ -85,6 +85,7 @@ class DropDown extends React.Component {
                   <Link to={TEAM} className="header-nav-link" onClick={this.closeMenu()}>
                       <li className="header-nav-link-container">MeetTheTeam</li>
                   </Link>
+                <Link to={INSTRUCT} className="header-nav-link" onClick={this.closeMenu()}><li className="header-nav-link-container">Instructions</li></Link>
                   <Link
                       to={SPLASH}
                       className="header-nav-link"
