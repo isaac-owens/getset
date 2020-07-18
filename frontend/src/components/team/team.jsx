@@ -82,7 +82,7 @@ export const Team = () => {
             <a href="https://www.linkedin.com/in/daniel-morgan-228739a7/">
               {linkedin}
             </a>
-            <a href="https://dmo2412.github.io/">{personalSite}</a>
+            <a href="https://danny-morgan.com">{personalSite}</a>
           </div>
         </div>
       </div>
