@@ -1,12 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import {data}  from '../../util/instructions_data'
 export const Instructions = () => {
   return (
     <div className="instructions-page">
       <div className="instructions-sidebar card-styling">
         <ul>
-          <li></li>
+          {
+            Object.entries(data).map(([key,value])=>{
+              return <li>{value.name}</li>
+            })
+          }
         </ul>
       </div>
       <div className="instructions-gif">
