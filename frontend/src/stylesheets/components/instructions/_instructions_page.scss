@@ -34,14 +34,12 @@
   width: 100%;
   font-size: 30px;
   font-weight: 800;
+  letter-spacing: .01em;
 }
 
 .instructions-gif-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 675px;
-  width: 900px;
+  width: 850px;
 }
 
 .instructions-gif {
