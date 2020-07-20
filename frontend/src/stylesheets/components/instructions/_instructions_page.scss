@@ -45,6 +45,8 @@
   height: 675px;
   width: 300px;
   padding: 15px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .instructions-list {
