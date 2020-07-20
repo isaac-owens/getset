@@ -28,7 +28,7 @@ export default class Instructions extends Component {
             </ul>
           </div>
           <div className="instructions-gif">
-            <img src={data[this.state.selectedPage].gifUrl} alt="" height="100%" width="1200px"/>
+            <img src={data[this.state.selectedPage].gifUrl} alt="" height="100%" width="1000px"/>
           </div>
           <div className="instructions-content card-styling">{data[this.state.selectedPage].instructions}</div>
         </div>
