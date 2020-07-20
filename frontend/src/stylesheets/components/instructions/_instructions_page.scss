@@ -35,12 +35,18 @@
   font-weight: 800;
 }
 
-.instructions-gif {
+.instructions-gif-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
   height: 675px;
+  width: 900px;
+}
+
+.instructions-gif {
+  border-radius: 25px;
+  border: 5px inset;
+  height: 100%;
   width: 900px;
 }
 
@@ -49,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: green;
+  background-color: $yellow;
   height: 675px;
   width: 300px;
   padding: 15px;
