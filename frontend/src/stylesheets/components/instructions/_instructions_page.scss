@@ -37,10 +37,22 @@
 }
 
 .instructions-content {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: green;
   height: 675px;
-  width: 200px;
+  width: 300px;
+  padding: 15px;
+}
+
+.instructions-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: .09em;
 }

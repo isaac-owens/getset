@@ -5,7 +5,7 @@ export const data = {
         name: "Create a Hunt",
         gifUrl: process.env.PUBLIC_URL + "/create.gif",
         instructions: 
-        <ul>
+        <ul className="instructions-list">
             <li>1. Create a title</li>
             <li>2. Upload your pictures</li>
             <li>3. Choose a category</li>
@@ -17,7 +17,7 @@ export const data = {
         name: "Find a Challenge",
         gifUrl: "url here...",
         instructions:
-          <ul>
+          <ul className="instructions-list">
             <li>1. Choose a category</li>
             <li>2. Select a challenge from the menu</li>
             <li>3. Click 'Add challenge' to accept challenge</li>
@@ -29,7 +29,7 @@ export const data = {
         name: "Complete a Challenge",
         gifUrl: "url here...",
         instructions:
-          <ul>
+          <ul className="instructions-list">
             <li>1. Select a challenge from the side menu</li>
             <li>2. Upload your matches to the challenge pictures</li>
             <li>3. Submit your challenge to get your score</li>
@@ -40,7 +40,7 @@ export const data = {
         name: "Read your Stats",
         gifUrl: "url here...",
         instructions:
-          <ul>
+          <ul className="instructions-list">
             <li>1. Find your challenge in the 'Challenge' column</li>
             <li>2. You'll find your score in the middle column</li>
             <li>3. A winner is announced on the challenge's deadline date</li>
