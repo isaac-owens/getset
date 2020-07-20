@@ -2,34 +2,72 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .instructions-sidebar {
   display: flex;
-  align-items: center;
+  align-items: space-around;
   justify-content: center;
-  background-color: yellow;
+  // background-color: yellow;
   height: 675px;
-  width: 200px;
+  width: 250px;
+}
+
+.instructions-sidebar-items {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   width: 250px;
+}
+.instructions-sidebar-item {
+  padding: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $red;
+  height: 90px;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.instructions-gif-container {
+  height: 675px;
+  width: 850px;
 }
 
 .instructions-gif {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: red;
-  height: 675px;
-  width: 1000px;
+  border-radius: 25px;
+  border: 5px inset;
+  height: 100%;
+  width: 900px;
 }
 
 .instructions-content {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: green;
+  background-color: $yellow;
   height: 675px;
-  width: 200px;
+  width: 300px;
+  padding: 15px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.instructions-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: .09em;
 }

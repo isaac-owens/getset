@@ -12,7 +12,7 @@ class Splash extends React.Component {
             <div className="splash-body">
               <div className="splash-content card-styling">
                 <p>
-                  GetSet is a fun interactive game where you create a list of photos and challenge your friends to try and recreate them!  Make a photo hunt, take a photo hunt challenge, or just enjoy the live feed of other people's matches.  More features to come soon!  Ready, GetSet, GO!!
+                  GetSet is a photo comparison game that scores photo recreations. First you create a list of photos (a 'Hunt') which is added to GetSet's public collection of photo 'Challenges'.  Users can find the Hunt your created, accept it as a Challenge, and submit their own list of matching photos which GetSet will immediately score!  Every challenge expires after 7 days upon which the hunter with the highest score is announced!  So what are you waiting for?  Ready? GetSet. GO!!
                 </p>
               </div>
               <div className="splash-image-container">
