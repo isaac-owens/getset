@@ -9,11 +9,22 @@
 
 .instructions-sidebar {
   display: flex;
-  align-items: center;
+  align-items: space-around;
   justify-content: center;
-  background-color: yellow;
+  // background-color: yellow;
   height: 675px;
   width: 200px;
+}
+
+.instructions-sidebar-items {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+.instructions-sidebar-item {
+   background-color: $green;
+   height: 40px;
+   width: 225px;
 }
 
 .instructions-gif {

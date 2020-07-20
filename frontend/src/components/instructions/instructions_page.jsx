@@ -18,11 +18,11 @@ export default class Instructions extends Component {
     const dataArr = Object.values(data);
       return (
         <div className="instructions-page">
-          <div className="instructions-sidebar card-styling">
-            <ul>
+          <div className="instructions-sidebar">
+            <ul className="instructions-sidebar-items">
               {
                 Object.entries(data).map(([key,value])=>{
-                  return <li key={key} onClick={this.onPageSelected(key)}>{value.name}</li>
+                  return <li className="instructions-sidebar-item card-styling" key={key} onClick={this.onPageSelected(key)}>{value.name}</li>
                 })
               }
             </ul>
