@@ -39,7 +39,7 @@ export const Team = () => {
         />
         <div className="card-styling team-about kevin">
         <div className="about-content">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil!
+            Handstands and yoga everyday, all day!
           </div>
           <div className="about-links">
             <a href="https://github.com/kevinkusky">{github}</a>
@@ -75,7 +75,7 @@ export const Team = () => {
         />
         <div className="card-styling team-about danny">
         <div className="about-content">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil!
+            Meet me on the golf course and then say that again.  I dare you.
           </div>
           <div className="about-links">
             <a href="https://github.com/dmo2412">{github}</a>
