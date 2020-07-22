@@ -3,7 +3,7 @@ import React from 'react';
 export const data = {
     0: {
         name: "Create a Hunt",
-        gifUrl: process.env.PUBLIC_URL + "/create.gif",
+        gifUrl: process.env.PUBLIC_URL + "/create-a-hunt.gif",
         instructions: 
         <ul className="instructions-list">
             <li>1. Create a title</li>
@@ -15,7 +15,7 @@ export const data = {
     },
     1: {
         name: "Find a Challenge",
-        gifUrl: "url here...",
+        gifUrl: process.env.PUBLIC_URL + "/accept-a-challenge.gif",
         instructions:
           <ul className="instructions-list">
             <li>1. Choose a category</li>
@@ -27,7 +27,7 @@ export const data = {
     },
     2: {
         name: "Complete a Challenge",
-        gifUrl: "url here...",
+      gifUrl: process.env.PUBLIC_URL + "/complete-a-challenge.gif",
         instructions:
           <ul className="instructions-list">
             <li>1. Select a challenge from the side menu</li>
@@ -38,7 +38,7 @@ export const data = {
     },
     3: {
         name: "Read your Stats",
-        gifUrl: "url here...",
+      gifUrl: process.env.PUBLIC_URL + "/stats-page.gif",
         instructions:
           <ul className="instructions-list">
             <li>1. Find your challenge in the 'Challenge' column</li>
