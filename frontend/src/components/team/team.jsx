@@ -39,7 +39,7 @@ export const Team = () => {
         />
         <div className="card-styling team-about kevin">
         <div className="about-content">
-            Handstands and yoga everyday, all day!
+            I enjoy utilizing creativity to solve problems and working with others
           </div>
           <div className="about-links">
             <a href="https://github.com/kevinkusky">{github}</a>
