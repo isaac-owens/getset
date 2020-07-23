@@ -19,33 +19,30 @@ router.get("/", (req, res) => {
     Category.find()
     .sort({date: -1})
     .then(categories => {
-       let combo = {}
+       let combo = {};
         for (let i = 0; i < categories.length; i++) {
             Hunt.find({category: categories[i]}).then(challenges=>{
                 combo[categories[i]._id] = challenges;
                 if(i==categories.length-1){
-                    return res.json(combo)
+                    return res.json(combo);
                 }
-            })
+            });
         }
     }).catch(error => res.status(404).json({error: "No challenges were found"}))
 });
 
 // fetch user's completed challenge stats
 router.get("/stats", [passport.authenticate('jwt', { session: false })], (req, res) => {
-    debugger
   Challenge.find({ user: req.user.id })
     .sort({ timestamps: -1 })
     .then(completedChallenges => {
-        debugger
       let stats = [];
       let date = new Date();
       for (let i = 0; i < completedChallenges.length; i++) {
         const completedChallenge = completedChallenges[i];
         Hunt.findById(completedChallenge.hunt_id)
         .then(hunt => {
-            debugger
-          const stat = {}
+          const stat = {};
           stat.hunt_name = hunt.title;
           stat.user_score = completedChallenge.score;
           // deadline has been met
@@ -59,11 +56,11 @@ router.get("/stats", [passport.authenticate('jwt', { session: false })], (req, r
           stats.push(stat);
           if(i === completedChallenges.length - 1) 
             return res.json(stats);
-        })
+        });
       }
     })
     .catch(error => res.status(404).json({ error: "No challenges were found" }))
-})
+});
 
 //complete a challenge
 router.post("/", [passport.authenticate('jwt', { session: false }), upload.array('images', 10)], (req, res) => {
