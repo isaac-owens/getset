@@ -16,7 +16,7 @@ class HuntsIndexActive extends React.Component {
   onCollectionClick(selectedIdx) {
     return e => {
       this.setState({ selectedCollectionIdx: selectedIdx })
-    }
+    };
   }
 
   removeHuntCollection(id) {
@@ -25,7 +25,6 @@ class HuntsIndexActive extends React.Component {
 
   // Component that will render if the user has made one or more hunts
   render() {
-    debugger
     const {hunts} = this.props;
     return (
       <div className="hunts-index-active">

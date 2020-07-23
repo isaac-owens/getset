@@ -7,8 +7,7 @@ class Stats extends React.Component {
     }
 
     render(){
-      debugger
-      let { userStats } = this.props
+      let { userStats } = this.props;
 
         return (
           <table className='stats-table card-styling'>

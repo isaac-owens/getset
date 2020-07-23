@@ -33,7 +33,6 @@ const SessionReducer = (state = initialState, action) => {
             return nextState;
 
         case RECEIVE_USER_HUNT:
-          // debugger
           if(!nextState.user.hunts) {
             nextState.user.hunts = {};
           }
