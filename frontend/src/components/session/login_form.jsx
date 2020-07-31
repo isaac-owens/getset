@@ -23,7 +23,6 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-      debugger
       e.preventDefault();
       
       this.props.login(this.state)
@@ -31,11 +30,10 @@ class Login extends React.Component {
         if (res.type === RECEIVE_SESSION_ERRORS ) {
           this.setState({ errors: Object.values(res.errors) });
         }
-      })
+      });
     }
 
     populateDemo(e) {
-      debugger
         e.preventDefault();
         this.setState({ email: 'demouser@gmail.com' });
         this.setState({ password: 'password' });
