@@ -16,8 +16,8 @@ class ChallengeIndexPage extends React.Component {
 
   onChallengeClick(selectedChallenge){
    return e =>{
-      this.setState({selectedChallenge: selectedChallenge})
-    }
+      this.setState({selectedChallenge: selectedChallenge});
+    };
   }
 
   // Add and remove challenge to user's 'My Challenge' list
@@ -28,18 +28,18 @@ class ChallengeIndexPage extends React.Component {
       }else{
         this.props.deleteChallenge(this.state.selectedChallenge._id);
       }
-    }
+    };
   }
 
   render(){
     const {challenges, categories} = this.props;
     let styleRemove = {
       backgroundColor: "#f3d250"
-    }
+    };
 
     let styleAdd = {
       backgroundColor: '#c5cbe3',
-    }
+    };
 
       return (
         <div className="challenge-index">
@@ -47,9 +47,9 @@ class ChallengeIndexPage extends React.Component {
             <ul className="challenge-collection-list">
               {
                 categories.map((category, idx)=>{
-                  return <Category key={idx} category={category} 
+                  return (<Category key={idx} category={category} 
                   challenges={challenges[category._id]} 
-                  onChallengeClick={this.onChallengeClick}/>
+                  onChallengeClick={this.onChallengeClick} />)
                 })
               }
             </ul>
