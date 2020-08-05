@@ -7,7 +7,7 @@ class HuntsIndexPage extends React.Component {
     super(props);
     this.state = {
       hunts: false
-    }
+    };
   }
 
   componentDidMount(){

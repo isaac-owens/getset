@@ -11,7 +11,7 @@ export const STATS = '/stats';
 export const CINDEX = '/challenges/index';
 export const MYCHALL = '/mychallenges';
 export const TEAM = '/meettheteam';
-export const INSTRUCT = '/instructions'
+export const INSTRUCT = '/instructions';
 
 const mapStateToProps = state => {
     return({

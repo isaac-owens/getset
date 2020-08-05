@@ -21,9 +21,9 @@ class Category extends React.Component {
     return (e) => {
       if (this.container.current &&
         !this.container.current.contains(e.target)) {
-        this.setState({ open: false })
+        this.setState({ open: false });
       }
-    }
+    };
   }
 
   // Open and close the challenge menu
@@ -37,11 +37,11 @@ class Category extends React.Component {
     const buttonExpanded = {
       width: "450px",
       backgroundColor: "#f3d250",
-    }
+    };
     
     const buttonClosed = {
       width: "200px",
-    }
+    };
     
     let buttonStyle;
     buttonStyle = this.state.open ? buttonExpanded : buttonClosed;
@@ -49,22 +49,19 @@ class Category extends React.Component {
     const {challenges, category} = this.props;
 
     if(!category || category.length === 0) {
-      return <div></div>
+      return (<div></div>)
     } else {
       return (
         <div ref={this.container}>
             <button 
               onClick={this.handleClick}
               className="category card-styling" 
-              style={buttonStyle}>
-                <span className="category-title">
-                  {category.name}
-                </span>
+              style={buttonStyle}
+            >
+                <span className="category-title">{category.name}</span>
             </button>
           {this.state.open ? (
-            <ul 
-            className="challenge-menu"
-            >
+            <ul className="challenge-menu">
               {!challenges ?
                 <div></div> :
                 challenges.map((challenge, idx)=>{
@@ -88,6 +85,5 @@ class Category extends React.Component {
     }
   };
 }
-
 
 export default Category;
