@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 
 import HuntCollectionItem from './hunt_collection_item';
 
-
 class HuntsIndexPage extends React.Component {
-  
   // component that renders is the user currently has made no hunts 
   render() {
     return (

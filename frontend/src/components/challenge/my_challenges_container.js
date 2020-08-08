@@ -5,12 +5,12 @@ import {
     completeChallenge, 
     deleteChallenge,
     removeMyChallenge
-} from '../../actions/challenge_actions'
+} from '../../actions/challenge_actions';
 
 const mSTP = state => {
   return  {
         challenges: state.session.user.myChallenges ? Object.values(state.session.user.myChallenges): [],
-    }
+    };
 };
 
 const mDTP = dispatch => (

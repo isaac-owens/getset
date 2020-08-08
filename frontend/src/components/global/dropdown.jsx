@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { CREATE, INDEX, STATS, CINDEX, SPLASH, MYCHALL, TEAM, INSTRUCT } from '../../util/route_util';
  
 class DropDown extends React.Component {
@@ -10,7 +10,7 @@ class DropDown extends React.Component {
         super(props);
         this.state = {
             open: false
-        }
+        };
         this.container = React.createRef();
         this.handleDropClick = this.handleDropClick.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -18,11 +18,11 @@ class DropDown extends React.Component {
         this.logoutUser = this.logoutUser.bind(this);
     }
     
-    handleDropClick = () => {
+    handleDropClick(){
       this.setState({
         open: !this.state.open
-      })
-    };
+      });
+    }
 
   logoutUser(e) {
     e.preventDefault();
@@ -34,9 +34,9 @@ class DropDown extends React.Component {
       return (e) => {
         if (this.container.current && 
           !this.container.current.contains(e.target)){
-          this.setState({ open: false })
+          this.setState({ open: false });
         }
-      }
+      };
     }
 
   componentDidMount() {
@@ -46,8 +46,8 @@ class DropDown extends React.Component {
     closeMenu() {
       return (e) => {
         e.stopPropagation();
-        this.setState({open: false})
-      }
+        this.setState({open: false});
+      };
     }
     
     render() {

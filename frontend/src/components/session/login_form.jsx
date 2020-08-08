@@ -51,7 +51,6 @@ class Login extends React.Component {
       );
     }
 
-
     render() {
         return (
           <form onSubmit={this.handleSubmit} className="session-form-container login" noValidate={true}>

@@ -53,8 +53,8 @@ class CreateForm extends React.Component {
           photoFiles: [],
           photoUrls: [],
           errors: ""
-        })
-        this.setState({ modalOpen: true })
+        });
+        this.setState({ modalOpen: true });
       }
     });
   }
@@ -62,7 +62,7 @@ class CreateForm extends React.Component {
   update(field) {
     return (e) => {
       if(field === 'category'){
-        this.setState({ categoryName: e.currentTarget.name })
+        this.setState({ categoryName: e.currentTarget.name });
       }
       this.setState({ [field]: e.currentTarget.value });
     };
@@ -88,7 +88,7 @@ class CreateForm extends React.Component {
     if (photoFiles) {
       //set drop zone error to empty if there is any error
       if(this.state.errors.length !== 0){
-        this.setState({errors: ""})
+        this.setState({errors: ""});
       }
 
       for (let index = 0; index < photoFiles.length; index++) {
@@ -117,7 +117,7 @@ class CreateForm extends React.Component {
       this.state.photoFiles.splice(idx,1);
       this.state.photoUrls.splice(idx,1);
       this.setState({photoFiles: this.state.photoFiles, photoUrls: this.state.photoUrls})
-    }
+    };
   }
 
   componentDidMount() {
@@ -125,7 +125,7 @@ class CreateForm extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalOpen: false })
+    this.setState({ modalOpen: false });
   }
   
 
@@ -151,10 +151,7 @@ class CreateForm extends React.Component {
       </div>
       {/* These are the create form errors from backend */}
 
-      {/* <div className="create-form-header">Create a Hunt</div> */}
       <div className="card card-styling one"></div>
-
-
       <div className="card card-styling two"></div>
       <div className="create-form-container three card card-styling">
         <div className="create-form-input-field">

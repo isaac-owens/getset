@@ -33,7 +33,4 @@ class HuntCollectionItem extends React.Component {
   }
 }
 
-
-
-
 export default HuntCollectionItem;

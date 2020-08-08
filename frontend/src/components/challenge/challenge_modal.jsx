@@ -35,5 +35,3 @@ export class ChallengeModal extends React.Component {
     )
   }
 };
-
-// export default ChallengeModal;

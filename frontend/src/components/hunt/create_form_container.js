@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import{ createUserHunt } from '../../actions/user_hunt_actions';
 import CreateForm from './create_form';
-import {fetchCategories} from '../../actions/category_actions'
+import {fetchCategories} from '../../actions/category_actions';
 
 const mSTP = state => (
     {

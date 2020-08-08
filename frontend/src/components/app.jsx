@@ -14,7 +14,7 @@ import HuntsIndexPageContainer from './hunt/hunts_index_page_container';
 import MyChallengesContainer from './challenge/my_challenges_container';
 import ChallengeIndexContainer from './challenge/challenge_index_container';
 import StatsContainer from './stats/stats_container';
-import Instructions from './instructions/instructions_page'
+import Instructions from './instructions/instructions_page';
 import { Team } from './team/team';
 
 const App = () => (

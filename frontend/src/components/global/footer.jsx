@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TEAM } from '../../util/route_util'
+import { TEAM } from '../../util/route_util';
+
 class Footer extends React.Component {
-    
     render() {
         return (
           <div className="footer">
